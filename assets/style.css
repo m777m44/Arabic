@@ -1010,8 +1010,19 @@ section.block{scroll-margin-top:88px}
 body.light .nav{box-shadow:0 6px 22px rgba(90,70,20,.10)}
 
 /* E. Long Arabic words / ayahs must never overflow their card */
-.card,.def,.rule,.warn,.ok,.acc-b-in,.ex{overflow-wrap:anywhere;word-break:break-word}
-.ayah{overflow-wrap:anywhere}
+/* Arabic must never break mid-word. Arabic letters are joined, so `break-word`
+   / `anywhere` split a word into two disconnected glyph fragments (e.g. "نوعها"
+   became "نو" + "عها"). Only break between words. */
+.card,.def,.rule,.warn,.ok,.acc-b-in,.ex,.ayah,td,th,.acc-h,.q-txt,.opt,.badge,.tag,
+.list li,.fc-f,.fc-b,.qz-q,.qz-opt,.result p,.res-cell span{
+  overflow-wrap:normal;
+  word-break:normal;
+  -webkit-hyphens:none;
+  hyphens:none;
+}
+/* Long unbreakable tokens (URLs, Latin codes) may still break, but only as a
+   last resort and never inside Arabic text. */
+.ayah,.ex .q,.acc-b-in{overflow-wrap:break-word}
 
 /* F. Quiz option labels on very narrow screens */
 @media(max-width:400px){
@@ -1103,4 +1114,109 @@ html.js-anim .rv.in{will-change:auto}
   .quicknav{grid-template-columns:repeat(5,minmax(0,1fr)) !important}
   .qn{padding:11px 3px}
   .qn span{font-size:9.4px}
+}
+
+/* ==========================================================================
+   Round-5: Arabic typography correctness + overlay fixes
+   ========================================================================== */
+
+/* A. Quranic quotes inside .ex were `display:inline`, so when the verse wrapped
+      to a second line the box grew and the `.note` beneath collided with it.
+      Making them block-level gives every verse its own band — no overlap ever. */
+.ex .q{
+  display:block;
+  width:100%;
+  font-size:18px;
+  line-height:2.15;
+  padding-bottom:4px;
+  margin-bottom:6px;
+  border-bottom:1px solid rgba(230,182,76,.16);
+  text-align:center;
+}
+.ex{padding:14px 16px}
+.ex .note{
+  display:block;
+  margin-top:10px;
+  line-height:1.95;
+  position:static;
+  clear:both;
+}
+/* the .q must never sit on top of the explanation */
+.ex .q + .note{margin-top:10px}
+
+/* B. Same guarantee for the standalone ayah block */
+.ayah{display:block;position:relative;padding-bottom:18px}
+.ayah .ref{display:block;position:static;margin-top:12px}
+
+/* C. Any absolutely-positioned ornament inside cards must not cover text */
+.ayah::before,.ayah::after{pointer-events:none;z-index:0}
+.ayah > *{position:relative;z-index:1}
+
+/* D. Never let a card's decorations land over content */
+.card > *{position:relative;z-index:1}
+.card::after,.card::before{pointer-events:none}
+
+/* ==========================================================================
+   Round-6: Tables — smaller type, elegant, fully legible, no cropped words
+   ========================================================================== */
+
+/* Base table was 14.5px with 12/14px cell padding → cramped on phones and
+   any long Arabic word got sliced. Tighten type, give lines room. */
+table{font-size:14px}
+thead th{
+  font-size:12.8px;padding:11px 12px;line-height:1.6;
+  white-space:normal;              /* headers must wrap at word boundaries */
+  vertical-align:middle;
+}
+tbody td{
+  font-size:13.6px;padding:11px 12px;line-height:1.85;
+  vertical-align:top;
+}
+
+/* Arabic words stay whole. A cell breaks between words only. */
+thead th,tbody td{word-break:normal;overflow-wrap:normal;hyphens:none;-webkit-hyphens:none}
+
+@media(max-width:600px){
+  table{font-size:12.6px;min-width:0}
+  thead th{font-size:11.4px;padding:8px 7px;line-height:1.5;letter-spacing:0}
+  tbody td{font-size:12.1px;padding:8px 7px;line-height:1.8}
+  tbody td b{font-weight:800}
+  .tbl-wrap{margin:12px -4px;border-radius:12px}
+}
+@media(max-width:400px){
+  thead th{font-size:10.7px;padding:7px 6px}
+  tbody td{font-size:11.4px;padding:7px 6px;line-height:1.78}
+}
+
+/* Very long single words (rare) may shrink rather than break */
+tbody td,thead th{text-wrap:pretty}
+
+/* Zebra + hover kept subtle so text stays the star */
+tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+tbl-wrap, .tbl-wrap{scrollbar-width:thin}
+
+/* Table caption / helper text */
+.tbl-wrap::after{letter-spacing:0}
+
+/* Round-7: prevent awkward short-cell wrapping in tables */
+tbody td{word-spacing:.02em}
+/* keep short Arabic phrases on one line where the cell allows it */
+td b{white-space:nowrap}
+/* but allow wrapping when the cell is genuinely narrow */
+@media(max-width:400px){td b{white-space:normal}}
+
+/* Round-8: full-bleed mobile feel — content uses the whole screen width */
+@media(max-width:600px){
+  .wrap{padding:0 12px}
+  .card{padding:15px 14px}
+  .grid{gap:14px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .def,.rule,.warn,.ok{padding:13px 13px}
+  .ex{padding:13px 12px}
+  .acc-h{padding:13px 13px}
+  .acc-b-in{padding:14px 13px}
+}
+@media(max-width:400px){
+  .wrap{padding:0 10px}
+  .card{padding:14px 12px}
 }
