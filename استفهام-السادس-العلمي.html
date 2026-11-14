@@ -1,0 +1,3842 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070b16">
+<title>أسلوب الاستفهام · السادس العلمي — المنصة الشاملة</title>
+<meta name="description" content="المنصة الشاملة لأسلوب الاستفهام في اللغة العربية للصف السادس العلمي: شرح مفصّل، أنواع، إعراب، أغراض بلاغية، وزاريات، اختبارات وامتحانات تفاعلية.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   منصة الاستفهام — أسلوب الاستفهام في اللغة العربية — السادس العلمي
+   Design System / نظام التصميم
+   ========================================================================== */
+
+:root{
+  /* Palette — deep ink + gold + jade (فخامة عربية) */
+  --ink-900:#070b16;
+  --ink-800:#0a1020;
+  --ink-700:#0e162b;
+  --ink-600:#131e38;
+  --ink-500:#1a2748;
+  --line:#22314f;
+  --line-soft:#1a2740;
+
+  --gold:#e6b64c;
+  --gold-deep:#c9972e;
+  --gold-soft:#f5d98b;
+  --jade:#35d0a5;
+  --sky:#48a9f8;
+  --rose:#f2679b;
+  --violet:#9a7cf5;
+  --amber:#f5a524;
+
+  --text:#eef3fb;
+  --dim:#a9b8d0;
+  --mute:#71839f;
+
+  --r-sm:10px; --r-md:16px; --r-lg:24px; --r-xl:34px;
+  --sh-1:0 2px 10px rgba(0,0,0,.28);
+  --sh-2:0 12px 34px rgba(0,0,0,.42);
+  --sh-gold:0 10px 40px rgba(230,182,76,.18);
+
+  --font-body:'Tajawal','Segoe UI',system-ui,sans-serif;
+  --font-disp:'Cairo','Tajawal',system-ui,sans-serif;
+  --font-quran:'Amiri','Scheherazade New',serif;
+
+  --wrap:1240px;
+  --nav-h:64px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  background:var(--ink-900);
+  color:var(--text);
+  line-height:1.95;
+  font-size:16.5px;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(1100px 700px at 88% -8%, rgba(230,182,76,.10), transparent 60%),
+    radial-gradient(900px 600px at 6% 12%, rgba(72,169,248,.09), transparent 62%),
+    radial-gradient(800px 700px at 50% 108%, rgba(53,208,165,.07), transparent 62%);
+  background-attachment:fixed;
+}
+::selection{background:rgba(230,182,76,.32);color:#fff}
+
+/* ---------- scrollbar ---------- */
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--ink-900)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold-deep),#6b4d12);border-radius:99px;border:2px solid var(--ink-900)}
+
+/* ---------- typography ---------- */
+h1,h2,h3,h4,h5{font-family:var(--font-disp);line-height:1.5;font-weight:800;letter-spacing:-.2px}
+p{margin:.55em 0}
+a{color:var(--gold);text-decoration:none;transition:.2s}
+a:hover{color:var(--gold-soft)}
+b,strong{font-weight:800;color:#fff}
+small{font-size:.82em}
+code,.mono{font-family:'JetBrains Mono',ui-monospace,monospace;direction:ltr;display:inline-block}
+
+/* ==========================================================================
+   Progress + Nav
+   ========================================================================== */
+#readbar{
+  position:fixed;top:0;right:0;left:0;height:3px;z-index:120;
+  background:transparent;
+}
+#readbar > i{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--gold),var(--jade),var(--sky));
+  box-shadow:0 0 14px rgba(230,182,76,.7);
+  transition:width .12s linear;
+}
+
+.nav{
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(18px) saturate(150%);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);
+  background:linear-gradient(180deg,rgba(10,16,32,.94),rgba(10,16,32,.78));
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-in{
+  max-width:var(--wrap);margin:0 auto;padding:0 20px;height:var(--nav-h);
+  display:flex;align-items:center;gap:18px;
+}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand-mark{
+  width:40px;height:40px;border-radius:13px;flex-shrink:0;
+  background:linear-gradient(145deg,var(--gold),var(--gold-deep));
+  display:grid;place-items:center;color:#22190a;font-weight:900;font-size:20px;
+  font-family:var(--font-disp);
+  box-shadow:0 6px 18px rgba(230,182,76,.35), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.brand-txt{display:flex;flex-direction:column;line-height:1.25}
+.brand-txt b{font-family:var(--font-disp);font-size:15.5px;color:#fff}
+.brand-txt span{font-size:11.5px;color:var(--mute);letter-spacing:.3px}
+
+.nav-links{display:flex;gap:2px;margin-inline-start:auto;overflow-x:auto;scrollbar-width:none;flex:1;justify-content:flex-end}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  font-size:13.5px;color:var(--dim);padding:7px 12px;border-radius:9px;white-space:nowrap;font-weight:600;
+  transition:.18s;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-links a.on{color:var(--gold);background:rgba(230,182,76,.11)}
+
+.nav-tools{display:flex;gap:7px;flex-shrink:0}
+.iconbtn{
+  width:36px;height:36px;border-radius:11px;border:1px solid var(--line);
+  background:var(--ink-700);color:var(--dim);cursor:pointer;display:grid;place-items:center;
+  font-size:15px;transition:.18s;
+}
+.iconbtn:hover{color:var(--gold);border-color:var(--gold-deep);background:var(--ink-600);transform:translateY(-1px)}
+.iconbtn.active{color:var(--gold);border-color:var(--gold-deep);background:rgba(230,182,76,.12)}
+
+.menu-toggle{display:none}
+
+/* mobile drawer */
+.drawer{
+  position:fixed;inset:0;z-index:99;display:none;
+}
+.drawer.open{display:block}
+.drawer-bg{position:absolute;inset:0;background:rgba(3,6,14,.72);backdrop-filter:blur(4px)}
+.drawer-panel{
+  position:absolute;top:0;inset-inline-end:0;width:min(320px,86vw);height:100%;
+  background:linear-gradient(180deg,var(--ink-800),var(--ink-900));
+  border-inline-start:1px solid var(--line);
+  padding:22px 16px;overflow-y:auto;
+  animation:slideIn .26s cubic-bezier(.2,.9,.3,1);
+}
+@keyframes slideIn{from{transform:translateX(-24px);opacity:.4}to{transform:none;opacity:1}}
+.drawer-panel h5{font-size:12px;letter-spacing:1.6px;color:var(--mute);margin:16px 8px 8px;text-transform:uppercase}
+.drawer-panel a{display:block;padding:10px 12px;border-radius:10px;color:var(--dim);font-size:14.5px;font-weight:600}
+.drawer-panel a:hover{background:rgba(255,255,255,.06);color:#fff}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero{
+  position:relative;overflow:hidden;
+  padding:76px 20px 92px;
+  border-bottom:1px solid var(--line-soft);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(600px 420px at 78% 18%, rgba(230,182,76,.15), transparent 70%),
+    radial-gradient(520px 380px at 14% 74%, rgba(72,169,248,.13), transparent 70%);
+}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(circle at 50% 40%,#000 10%,transparent 72%);
+  -webkit-mask-image:radial-gradient(circle at 50% 40%,#000 10%,transparent 72%);
+}
+.hero-in{max-width:940px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 16px;border-radius:99px;font-size:12.5px;font-weight:700;letter-spacing:.6px;
+  border:1px solid rgba(230,182,76,.34);background:rgba(230,182,76,.09);color:var(--gold-soft);
+  margin-bottom:20px;
+}
+.pill .dot{width:6px;height:6px;border-radius:50%;background:var(--jade);box-shadow:0 0 9px var(--jade);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+
+.hero h1{
+  font-size:clamp(34px,6vw,60px);font-weight:900;line-height:1.28;
+  background:linear-gradient(120deg,#fff 8%,var(--gold-soft) 42%,var(--gold) 62%,#fff 96%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:14px;letter-spacing:-1.2px;
+}
+.hero .sub{font-size:clamp(15px,2.2vw,19.5px);color:var(--dim);max-width:720px;margin:0 auto 8px;line-height:2}
+.hero .aya{
+  font-family:var(--font-quran);font-size:clamp(17px,2.6vw,23px);color:var(--gold-soft);
+  direction:rtl;margin:26px auto 4px;line-height:2.1;
+}
+.hero .aya small{display:block;font-family:var(--font-body);font-size:12.5px;color:var(--mute);margin-top:6px;letter-spacing:.4px}
+
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 26px;border-radius:14px;font-weight:800;font-size:14.5px;
+  border:1px solid transparent;cursor:pointer;transition:.22s;font-family:var(--font-body);
+  white-space:nowrap;
+}
+.btn-gold{
+  background:linear-gradient(140deg,var(--gold-soft),var(--gold) 45%,var(--gold-deep));
+  color:#22190a;box-shadow:0 10px 30px rgba(230,182,76,.3), inset 0 1px 0 rgba(255,255,255,.5);
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(230,182,76,.42);color:#160f04}
+.btn-ghost{
+  background:rgba(255,255,255,.045);color:var(--text);border-color:var(--line);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.09);border-color:var(--gold-deep);transform:translateY(-2px)}
+.btn-sm{padding:9px 17px;font-size:13px;border-radius:11px}
+
+/* hero stats */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:14px;
+  max-width:880px;margin:52px auto 0;position:relative;z-index:2;
+}
+.stat{
+  background:linear-gradient(160deg,rgba(19,30,56,.9),rgba(10,16,32,.85));
+  border:1px solid var(--line);border-radius:var(--r-md);
+  padding:20px 14px;text-align:center;position:relative;overflow:hidden;
+  transition:.25s;
+}
+.stat::after{
+  content:'';position:absolute;inset:0 0 auto 0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6;
+}
+.stat:hover{transform:translateY(-4px);border-color:var(--gold-deep);box-shadow:var(--sh-gold)}
+.stat b{display:block;font-family:var(--font-disp);font-size:29px;color:var(--gold);line-height:1.2}
+.stat span{font-size:12.5px;color:var(--dim);font-weight:600}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+section.block{padding:76px 0;border-bottom:1px solid var(--line-soft);position:relative}
+section.block:nth-of-type(even){background:linear-gradient(180deg,rgba(14,22,43,.35),transparent)}
+
+.sec-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:40px}
+.sec-num{
+  font-family:var(--font-disp);font-size:15px;font-weight:900;color:var(--ink-900);
+  width:54px;height:54px;border-radius:16px;flex-shrink:0;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--gold-soft),var(--gold-deep));
+  box-shadow:0 8px 24px rgba(230,182,76,.26);
+}
+.sec-head h2{font-size:clamp(24px,3.6vw,36px);color:#fff;margin-bottom:4px}
+.sec-head p{color:var(--dim);font-size:15px;margin:0}
+.sec-kicker{
+  font-size:11.5px;letter-spacing:2.2px;color:var(--gold);font-weight:800;
+  text-transform:uppercase;margin-bottom:6px;display:block;
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.card{
+  background:linear-gradient(165deg,rgba(19,30,56,.86),rgba(10,16,32,.92));
+  border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:26px;position:relative;transition:.25s;
+}
+.card:hover{border-color:rgba(230,182,76,.42);box-shadow:var(--sh-2)}
+.card-h{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.card-h .ic{
+  width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-size:19px;
+  background:rgba(230,182,76,.13);border:1px solid rgba(230,182,76,.26);color:var(--gold);flex-shrink:0;
+}
+.card-h h3{font-size:19px;color:#fff;margin:0}
+.card-h h4{font-size:16.5px;color:#fff;margin:0}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(196px,1fr))}
+
+/* definition / formula boxes */
+.def{
+  background:linear-gradient(140deg,rgba(72,169,248,.10),rgba(19,30,56,.7));
+  border:1px solid rgba(72,169,248,.26);border-radius:var(--r-md);
+  padding:18px 20px;position:relative;border-inline-start:3px solid var(--sky);
+}
+.def b{color:var(--sky)}
+.rule{
+  background:linear-gradient(140deg,rgba(230,182,76,.11),rgba(19,30,56,.7));
+  border:1px solid rgba(230,182,76,.30);border-radius:var(--r-md);
+  padding:18px 20px;border-inline-start:3px solid var(--gold);
+}
+.rule b{color:var(--gold)}
+.warn{
+  background:linear-gradient(140deg,rgba(242,103,155,.10),rgba(19,30,56,.7));
+  border:1px solid rgba(242,103,155,.28);border-radius:var(--r-md);
+  padding:18px 20px;border-inline-start:3px solid var(--rose);
+}
+.ok{
+  background:linear-gradient(140deg,rgba(53,208,165,.10),rgba(19,30,56,.7));
+  border:1px solid rgba(53,208,165,.28);border-radius:var(--r-md);
+  padding:18px 20px;border-inline-start:3px solid var(--jade);
+}
+
+/* Quran / example verse */
+.ayah{
+  font-family:var(--font-quran);font-size:clamp(19px,2.6vw,25px);line-height:2.2;
+  color:var(--gold-soft);text-align:center;padding:20px 18px;margin:16px 0;
+  background:linear-gradient(180deg,rgba(230,182,76,.06),transparent);
+  border-block:1px solid rgba(230,182,76,.18);border-radius:6px;
+  position:relative;
+}
+.ayah::before,.ayah::after{
+  content:'❁';position:absolute;color:var(--gold-deep);font-size:12px;opacity:.7;
+}
+.ayah::before{top:6px;inset-inline-start:10px}
+.ayah::after{bottom:6px;inset-inline-end:10px}
+.ayah .ref{display:block;font-family:var(--font-body);font-size:12.5px;color:var(--mute);margin-top:10px}
+
+/* example lines */
+.ex{
+  background:rgba(255,255,255,.03);border:1px solid var(--line-soft);
+  border-radius:var(--r-sm);padding:13px 16px;margin:9px 0;font-size:15.5px;
+}
+.ex .q{font-family:var(--font-quran);font-size:19px;color:#fff}
+.ex .note{color:var(--dim);font-size:13.5px;display:block;margin-top:4px}
+
+/* highlight word in examples */
+.hl{color:var(--gold);font-weight:800;border-bottom:2px solid rgba(230,182,76,.45)}
+.hl-b{color:var(--sky);font-weight:800}
+.hl-g{color:var(--jade);font-weight:800}
+.hl-r{color:var(--rose);font-weight:800}
+.tag{
+  display:inline-block;padding:2px 10px;border-radius:99px;font-size:11.5px;font-weight:800;
+  background:rgba(230,182,76,.14);color:var(--gold-soft);border:1px solid rgba(230,182,76,.28);
+  margin:0 3px 4px 0;
+}
+.tag.b{background:rgba(72,169,248,.14);color:#9ed0ff;border-color:rgba(72,169,248,.3)}
+.tag.g{background:rgba(53,208,165,.14);color:#8ff0d5;border-color:rgba(53,208,165,.3)}
+.tag.r{background:rgba(242,103,155,.13);color:#ffb6d2;border-color:rgba(242,103,155,.3)}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;border-radius:var(--r-md);border:1px solid var(--line);margin:18px 0}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+thead th{
+  background:linear-gradient(180deg,rgba(230,182,76,.16),rgba(230,182,76,.06));
+  color:var(--gold-soft);font-family:var(--font-disp);font-size:13.5px;font-weight:800;
+  padding:13px 14px;text-align:right;border-bottom:1px solid rgba(230,182,76,.26);white-space:nowrap;
+}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--line-soft);color:var(--dim);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:rgba(255,255,255,.028);color:var(--text)}
+tbody td b{color:#fff}
+
+/* lists */
+.list{list-style:none;display:flex;flex-direction:column;gap:9px;margin:10px 0}
+.list li{position:relative;padding-inline-start:26px;color:var(--dim);font-size:15.3px}
+.list li::before{
+  content:'';position:absolute;inset-inline-start:6px;top:.72em;
+  width:7px;height:7px;border-radius:2px;background:var(--gold);transform:rotate(45deg);opacity:.85;
+}
+.list li b{color:#fff}
+.list.num{counter-reset:n}
+.list.num li{padding-inline-start:34px}
+.list.num li::before{
+  content:counter(n);counter-increment:n;
+  inset-inline-start:0;top:.25em;width:22px;height:22px;border-radius:7px;
+  background:rgba(230,182,76,.15);color:var(--gold);transform:none;
+  display:grid;place-items:center;font-size:11.5px;font-weight:900;
+  border:1px solid rgba(230,182,76,.3);
+}
+
+/* accordion */
+.acc{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;margin:10px 0;background:rgba(10,16,32,.5)}
+.acc + .acc{margin-top:10px}
+.acc-h{
+  padding:15px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;
+  font-weight:700;font-size:15.5px;color:var(--text);transition:.18s;user-select:none;
+}
+.acc-h:hover{background:rgba(255,255,255,.035)}
+.acc-h .chev{margin-inline-start:auto;color:var(--gold);transition:.28s;font-size:13px}
+.acc.open .acc-h{background:rgba(230,182,76,.075);color:var(--gold-soft)}
+.acc.open .acc-h .chev{transform:rotate(180deg)}
+.acc-b{max-height:0;overflow:hidden;transition:max-height .34s cubic-bezier(.3,.9,.3,1)}
+.acc-b-in{padding:4px 20px 20px;color:var(--dim);font-size:15px}
+.acc.open .acc-b{max-height:2600px}
+
+/* ==========================================================================
+   Question banks
+   ========================================================================== */
+.qb{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{
+  padding:8px 16px;border-radius:99px;border:1px solid var(--line);background:var(--ink-700);
+  color:var(--dim);font-size:13px;font-weight:700;cursor:pointer;transition:.18s;font-family:inherit;
+}
+.chip:hover{border-color:var(--gold-deep);color:#fff;transform:translateY(-1px)}
+.chip.on{background:linear-gradient(140deg,rgba(230,182,76,.2),rgba(230,182,76,.08));border-color:var(--gold);color:var(--gold-soft)}
+
+.q{
+  border:1px solid var(--line);border-radius:var(--r-md);background:rgba(10,16,32,.55);
+  padding:18px 20px;margin-bottom:14px;transition:.2s;position:relative;
+}
+.q:hover{border-color:rgba(230,182,76,.32)}
+.q-head{display:flex;gap:11px;align-items:flex-start;margin-bottom:12px}
+.q-n{
+  flex-shrink:0;width:27px;height:27px;border-radius:9px;display:grid;place-items:center;
+  background:rgba(230,182,76,.14);border:1px solid rgba(230,182,76,.28);
+  color:var(--gold);font-size:12px;font-weight:900;margin-top:4px;
+}
+.q-txt{font-size:16px;color:var(--text);flex:1;line-height:1.95}
+.q-opts{display:flex;flex-direction:column;gap:7px;margin:10px 0 0}
+.opt{
+  padding:10px 15px;border-radius:10px;border:1px solid var(--line-soft);background:rgba(255,255,255,.025);
+  font-size:14.5px;color:var(--dim);cursor:pointer;transition:.16s;display:flex;gap:10px;align-items:flex-start;
+  font-family:inherit;text-align:right;width:100%;
+}
+.opt:hover:not(.locked){background:rgba(255,255,255,.06);border-color:var(--gold-deep);color:#fff}
+.opt .k{
+  font-weight:900;color:var(--gold);font-size:12.5px;flex-shrink:0;width:18px;
+  font-family:var(--font-disp);
+}
+.opt.correct{background:rgba(53,208,165,.14);border-color:var(--jade);color:#c9ffef}
+.opt.correct .k{color:var(--jade)}
+.opt.wrong{background:rgba(242,103,155,.12);border-color:var(--rose);color:#ffc4da}
+.opt.wrong .k{color:var(--rose)}
+.q-ans{
+  margin-top:12px;padding:13px 16px;border-radius:10px;font-size:14.5px;
+  background:rgba(53,208,165,.07);border:1px dashed rgba(53,208,165,.35);color:#b9f5e2;
+  display:none;line-height:1.95;
+}
+.q-ans.show{display:block;animation:fadeUp .26s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.q-ans b{color:var(--jade)}
+.q-act{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap}
+
+/* fill in the blank */
+.blank{
+  display:inline-block;min-width:118px;padding:1px 10px;margin:0 3px;
+  border-bottom:2px dashed var(--gold-deep);color:var(--gold);font-weight:800;cursor:pointer;
+  text-align:center;transition:.18s;border-radius:5px 5px 0 0;
+}
+.blank:hover{background:rgba(230,182,76,.1)}
+.blank.revealed{border-bottom-color:var(--jade);color:var(--jade);background:rgba(53,208,165,.08)}
+.blank-hidden{color:transparent;background:rgba(230,182,76,.07);border-radius:6px}
+
+/* ==========================================================================
+   Quiz / exam
+   ========================================================================== */
+.quiz-shell{
+  background:linear-gradient(165deg,rgba(19,30,56,.9),rgba(8,13,26,.95));
+  border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;
+  box-shadow:var(--sh-2);
+}
+.quiz-top{
+  padding:20px 26px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  background:linear-gradient(180deg,rgba(230,182,76,.07),transparent);
+}
+.quiz-top h3{margin:0;font-size:20px;color:#fff}
+.quiz-meta{margin-inline-start:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.badge{
+  padding:7px 15px;border-radius:10px;font-size:12.5px;font-weight:800;
+  background:rgba(72,169,248,.12);border:1px solid rgba(72,169,248,.3);color:#9ed0ff;
+  display:flex;align-items:center;gap:7px;
+}
+.badge.gold{background:rgba(230,182,76,.12);border-color:rgba(230,182,76,.32);color:var(--gold-soft)}
+.badge.rose{background:rgba(242,103,155,.12);border-color:rgba(242,103,155,.3);color:#ffb6d2}
+.badge.jade{background:rgba(53,208,165,.12);border-color:rgba(53,208,165,.32);color:#8ff0d5}
+
+.quiz-body{padding:26px}
+.qz-progress{height:7px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden;margin-bottom:24px}
+.qz-progress i{display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--gold),var(--jade));transition:width .3s}
+
+.qz-q{font-size:19px;color:#fff;font-weight:700;line-height:1.9;margin-bottom:18px}
+.qz-q .qnum{color:var(--gold);font-family:var(--font-disp);margin-inline-end:6px}
+.qz-opts{display:flex;flex-direction:column;gap:10px}
+.qz-opt{
+  padding:14px 18px;border-radius:13px;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);color:var(--dim);font-size:15.5px;cursor:pointer;
+  transition:.18s;display:flex;gap:12px;align-items:center;font-family:inherit;text-align:right;
+}
+.qz-opt:hover:not(.dis){border-color:var(--gold-deep);background:rgba(255,255,255,.06);color:#fff;transform:translateX(-3px)}
+.qz-opt .k{
+  width:29px;height:29px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;
+  background:rgba(255,255,255,.06);font-size:12.5px;font-weight:900;color:var(--gold);
+}
+.qz-opt.sel{border-color:var(--gold);background:rgba(230,182,76,.13);color:#fff}
+.qz-opt.ok{border-color:var(--jade);background:rgba(53,208,165,.14);color:#d6fff3}
+.qz-opt.no{border-color:var(--rose);background:rgba(242,103,155,.13);color:#ffd3e3}
+.qz-opt.dis{cursor:default}
+.qz-expl{
+  margin-top:16px;padding:14px 17px;border-radius:12px;font-size:14.5px;
+  background:rgba(53,208,165,.07);border:1px dashed rgba(53,208,165,.3);color:#b9f5e2;
+  display:none;line-height:1.95;
+}
+.qz-expl.show{display:block;animation:fadeUp .25s}
+.qz-foot{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;align-items:center}
+.qz-foot .spacer{flex:1}
+
+/* results */
+.result{text-align:center;padding:18px 0}
+.ring{
+  width:172px;height:172px;margin:0 auto 20px;position:relative;
+}
+.ring svg{transform:rotate(-90deg)}
+.ring .val{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--font-disp);font-size:38px;font-weight:900;color:var(--gold);
+  flex-direction:column;line-height:1.1;
+}
+.result h3{font-size:26px;margin-bottom:8px}
+.result p{color:var(--dim);max-width:520px;margin:0 auto}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:26px auto;max-width:640px}
+.res-cell{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:13px;padding:15px 10px}
+.res-cell b{display:block;font-size:23px;font-family:var(--font-disp);color:var(--gold)}
+.res-cell span{font-size:12px;color:var(--mute)}
+
+/* ==========================================================================
+   Mind map / tree
+   ========================================================================== */
+.tree{display:flex;flex-direction:column;gap:14px;margin:20px 0}
+.tree-row{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  background:rgba(255,255,255,.025);border:1px solid var(--line-soft);
+  border-radius:var(--r-sm);padding:13px 16px;
+}
+.tree-row .lab{
+  font-weight:800;color:var(--gold);font-size:13.5px;min-width:104px;
+  border-inline-end:1px solid var(--line);padding-inline-end:12px;
+}
+.tree-row .val{color:var(--dim);font-size:14.5px;flex:1}
+.tree-row .arrow{color:var(--gold-deep);font-size:13px}
+
+/* flashcards */
+.fc-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.fc{height:172px;perspective:1100px;cursor:pointer}
+.fc-in{position:relative;width:100%;height:100%;transition:transform .58s cubic-bezier(.3,.9,.3,1);transform-style:preserve-3d}
+.fc.flip .fc-in{transform:rotateY(180deg)}
+.fc-f,.fc-b{
+  position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r-md);
+  padding:18px;display:grid;place-items:center;text-align:center;border:1px solid var(--line);
+}
+.fc-f{background:linear-gradient(150deg,rgba(19,30,56,.95),rgba(10,16,32,.95));color:#fff;font-weight:800;font-size:16px}
+.fc-f small{display:block;color:var(--mute);font-size:11.5px;font-weight:600;margin-top:8px;letter-spacing:1px}
+.fc-b{background:linear-gradient(150deg,rgba(230,182,76,.16),rgba(19,30,56,.95));transform:rotateY(180deg);color:var(--gold-soft);font-size:14px;font-weight:600;border-color:rgba(230,182,76,.4)}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+.mt0{margin-top:0!important}.mt1{margin-top:10px}.mt2{margin-top:20px}.mt3{margin-top:32px}
+.mb2{margin-bottom:20px}.mb3{margin-bottom:32px}
+.center{text-align:center}
+.muted{color:var(--mute);font-size:13.5px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:26px 0}
+.hero-note{font-size:13px;color:var(--mute);margin-top:10px}
+.kbd{
+  padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.08);
+  border:1px solid var(--line);font-size:12px;font-family:monospace;color:var(--gold-soft);
+}
+
+/* footer */
+footer{
+  padding:54px 20px 40px;text-align:center;border-top:1px solid var(--line-soft);
+  background:linear-gradient(180deg,transparent,rgba(10,16,32,.8));
+}
+footer .fbrand{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:12px}
+footer p{color:var(--mute);font-size:13px;margin:5px 0}
+footer .fline{
+  display:inline-block;padding:3px 12px;border-radius:99px;font-size:11.5px;
+  background:rgba(230,182,76,.08);border:1px solid rgba(230,182,76,.2);color:var(--gold-soft);
+  margin:3px 2px;
+}
+
+/* toast */
+#toast{
+  position:fixed;bottom:26px;inset-inline-start:50%;transform:translate(-50%,90px);
+  background:linear-gradient(140deg,rgba(19,30,56,.98),rgba(10,16,32,.98));
+  border:1px solid var(--gold-deep);border-radius:13px;padding:13px 22px;
+  font-size:14px;font-weight:700;color:var(--gold-soft);z-index:200;
+  box-shadow:var(--sh-2);transition:.34s cubic-bezier(.2,.9,.3,1);pointer-events:none;
+  display:flex;align-items:center;gap:9px;max-width:90vw;
+}
+#toast.show{transform:translate(-50%,0)}
+
+/* light theme (مصحفية / ورقية) */
+body.light{
+  --ink-900:#f7f5ef; --ink-800:#fffdf8; --ink-700:#fff; --ink-600:#f0ece1; --ink-500:#e6dfd0;
+  --line:#ded5c2; --line-soft:#e9e2d4;
+  --text:#1c2433; --dim:#4a5468; --mute:#7c879c;
+  --gold:#a97c18; --gold-deep:#8a6410; --gold-soft:#7a5a0d;
+  background-image:
+    radial-gradient(900px 600px at 88% -8%, rgba(169,124,24,.07), transparent 60%),
+    radial-gradient(800px 500px at 6% 12%, rgba(72,169,248,.05), transparent 62%);
+}
+body.light b,body.light strong{color:#0e1522}
+body.light .hero h1{background:linear-gradient(120deg,#1c2433 10%,#8a6410 46%,#1c2433 92%);-webkit-background-clip:text;background-clip:text}
+body.light .card,body.light .q,body.light .quiz-shell,body.light .stat{
+  background:linear-gradient(165deg,#fff,#fdfbf5);
+}
+body.light .fc-f{background:linear-gradient(150deg,#fff,#f7f3e8);color:#1c2433}
+body.light .fc-b{background:linear-gradient(150deg,#fdf3d8,#fff)}
+body.light .sec-head h2,body.light .card-h h3,body.light .qz-q{color:#16213a}
+body.light .nav{background:rgba(255,253,248,.92)}
+body.light .chip,body.light .iconbtn,body.light .qz-opt,body.light .opt{background:#fff}
+body.light .drawer-panel{background:#fff}
+body.light .ayah{color:#7a5a0d}
+body.light .ex .q{color:#111}
+body.light .acc{background:#fffdf8}
+
+/* reading width */
+body.narrow .wrap,body.narrow .hero-in{max-width:880px}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.8,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .menu-toggle{display:grid}
+  .hero{padding:52px 16px 66px}
+  section.block{padding:56px 0}
+  .wrap{padding:0 16px}
+  .card{padding:20px}
+  .quiz-body{padding:18px}
+  .quiz-top{padding:16px 18px}
+}
+@media(max-width:600px){
+  body{font-size:15.5px}
+  .sec-head{gap:12px}
+  .sec-num{width:44px;height:44px;border-radius:13px;font-size:13px}
+  .brand-txt span{display:none}
+  table{font-size:13px;min-width:440px}
+  thead th,tbody td{padding:10px 11px}
+  .hero-cta .btn{width:100%;justify-content:center}
+  .fc{height:190px}
+}
+
+/* print */
+@media print{
+  .nav,#readbar,.hero-cta,.qz-foot,.menu-toggle,.nav-tools,#toast{display:none!important}
+  body{background:#fff;color:#000}
+  .card,.q,.quiz-shell{border:1px solid #ccc;background:#fff!important;box-shadow:none}
+  .q-ans{display:block!important;border:1px solid #999;background:#f5f5f5;color:#000}
+  section.block{page-break-inside:avoid}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* ==========================================================================
+   Quick nav (hero) + polish
+   ========================================================================== */
+.quicknav{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));
+  gap:10px;max-width:820px;margin:48px auto 0;position:relative;z-index:2;
+}
+.qn{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:14px 8px;border-radius:14px;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);transition:.22s;
+}
+.qn b{
+  font-family:var(--font-disp);font-size:15px;color:var(--gold);
+  width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+  background:rgba(230,182,76,.13);border:1px solid rgba(230,182,76,.24);
+}
+.qn span{font-size:12px;color:var(--dim);font-weight:700}
+.qn:hover{transform:translateY(-4px);border-color:var(--gold-deep);background:rgba(230,182,76,.08)}
+.qn:hover span{color:#fff}
+
+/* search result items */
+.search-hit{
+  display:block;padding:13px 16px;border-radius:12px;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);margin-bottom:9px;transition:.18s;
+}
+.search-hit:hover{border-color:var(--gold-deep);background:rgba(230,182,76,.07);transform:translateX(-3px)}
+.search-hit b{display:block;font-size:12.5px;color:var(--gold);margin-bottom:3px;font-weight:800}
+.search-hit span{font-size:14px;color:var(--dim);line-height:1.85;display:block}
+#searchInput:focus{border-color:var(--gold) !important;box-shadow:0 0 0 3px rgba(230,182,76,.13)}
+
+/* decorative section divider */
+section.block::before{
+  content:'';position:absolute;top:0;inset-inline-start:50%;transform:translateX(-50%);
+  width:min(70%,420px);height:1px;
+  background:linear-gradient(90deg,transparent,rgba(230,182,76,.35),transparent);
+}
+section.block:first-of-type::before{display:none}
+
+/* acc polish */
+.acc-h{position:relative}
+.acc-h b{color:var(--gold-soft)}
+.acc.open{border-color:rgba(230,182,76,.34);background:rgba(230,182,76,.035)}
+
+/* reading width for tables */
+.tbl-wrap{background:rgba(0,0,0,.14)}
+body.light .tbl-wrap{background:rgba(255,255,255,.6)}
+
+/* nicer focus states */
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:8px}
+
+/* mobile tweaks */
+@media(max-width:600px){
+  .quicknav{grid-template-columns:repeat(4,1fr);gap:7px}
+  .qn{padding:10px 4px}
+  .qn span{font-size:10.5px}
+  .stats{grid-template-columns:repeat(2,1fr);margin-top:30px}
+}
+
+/* ==========================================================================
+   Final polish
+   ========================================================================== */
+/* Emoji icon fallback sizing inside .ic */
+.card-h .ic{line-height:1;font-size:18px}
+.card-h .ic:has(span){font-size:15px}
+
+/* keep Arabic-Indic numerals elegant in counters */
+.stat b,.res-cell b,.ring .val{font-feature-settings:"ss01"}
+
+/* Table zebra for readability on long tables */
+tbody tr:nth-child(even) td{background:rgba(255,255,255,.018)}
+body.light tbody tr:nth-child(even) td{background:rgba(0,0,0,.022)}
+
+/* Sticky section header on long scroll (desktop only) */
+@media(min-width:1100px){
+  .sec-head{position:relative}
+}
+
+/* Better long-paragraph rhythm */
+.card p{color:var(--dim);font-size:15.3px}
+.card p b{color:#fff}
+body.light .card p b{color:#0e1522}
+
+/* Small screens: tables scroll hint */
+.tbl-wrap{position:relative}
+.tbl-wrap::after{
+  content:'↔ اسحب أفقياً';
+  display:none;font-size:11px;color:var(--mute);padding:6px 10px;text-align:center;
+}
+@media(max-width:640px){.tbl-wrap::after{display:block}}
+
+/* Avoid orphan icons in nav on tiny screens */
+@media(max-width:420px){
+  .nav-tools .iconbtn:not(.menu-toggle):nth-child(2),
+  .nav-tools .iconbtn:not(.menu-toggle):nth-child(3){display:none}
+}
+
+/* Print: clean handout */
+@media print{
+  .quicknav,.stats,.nav-links,.acc-b{display:block!important}
+  .acc-b{max-height:none!important}
+  .acc-h .chev{display:none}
+  .sec-num{background:#eee;color:#000;box-shadow:none}
+  .hero{padding:20px 0}
+  a[href^="#"]::after{content:''}
+  .blank{color:#000!important;background:none!important;border-bottom:1px solid #000}
+  .blank-hidden{color:#000!important;background:none!important}
+  h1,h2,h3{color:#000!important;-webkit-text-fill-color:#000}
+}
+
+/* light theme completeness */
+body.light .qn{background:#fff}
+body.light .qn b{background:rgba(169,124,24,.12);border-color:rgba(169,124,24,.28)}
+body.light .search-hit{background:#fff}
+body.light .acc-b-in{color:#3d4759}
+body.light .opt{background:#fff;color:#3d4759}
+body.light .opt:hover:not(.locked){background:#f5f1e6;color:#111}
+body.light .qz-opt{background:#fff;color:#3d4759}
+body.light .qz-opt:hover:not(.dis){background:#f5f1e6;color:#111}
+body.light .qz-opt .k{background:#f0ece1;color:#8a6410}
+body.light .opt.correct{background:rgba(22,160,124,.13);color:#065f46;border-color:#16a07c}
+body.light .opt.wrong{background:rgba(200,50,100,.11);color:#8c1d40;border-color:#c83264}
+body.light .qz-opt.ok{background:rgba(22,160,124,.13);color:#065f46;border-color:#16a07c}
+body.light .qz-opt.no{background:rgba(200,50,100,.11);color:#8c1d40;border-color:#c83264}
+body.light .q-ans{background:#effaf5;border-color:#9cd9c4;color:#065f46}
+body.light .qz-expl{background:#effaf5;border-color:#9cd9c4;color:#065f46}
+body.light .ring svg circle:first-child{stroke:rgba(0,0,0,.08)}
+body.light #toast{background:#fff;color:#8a6410;border-color:#c9a04a}
+body.light .pill{background:rgba(169,124,24,.09);color:#7a5a0d}
+body.light .def{background:linear-gradient(140deg,rgba(72,169,248,.07),#fff)}
+body.light .rule{background:linear-gradient(140deg,rgba(169,124,24,.07),#fff)}
+body.light .warn{background:linear-gradient(140deg,rgba(242,103,155,.06),#fff)}
+body.light .ok{background:linear-gradient(140deg,rgba(22,160,124,.06),#fff)}
+body.light .badge{background:rgba(72,169,248,.09);color:#1d5fa0}
+body.light .badge.gold{background:rgba(169,124,24,.1);color:#7a5a0d}
+body.light .badge.rose{background:rgba(200,50,100,.08);color:#8c1d40}
+body.light .badge.jade{background:rgba(22,160,124,.09);color:#065f46}
+body.light .tag{background:rgba(169,124,24,.1);color:#7a5a0d}
+body.light .tag.b{background:rgba(72,169,248,.1);color:#1d5fa0}
+body.light .tag.g{background:rgba(22,160,124,.1);color:#065f46}
+body.light .tag.r{background:rgba(200,50,100,.08);color:#8c1d40}
+body.light .list li{color:#4a5468}
+body.light .ex{background:#fff;border-color:#e6dfd0}
+body.light .ex .note{color:#5e6a7d}
+body.light .fc-f{color:#16213a}
+body.light .fc-b{color:#7a5a0d;border-color:#dcc79a}
+body.light .q-txt{color:#1c2433}
+body.light .hero-grid{opacity:.18}
+body.light .divider{background:linear-gradient(90deg,transparent,#ded5c2,transparent)}
+body.light footer{background:linear-gradient(180deg,transparent,#fdfbf5)}
+body.light .fline{background:rgba(169,124,24,.07);color:#7a5a0d}
+body.light #searchInput{background:#fff;color:#1c2433}
+body.light .blank{border-bottom-color:#a97c18;color:#8a6410}
+body.light .blank.revealed{color:#065f46;background:rgba(22,160,124,.07)}
+body.light .blank-hidden{background:rgba(169,124,24,.06)}
+body.light .res-cell{background:#fff}
+body.light .kbd{background:#f0ece1;color:#7a5a0d}
+body.light .tree-row{background:#fff}
+body.light .qb .chip.on{background:rgba(169,124,24,.12);color:#7a5a0d}
+body.light ::selection{background:rgba(169,124,24,.22);color:#000}
+body.light .acc.open{background:#fdf8ec}
+
+/* hero ornament */
+.hero-orn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(88vw,760px);height:min(88vw,760px);
+  pointer-events:none;z-index:0;opacity:.5;
+  animation:spin 120s linear infinite;
+}
+.hero-orn svg{width:100%;height:100%}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.hero-orn{animation:none}}
+@media(max-width:700px){.hero-orn{opacity:.28;width:118vw;height:118vw}}
+.hero-orn{opacity:.62;animation:none}
+.hero-orn svg{animation:spin 200s linear infinite;transform-origin:50% 50%}
+@media(prefers-reduced-motion:reduce){.hero-orn svg{animation:none}}
+.hero-orn::after{
+  content:'';position:absolute;inset:18%;border-radius:50%;
+  box-shadow:0 0 90px 30px rgba(230,182,76,.07) inset;
+  pointer-events:none;
+}
+
+</style>
+</head>
+<body>
+
+<div id="readbar"><i></i></div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand">
+      <div class="brand-mark">؟</div>
+      <div class="brand-txt">
+        <b>أسلوب الاستفهام</b>
+        <span>السادس العلمي · اللغة العربية</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#s1">المفاهيم</a>
+      <a href="#s2">الأدوات</a>
+      <a href="#s3">الإعراب</a>
+      <a href="#s4">الكم</a>
+      <a href="#s5">البلاغة</a>
+      <a href="#s6">الملخص</a>
+      <a href="#bank">بنك الأسئلة</a>
+      <a href="#exams">الامتحانات</a>
+      <a href="#progress">تقدمي</a>
+      <a href="#workshop">ورشة الإعراب</a>
+      <a href="#mock">ورقة امتحان</a>
+      <a href="#mistakes">أخطاء شائعة</a>
+    </div>
+    <div class="nav-tools">
+      <button class="iconbtn" id="themeBtn" title="الوضع الليلي/الورقي">◐</button>
+      <button class="iconbtn" id="widthBtn" title="عرض القراءة">⇔</button>
+      <button class="iconbtn" id="fsUp" title="تكبير الخط">A+</button>
+      <button class="iconbtn" id="fsDown" title="تصغير الخط">A−</button>
+      <button class="iconbtn menu-toggle" id="menuBtn" title="القائمة">☰</button>
+    </div>
+  </div>
+</nav>
+
+<div class="drawer" id="drawer">
+  <div class="drawer-bg" id="drawerBg"></div>
+  <div class="drawer-panel">
+    <h5>الأقسام</h5>
+    <a href="#s1">١ · المفاهيم الأساسية</a>
+    <a href="#s2">٢ · أدوات الاستفهام</a>
+    <a href="#s3">٣ · الإعراب التفصيلي</a>
+    <a href="#s4">٤ · كم وأي</a>
+    <a href="#s5">٥ · الأغراض البلاغية</a>
+    <a href="#s6">٦ · الملخص الذهبي</a>
+    <a href="#bank">٧ · بنك الأسئلة</a>
+    <a href="#fill">٨ · الفراغات</a>
+    <a href="#wizariyat">٩ · الوزاريات</a>
+    <a href="#exams">١٠ · الامتحانات</a>
+    <a href="#progress">📊 لوحة التقدم</a>
+    <a href="#tools">📚 موسوعة الأدوات</a>
+    <a href="#workshop">✍ ورشة الإعراب</a>
+    <a href="#mock">📄 ورقة امتحان وزاري</a>
+    <a href="#mistakes">⚠ الأخطاء الشائعة</a>
+    <a href="#guide">🗺 دليل الدراسة</a>
+    <a href="#search">١١ · بحث</a>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-orn"><svg viewBox="0 0 600 600" class="mandala" aria-hidden="true">
+  <defs>
+    <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5d98b" stop-opacity=".95"/>
+      <stop offset=".4" stop-color="#e6b64c" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#35d0a5" stop-opacity=".55"/>
+    </linearGradient>
+    <radialGradient id="mglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#e6b64c" stop-opacity=".16"/>
+      <stop offset="60%" stop-color="#e6b64c" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#e6b64c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="300" cy="300" r="292" fill="url(#mglow)"/>
+  <g stroke="url(#mg)" fill="none" stroke-linejoin="round">
+    <!-- outer ring -->
+    <circle cx="300" cy="300" r="268" stroke-width="1"/>
+    <circle cx="300" cy="300" r="252" stroke-width="1.6" stroke-dasharray="1 6"/>
+    <!-- 16-point star lattice -->
+    <g id="rosette" stroke-width="1.15">
+      <path d="M300 44 L332 300 L300 556 L268 300 Z"/>
+      <path d="M44 300 L300 268 L556 300 L300 332 Z"/>
+      <path d="M112 112 L332 268 L488 488 L268 332 Z"/>
+      <path d="M488 112 L332 332 L112 488 L268 268 Z"/>
+      <path d="M300 74 L470 190 L526 410 L380 526 L170 470 L74 230 Z"/>
+      <path d="M300 526 L130 410 L74 190 L220 74 L430 130 L526 370 Z"/>
+    </g>
+    <!-- petal ring -->
+    <g stroke-width=".95" opacity=".85">
+      <path d="M300 96 C336 150 336 206 300 262 C264 206 264 150 300 96 Z"/>
+      <path d="M300 504 C336 450 336 394 300 338 C264 394 264 450 300 504 Z"/>
+      <path d="M96 300 C150 264 206 264 262 300 C206 336 150 336 96 300 Z"/>
+      <path d="M504 300 C450 264 394 264 338 300 C394 336 450 336 504 300 Z"/>
+      <path d="M156 156 C216 176 252 212 272 272 C212 252 176 216 156 156 Z"/>
+      <path d="M444 444 C384 424 348 388 328 328 C388 348 424 384 444 444 Z"/>
+      <path d="M444 156 C424 216 388 252 328 272 C348 212 384 176 444 156 Z"/>
+      <path d="M156 444 C216 424 252 388 272 328 C212 348 176 384 156 444 Z"/>
+    </g>
+    <!-- inner octagram -->
+    <g stroke-width="1.3">
+      <path d="M300 182 L368 232 L418 300 L368 368 L300 418 L232 368 L182 300 L232 232 Z"/>
+      <path d="M300 210 L350 250 L390 300 L350 350 L300 390 L250 350 L210 300 L250 250 Z" stroke-width=".9" opacity=".8"/>
+      <circle cx="300" cy="300" r="74" stroke-width="1.1"/>
+    </g>
+  </g>
+  <!-- center glyph -->
+  <text x="300" y="352" text-anchor="middle" font-family="Cairo, serif" font-size="108" font-weight="900" fill="url(#mg)" opacity=".92">؟</text>
+  <!-- corner accents -->
+  <g stroke="url(#mg)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".9">
+    <path d="M300 8 l8 12 -8 -6 -8 6 z"/>
+    <path d="M300 592 l8 -12 -8 6 -8 -6 z"/>
+    <path d="M8 300 l12 8 -6 -8 6 -8 z"/>
+    <path d="M592 300 l-12 8 6 -8 -6 -8 z"/>
+  </g>
+</svg></div>
+  <div class="hero-in">
+    <span class="pill"><span class="dot"></span> منهاج السادس العلمي · 2026</span>
+    <h1>أسلوب الاستفهام<br>في اللغة العربية</h1>
+    <p class="sub">المنصة الشاملة التي تجمع كل ما تحتاجه في موضوع الاستفهام: الشرح المفصّل، الأدوات وإعرابها، الأغراض البلاغية، الوزاريات، والاختبارات التفاعلية — في مكان واحد.</p>
+    <div class="aya">
+      ﴿ فَلْيَنظُرِ الْإِنسَانُ مِمَّ خُلِقَ ﴾
+      <small>سورة الطارق</small>
+    </div>
+    <div class="hero-cta">
+      <a href="#s1" class="btn btn-gold">ابدأ الدراسة 📖</a>
+      <a href="#exams" class="btn btn-ghost">ادخل الامتحان 🎯</a>
+      <a href="#s6" class="btn btn-ghost">الملخص السريع ⚡</a>
+    </div>
+    <div class="quicknav">
+      <a href="#s1" class="qn"><b>١</b><span>المفاهيم</span></a>
+      <a href="#s2" class="qn"><b>٢</b><span>الأدوات</span></a>
+      <a href="#s3" class="qn"><b>٣</b><span>الإعراب</span></a>
+      <a href="#s4" class="qn"><b>٤</b><span>كم وأي</span></a>
+      <a href="#s5" class="qn"><b>٥</b><span>البلاغة</span></a>
+      <a href="#s6" class="qn"><b>٦</b><span>الملخص</span></a>
+      <a href="#bank" class="qn"><b>٧</b><span>الأسئلة</span></a>
+      <a href="#exams" class="qn"><b>٨</b><span>الامتحان</span></a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b data-count="11">0</b><span>أداة استفهام</span></div>
+      <div class="stat"><b data-count="12">0</b><span>غرضاً بلاغياً</span></div>
+      <div class="stat"><b data-count="146">0</b><span>سؤالاً تفاعلياً</span></div>
+      <div class="stat"><b data-count="52">0</b><span>فراغاً</span></div>
+      <div class="stat"><b data-count="6">0</b><span>امتحانات</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= 1. المفاهيم ================= -->
+<section class="block" id="s1">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">١</div>
+      <div>
+        <span class="sec-kicker">الأساس</span>
+        <h2>المفاهيم الأساسية</h2>
+        <p>قبل الدخول في التفاصيل: ما هو الاستفهام؟ وما الفرق بين الحقيقي والمجازي؟ وما خصائص أدواته؟</p>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card rv">
+        <div class="card-h"><div class="ic">؟</div><h3>تعريف الاستفهام</h3></div>
+        <p>الاستفهام في اللغة العربية هو <b>طلب العلم بشيء</b> لم يكن معلوماً للسائل قبل السؤال. وهو أحد أساليب الإنشاء الطلبي، ويكون بـ:</p>
+        <ul class="list">
+          <li><b>الهمزة</b> — وحكمها التصديق أو التصور</li>
+          <li><b>هل</b> — وحكمها التصديق فقط</li>
+          <li><b>الأسماء الاستفهامية</b> — من، ما، ماذا، متى، أيان، أين، أنى، كيف، أي، كم</li>
+        </ul>
+        <div class="def mt2">
+          <b>قاعدة مهمة:</b> الاستفهام في أصله طلبُ معرفة شيء مجهول، فإذا خرج عن هذا المعنى إلى معنى بلاغي آخر (التعجب، الإنكار، التمني…) سُمّي <b>استفهاماً مجازياً</b>.
+        </div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">⚖</div><h3>الحقيقي والمجازي</h3></div>
+        <div class="def">
+          <b>الاستفهام الحقيقي:</b> هو الذي يُطلب به معرفة أمر مجهول لم يعرفه السائل، ويُنتظر له جواب.
+          <br><em class="muted">مثال: أين تسكن؟ مدينة الموصل.</em>
+        </div>
+        <div class="rule mt1">
+          <b>الاستفهام المجازي:</b> هو الذي خرج عن معناه الأصلي إلى أغراض بلاغية كالتعجب أو الإنكار أو التقرير أو التمني، ولا يُنتظر له جواب حقيقي.
+          <br><em class="muted">مثال: «أَتَعْبُدُونَ مَا تَنْحِتُونَ» — للإنكار والتوبيخ.</em>
+        </div>
+        <p class="muted mt1">الاستفهام المجازي هو الغالب في القرآن الكريم لما فيه من إثارة نفس المتلقي وتحميله المعنى.</p>
+      </div>
+    </div>
+
+    <div class="card mt2 rv">
+      <div class="card-h"><div class="ic">✦</div><h3>لماذا ندرس الاستفهام؟</h3></div>
+      <div class="grid g3">
+        <div>
+          <h4 style="color:var(--gold)">١. في الإعراب</h4>
+          <p class="muted" style="font-size:14.5px">يُسأل عن إعراب اسم الاستفهام في محل رفع أو نصب، وهو محور أساسي في أسئلة الوزارية.</p>
+        </div>
+        <div>
+          <h4 style="color:var(--jade)">٢. في البلاغة</h4>
+          <p class="muted" style="font-size:14.5px">تُستخرج أغراض الاستفهام البلاغية من الآيات: الإنكار، التقرير، التمني، التعجب…</p>
+        </div>
+        <div>
+          <h4 style="color:var(--sky)">٣. في الأداء</h4>
+          <p class="muted" style="font-size:14.5px">معرفة الفرق بين الاستفهام التصديقي والتصوّري تعين فهم معاني الكلام ودقته.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt2 rv">
+      <div class="card-h"><div class="ic">⊙</div><h3>خصائص الأدوات — لمحة عامة</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>الأداة</th><th>نوعها</th><th>معناها / ما يُسأل به</th><th>خصيصتها البارزة</th></tr></thead>
+          <tbody>
+            <tr><td><b>الهمزة</b></td><td>حرف</td><td>التصديق أو التصوّر</td><td>تدخل على المنفي وغيره، وتُعادل بـ(أم)</td></tr>
+            <tr><td><b>هل</b></td><td>حرف</td><td>التصديق فقط</td><td>لا تدخل على المنفي، ولا يُعطف عليها بـ(أم)</td></tr>
+            <tr><td><b>من</b></td><td>اسم</td><td>العاقل</td><td>مبني على السكون</td></tr>
+            <tr><td><b>ما / ماذا</b></td><td>اسم</td><td>غير العاقل</td><td>مبني على السكون</td></tr>
+            <tr><td><b>متى</b></td><td>اسم</td><td>الزمان ماضياً ومستقبلاً</td><td>مبني على السكون</td></tr>
+            <tr><td><b>أيان</b></td><td>اسم</td><td>الزمان المستقبلي خاصة</td><td>مبني على الفتح</td></tr>
+            <tr><td><b>أين</b></td><td>اسم</td><td>المكان</td><td>مبني على الفتح</td></tr>
+            <tr><td><b>أنى</b></td><td>اسم</td><td>المكان أو الحال</td><td>مبني على الفتح</td></tr>
+            <tr><td><b>كيف</b></td><td>اسم</td><td>الحال والهيئة</td><td>مبني على الفتح</td></tr>
+            <tr><td><b>أيّ</b></td><td>اسم</td><td>العاقل وغير العاقل</td><td>مبني على الضم — ويُعرب بحسب موقعه</td></tr>
+            <tr><td><b>كم</b></td><td>اسم</td><td>العدد</td><td>استفهامية أو خبرية</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. الأدوات ================= -->
+<section class="block" id="s2">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">٢</div>
+      <div>
+        <span class="sec-kicker">التصنيف</span>
+        <h2>أدوات الاستفهام وإعرابها</h2>
+        <p>كل أداة على حدة: خصيصتها، ما يُسأل به، وإعرابها في السياق.</p>
+      </div>
+    </div>
+
+    <!-- HAMZA & HAL -->
+    <div class="card rv mb2">
+      <div class="card-h"><div class="ic">أ</div><h3>الهمزة و(هل) — حرفا الاستفهام</h3></div>
+      <p>الهمزة و(هل) حرفان لا محل لهما من الإعراب، وقد ذهب بعضهم إلى تسميتهما «أداتي الاستفهام المهمّتين» لتشابه معناهما واختلاف خصائصهما.</p>
+
+      <div class="grid g2 mt2">
+        <div class="rule">
+          <h4 style="color:var(--gold)">الهمزة</h4>
+          <ul class="list">
+            <li>تدخل على <b>الجمل المثبتة</b> و<b>المنفية</b></li>
+            <li>يُطلب بها <b>التصديق</b> أو <b>التصور</b></li>
+            <li>يُعادلها <b>(أم)</b> المعادلة</li>
+            <li>تُحذف لدراية المخاطب نحو: (أنت محمد؟)</li>
+            <li>قد تُستبدل بـ<b>(بل)</b></li>
+          </ul>
+        </div>
+        <div class="def">
+          <h4 style="color:var(--sky)">هل</h4>
+          <ul class="list">
+            <li>تدخل على <b>الجمل المثبتة</b> فقط</li>
+            <li>يُطلب بها <b>التصديق</b> فقط</li>
+            <li><b>لا</b> يُعادلها بـ(أم)</li>
+            <li>لا تُحذف</li>
+            <li>لا تُستبدل بـ(بل)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 class="mt3" style="color:var(--gold)">تصديق وتصور:</h4>
+      <div class="grid g2 mt1">
+        <div class="ok"><b>الاستفهام التصديقي:</b> يُطلب به التصديق بمضمون الجملة، والجواب بـ<b>نعم / لا</b>.
+          <br><em>هل حضرت؟ نعم.</em></div>
+        <div class="ok"><b>الاستفهام التصوّري:</b> يُطلب به تعيين أحد أمرين، والجواب <b>بالتعيين</b>.
+          <br><em>أتذهب أم تجلس؟ أذهب.</em></div>
+      </div>
+
+      <h4 class="mt3" style="color:var(--gold)">الهمزة وأغراضها:</h4>
+      <div class="acc"><div class="acc-h">١ · الهمزة الداخلة على الجملة المثبتة — التصديق والتصور <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <div class="ex"><span class="q">« أَحَدَثَ حَادِثٌ فِي الْمَدِينَةِ ؟ »</span><span class="note">جوابها: نعم / لا ← استفهام تصديقي.</span></div>
+          <div class="ex"><span class="q">« أَتُحِبُّ الْقِرَاءَةَ أَمِ الْكِتَابَةَ ؟ »</span><span class="note">جوابها بالتعيين ← استفهام تصوّري.</span></div>
+        </div></div>
+      </div>
+      <div class="acc"><div class="acc-h">٢ · الهمزة الداخلة على الجملة المنفية — التقرير <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <p>إذا دخلت الهمزة على جملة منفية أفادت <b>التقرير</b> والتأكيد، ولا يُطلب بها جواب حقيقي.</p>
+          <div class="ayah">﴿ أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ ﴾<span class="ref">الشرح: ١</span></div>
+          <div class="ayah">﴿ أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ ﴾<span class="ref">التين: ٨</span></div>
+          <div class="ex"><span class="note">المعنى: قد شرحنا لك صدرك، والله أحكم الحاكمين — تقرير لا استفهام.</span></div>
+        </div></div>
+      </div>
+      <div class="acc"><div class="acc-h">٣ · الهمزة التي يُطلب بها التصور — (أم) المعادلة <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <p>إذا وقعت <b>(أم)</b> المعادلة بعد الهمزة كان الاستفهام <b>تصوّرياً</b> وجوباً، والجواب بالتعيين.</p>
+          <div class="ex"><span class="q">« أَأَنْتَ كَتَبْتَ الرِّسَالَةَ أَمْ أَخُوكَ ؟ »</span><span class="note">الجواب: أنا / أخي — تعيين.</span></div>
+        </div></div>
+      </div>
+
+      <div class="warn mt2">
+        <b>⚠ تنبيه وزاري:</b> لا يصح أن نقول «هل تذهبُ أم تجلسُ»؛ لأن (أم) المعادلة من خصائص الهمزة، ولا تقع بعد (هل).
+      </div>
+    </div>
+
+    <!-- MAN / MA -->
+    <div class="card rv mb2">
+      <div class="card-h"><div class="ic">م</div><h3>من / ما / ماذا</h3></div>
+      <div class="grid g2">
+        <div class="def"><b>من:</b> يُسأل بها عن <b>العاقل</b>. مبني على السكون.
+          <div class="ex"><span class="q">« مَنْ رَبُّكُمَا يَا مُوسَى »</span></div></div>
+        <div class="def"><b>ما:</b> يُسأل بها عن <b>غير العاقل</b> غالباً. مبني على السكون.
+          <div class="ex"><span class="q">« مَا خَطْبُكُنَّ »</span></div></div>
+      </div>
+
+      <h4 class="mt3" style="color:var(--gold)">إعراب (من) و(ما) — القاعدة الذهبية:</h4>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>الحالة</th><th>الشرط</th><th>المثال</th></tr></thead>
+          <tbody>
+            <tr><td><b>مبتدأ</b> (في محل رفع)</td><td>إذا تلاها <b>اسم معرفة</b></td><td>مَن محمدٌ؟ / ما الكتابُ؟</td></tr>
+            <tr><td><b>خبر مقدم</b> (في محل رفع)</td><td>إذا تلاها <b>اسم نكرة</b> أو شبه جملة</td><td>مَن عندك؟ / ما في يدك؟</td></tr>
+            <tr><td><b>مفعول به</b> (في محل نصب)</td><td>إذا سبقها فعل <b>متعدٍّ لم يستوفِ مفعوله</b></td><td>ماذا قرأت؟ / مَن رأيت؟</td></tr>
+            <tr><td><b>خبر مقدم</b> (في محل نصب)</td><td>إذا سبقها فعل <b>ناقص لم يستوفِ خبره</b></td><td>مَن كنت؟ / ما أصبحت؟</td></tr>
+            <tr><td><b>مجرور</b></td><td>إذا سبقها حرف جر</td><td>مِن أين؟ / عمَّ؟ / فيمَ؟ / مِمَّ؟</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="mt2" style="color:var(--gold)">نماذج محلولة:</h4>
+      <div class="ex"><span class="q">« مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ »</span>
+        <span class="note"><b>(مَن)</b> اسم استفهام مبني على السكون في محل رفع مبتدأ، و<b>(ذا)</b> اسم إشارة خبر.</span></div>
+      <div class="ex"><span class="q">« مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ »</span>
+        <span class="note"><b>(ما)</b> اسم استفهام مبني في محل رفع مبتدأ، و(لكم) خبر مقدم.</span></div>
+      <div class="ex"><span class="q">« فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ »</span>
+        <span class="note"><b>(ما)</b> مبتدأ، <b>(ذا)</b> اسم إشارة خبر، والجملة استفهامية.</span></div>
+
+      <div class="acc mt2"><div class="acc-h">أصل (عمَّ) و(فيمَ) و(مِمَّ) — حذف ألف (ما) <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>عمَّ</b> = عن + ما ← حُذفت ألف (ما) لالتقاء الساكنين.</li>
+            <li><b>فيمَ</b> = في + ما ← حُذفت الألف.</li>
+            <li><b>مِمَّ</b> = من + ما ← أُدغمت النون في الميم وحُذفت الألف.</li>
+            <li><b>ماذا</b> = ما + ذا (اسم إشارة أو موصول).</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- ZAMAN MAKAN HAL -->
+    <div class="card rv mb2">
+      <div class="card-h"><div class="ic">⏱</div><h3>متى / أيان / أين / أنى / كيف</h3></div>
+      <div class="grid g2">
+        <div>
+          <h4 style="color:var(--gold)">للزمان:</h4>
+          <div class="def mt1"><b>متى:</b> للزمان <b>الماضي والمستقبل</b>. مبنية على السكون.
+            <div class="ex"><span class="q">« مَتَىٰ نَصْرُ اللَّهِ »</span></div></div>
+          <div class="def mt1"><b>أيان:</b> للزمان <b>المستقبلي</b> خاصة. مبنية على الفتح.
+            <div class="ex"><span class="q">« أَيَّانَ يَوْمُ الْقِيَامَةِ »</span></div></div>
+        </div>
+        <div>
+          <h4 style="color:var(--sky)">للمكان:</h4>
+          <div class="def mt1"><b>أين:</b> للمكان. مبنية على الفتح.
+            <div class="ex"><span class="q">« أَيْنَ شَرِبْتَ مِنْهُ »</span></div></div>
+          <div class="def mt1"><b>أنى:</b> للمكان بمعنى (أين) أو للحال بمعنى (كيف). مبنية على الفتح.</div>
+        </div>
+      </div>
+      <div class="def mt2"><b>كيف:</b> للحال والهيئة. مبنية على الفتح، في محل نصب حال.
+        <div class="ex"><span class="q">« كَيْفَ تَكْفُرُونَ بِاللَّهِ »</span></div></div>
+
+      <h4 class="mt3" style="color:var(--gold)">أغراض (كيف):</h4>
+      <ul class="list">
+        <li><b>الحقيقة:</b> كيف حالك؟</li>
+        <li><b>التعجب:</b> كيف تكفر بالله وقد خلقك!</li>
+        <li><b>الإنكار:</b> كيف تخالف أمر والديك؟</li>
+      </ul>
+
+      <h4 class="mt3" style="color:var(--gold)">إعراب (أيان) و(متى):</h4>
+      <div class="ex"><span class="q">« يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ »</span>
+        <span class="note">(أيان): اسم استفهام مبني على الفتح في محل نصب <b>ظرف زمان</b>، و(يوم القيامة) مضاف إليه.</span></div>
+      <div class="ex"><span class="q">« وَيْلٌ يَوْمَئِذٍ لِّلْمُكَذِّبِينَ * أَيَّانَ يُبْعَثُونَ »</span>
+        <span class="note">(أيان) ظرف زمان مبني في محل نصب، وجملة (يُبعثون) مضاف إليه.</span></div>
+    </div>
+
+    <!-- AYY -->
+    <div class="card rv">
+      <div class="card-h"><div class="ic">ي</div><h3>(أيّ) — الاسم المعرب الوحيد</h3></div>
+      <p>(أيّ) اسم استفهام <b>مبني على الضم</b>، لكنه <b>يُعرب بحسب موقعه</b> في الجملة، ويُعرب إعراب ما يضاف إليه بحسب الجملة، فهو يُطلب به تعيين أحد الأمرين.</p>
+      <div class="grid g3 mt2">
+        <div class="def"><b>مبتدأ:</b><div class="ex"><span class="q">« أَيُّكُمْ أَحْسَنُ عَمَلًا »</span></div></div>
+        <div class="def"><b>مفعول به:</b><div class="ex"><span class="q">« فَأَيَّ آيَاتِ اللَّهِ تُنكِرُونَ »</span></div></div>
+        <div class="def"><b>مجرور:</b><div class="ex"><span class="q">« فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ »</span></div></div>
+        <div class="def"><b>خبر:</b><div class="ex"><span class="q">فأيّ الأمرين أحبُّ إليك</span></div></div>
+        <div class="def"><b>ظرفية:</b><div class="ex"><span class="q">« أَيَّ الْأَجَلَيْنِ قَضَى »</span></div></div>
+        <div class="def"><b>نعت:</b><div class="ex"><span class="q">أيّ رجلٍ أكرمتُه؟</span></div></div>
+      </div>
+      <div class="rule mt2">
+        <b>قاعدة:</b> جميع أسماء الاستفهام <b>مبنية</b> ما عدا <b>(أيّ)</b> فهي معربة؛ فتُعرب بحسب موقعها: مبتدأً، أو مفعولاً به، أو خبراً، أو مجرورة…
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. الإعراب التفصيلي ================= -->
+<section class="block" id="s3">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">٣</div>
+      <div>
+        <span class="sec-kicker">التحليل</span>
+        <h2>الإعراب التفصيلي لأسماء الاستفهام</h2>
+        <p>أُقسم أسماء الاستفهام إلى ثلاث مجموعات بحسب ما تدلّ عليه، ولكل مجموعة قواعدها في الإعراب.</p>
+      </div>
+    </div>
+
+    <div class="card rv mb2">
+      <div class="card-h"><div class="ic">◈</div><h3>خريطة التقسيم</h3></div>
+      <div class="tree">
+        <div class="tree-row"><span class="lab">الدالة على الذات</span>
+          <span class="val"><span class="tag">من</span> للمألوف (العاقل) &nbsp;·&nbsp; <span class="tag">ما / ماذا</span> لغير المألوف</span></div>
+        <div class="tree-row"><span class="lab">الدالة على الزمان</span>
+          <span class="val"><span class="tag b">متى</span> ماضياً ومستقبلاً &nbsp;·&nbsp; <span class="tag b">أيان</span> للمستقبل &nbsp;·&nbsp; <span class="tag b">أنى</span> إذا كانت بمعنى متى</span></div>
+        <div class="tree-row"><span class="lab">الدالة على المكان</span>
+          <span class="val"><span class="tag g">أين</span> للمكان &nbsp;·&nbsp; <span class="tag g">أنى</span> إذا كانت بمعنى أين</span></div>
+        <div class="tree-row"><span class="lab">الدالة على الحال</span>
+          <span class="val"><span class="tag r">كيف</span> للحال والهيئة &nbsp;·&nbsp; <span class="tag r">أنى</span> إذا كانت بمعنى كيف</span></div>
+        <div class="tree-row"><span class="lab">الدالة على العدد</span>
+          <span class="val"><span class="tag">كم</span> استفهامية أو خبرية</span></div>
+        <div class="tree-row"><span class="lab">الدالة على التمييز</span>
+          <span class="val"><span class="tag">أيّ</span> للعاقل وغير العاقل، وهي معربة</span></div>
+      </div>
+    </div>
+
+    <!-- GROUP 1 -->
+    <div class="card rv mb2">
+      <div class="card-h"><div class="ic">Ⅰ</div><h3>المجموعة الأولى: (من / ما / ماذا) — الدالة على الذات</h3></div>
+      <p>(من) للمألوف العاقل، و(ما / ماذا) لغير المألوف. وتُعرب هذه الأسماء على النحو الآتي:</p>
+
+      <h4 class="mt2" style="color:var(--jade)">١) في محل رفع مبتدأ</h4>
+      <div class="ok">
+        تُعرب <b>مبتدأً</b> في محل رفع إذا تلاها:
+        <ul class="list mt1">
+          <li><b>اسم معرفة</b> — مَن محمدٌ؟ / ما الكتابُ؟</li>
+          <li><b>فعل لازم تام</b> — مَن حضر؟ (مَن: مبتدأ، والجملة بعده خبر)</li>
+          <li><b>فعل متعدٍّ استوفى مفعوله</b> — مَن قرأ الدرسَ؟</li>
+          <li><b>فعل مبني للمجهول</b> — مَن عُرِف بالكرم؟</li>
+          <li><b>فعل ناقص استوفى خبره</b> — مَن كان مجتهداً؟</li>
+        </ul>
+      </div>
+
+      <h4 class="mt2" style="color:var(--sky)">٢) في محل رفع خبر مقدم</h4>
+      <div class="def">
+        تُعرب <b>خبراً مقدماً</b> إذا تلاها:
+        <ul class="list mt1">
+          <li><b>اسم نكرة</b> — مَن طالبٌ في الصف؟ (طالب: مبتدأ مؤخر)</li>
+          <li><b>شبه جملة</b> — مَن عندك؟ / مَا في يدك؟</li>
+        </ul>
+      </div>
+
+      <h4 class="mt2" style="color:var(--gold)">٣) في محل نصب مفعول به</h4>
+      <div class="rule">
+        تُعرب <b>مفعولاً به</b> إذا تلاها <b>فعل متعدٍّ لم يستوفِ مفعوله</b>:
+        <div class="ex"><span class="q">« مَاذَا قَرَأْتَ ؟ »</span><span class="note">(ماذا) في محل نصب مفعول به مقدم.</span></div>
+        <div class="ex"><span class="q">« مَنْ رَأَيْتَ ؟ »</span><span class="note">(مَن) في محل نصب مفعول به.</span></div>
+      </div>
+
+      <h4 class="mt2" style="color:var(--rose)">٤) في محل نصب خبر مقدم</h4>
+      <div class="warn">
+        إذا سبقها <b>فعل ناقص لم يستوفِ خبره</b>:
+        <div class="ex"><span class="q">« مَنْ كَانَ أَخَاكَ ؟ »</span><span class="note">(مَن) اسم استفهام في محل نصب خبر مقدم لـ(كان).</span></div>
+      </div>
+
+      <div class="divider"></div>
+      <h4 style="color:var(--gold)">تطبيقات محلولة على المجموعة الأولى</h4>
+      <div class="ex"><span class="q">« مَن ذَا الَّذِي يَرْزُقُكُم »</span>
+        <span class="note">(مَن) مبتدأ في محل رفع، و(ذا) خبر، و(الذي) نعت أو بدل.</span></div>
+      <div class="ex"><span class="q">« وَمَا تِلْكَ بِيَمِينِكَ يَا مُوسَى »</span>
+        <span class="note">(ما) مبتدأ في محل رفع، (تلك) اسم إشارة خبر.</span></div>
+      <div class="ex"><span class="q">« قَالَ مَنْ رَبُّكُمَا »</span>
+        <span class="note">(مَن) مبتدأ في محل رفع (تلاها اسم معرفة: ربكما).</span></div>
+      <div class="ex"><span class="q">« فَمَا أَغْنَاهُمْ مَا كَانُوا يَكْسِبُونَ »</span>
+        <span class="note">(ما) الأولى في محل نصب مفعول به مقدم، (ما) الثانية موصولة.</span></div>
+    </div>
+
+    <!-- GROUP 2 -->
+    <div class="card rv mb2">
+      <div class="card-h"><div class="ic">Ⅱ</div><h3>المجموعة الثانية: (متى / أيان / أين / أنى / كيف)</h3></div>
+      <p>هذه الأسماء تدلّ على <b>الزمان</b> أو <b>المكان</b> أو <b>الحال</b>، وتُعرب على النحو الآتي:</p>
+
+      <div class="tbl-wrap mt2">
+        <table>
+          <thead><tr><th>الأداة</th><th>ما تدلّ عليه</th><th>الإعراب</th><th>مثال</th></tr></thead>
+          <tbody>
+            <tr><td><b>متى</b></td><td>الزمان (ماضياً ومستقبلاً)</td><td>ظرف زمان مبني على السكون في محل نصب</td><td>متى سافرتَ؟</td></tr>
+            <tr><td><b>أيان</b></td><td>الزمان المستقبلي</td><td>ظرف زمان مبني على الفتح في محل نصب</td><td>« أَيَّانَ يَوْمُ الْقِيَامَةِ »</td></tr>
+            <tr><td><b>أين</b></td><td>المكان</td><td>ظرف مكان مبني على الفتح في محل نصب</td><td>أين تسكن؟</td></tr>
+            <tr><td><b>أنى</b></td><td>المكان أو الحال</td><td>ظرف مكان/حال مبني على الفتح في محل نصب</td><td>« أَنَّى شَاءَ »</td></tr>
+            <tr><td><b>كيف</b></td><td>الحال والهيئة</td><td>حال مبني على الفتح في محل نصب</td><td>« كَيْفَ تَكْفُرُونَ »</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="mt2" style="color:var(--jade)">القاعدة:</h4>
+      <div class="ok">
+        <ul class="list">
+          <li>تُعرب <b>ظرف زمان أو مكان</b> (في محل نصب) إذا تلاها: فعل تام، أو فعل مبني للمجهول، أو فعل ناقص استوفى خبره.</li>
+          <li>تُعرب <b>في محل نصب خبر مقدم</b> إذا تلاها فعل ناقص <b>لم يستوفِ خبره</b>.</li>
+          <li><b>(كيف)</b> تُعرب <b>حالاً</b> في محل نصب إذا تلاها فعل تام أو مبني للمجهول أو ناقص استوفى خبره، و<b>خبراً مقدماً</b> إذا تلاها ناقص لم يستوفِ خبره.</li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+      <h4 style="color:var(--gold)">تطبيقات محلولة</h4>
+      <div class="ex"><span class="q">« يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ »</span>
+        <span class="note">(أيان) ظرف زمان في محل نصب، و(يوم القيامة) مضاف إليه.</span></div>
+      <div class="ex"><span class="q">« أَيْنَ مَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ »</span>
+        <span class="note">(أين) ظرف مكان في محل نصب، و(ما) زائدة كافّة.</span></div>
+      <div class="ex"><span class="q">« كَيْفَ تَكْفُرُونَ بِاللَّهِ »</span>
+        <span class="note">(كيف) اسم استفهام مبني على الفتح في محل نصب حال.</span></div>
+      <div class="ex"><span class="q">« أَلَمْ تَرَ إِلَى رَبِّكَ كَيْفَ مَدَّ الظِّلَّ »</span>
+        <span class="note">(كيف) في محل نصب حال، والجملة بعدها مفسّرة.</span></div>
+    </div>
+
+    <!-- GROUP 3 -->
+    <div class="card rv">
+      <div class="card-h"><div class="ic">Ⅲ</div><h3>المجموعة الثالثة: (كم / أيّ)</h3></div>
+
+      <h4 style="color:var(--gold)">(أيّ):</h4>
+      <p>اسم استفهام <b>مبني على الضم</b>، ويُعرب بحسب موقعه في الجملة، فهو يُعرب إعراب ما يضاف إليه:</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>الموقع</th><th>الإعراب</th><th>المثال</th></tr></thead>
+          <tbody>
+            <tr><td>مبتدأ</td><td>في محل رفع</td><td>« أَيُّكُمْ أَحْسَنُ عَمَلًا »</td></tr>
+            <tr><td>مفعول به</td><td>في محل نصب</td><td>« فَأَيَّ آيَاتِ اللَّهِ تُنكِرُونَ »</td></tr>
+            <tr><td>مجرور</td><td>بحرف الجر</td><td>« فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ »</td></tr>
+            <tr><td>خبر</td><td>مرفوع</td><td>فأيّ الأمرين أحبُّ إليك؟</td></tr>
+            <tr><td>ظرف</td><td>منصوب على الظرفية</td><td>« أَيَّ الْأَجَلَيْنِ قَضَى »</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="warn mt2">
+        <b>تنبيه:</b> إذا كانت (أيّ) مضافة إلى نكرة كانت نكرة، وإذا أُضيفت إلى معرفة كانت معرفة، وتُعرب بحسب ما تضاف إليه.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. كم ================= -->
+<section class="block" id="s4">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">٤</div>
+      <div>
+        <span class="sec-kicker">العدد</span>
+        <h2>(كم) الاستفهامية والخبرية</h2>
+        <p>(كم) اسم استفهام عن العدد، ويكون تمييزها منصوباً، وأحياناً تأتي خبرية للتكثير — وهذا هو موضع الفرق بينهما.</p>
+      </div>
+    </div>
+
+    <div class="grid g2 mb2">
+      <div class="card rv">
+        <div class="card-h"><div class="ic">؟</div><h3>(كم) الاستفهامية</h3></div>
+        <p>يُطلب بها <b>معرفة العدد المجهول</b>، وهي في محل رفع أو نصب بحسب موقعها.</p>
+        <div class="ex"><span class="q">« كَمْ لَبِثْتَ »</span><span class="note">تقرير بالعدد، والتمييز محذوف تقديره: كم يومًا.</span></div>
+        <div class="rule mt2">
+          <b>أحكام تمييزها:</b>
+          <ul class="list mt1">
+            <li>يكون <b>مفرداً منصوباً</b> ← كم كتاباً قرأت؟</li>
+            <li><b>لا يُجرّ</b> بالإضافة ولا بحرف الجر ← لا يقال: بكم دينارٍ اشتريت الكتاب؟</li>
+            <li><b>لا يُحذف</b> إلا إذا دلّ عليه دليل ← كم كتاباً؟ (فهم: قرأت)</li>
+            <li><b>لا يجوز تقديمه</b> على (كم)؛ لأن لها الصدارة ← كم كتاباً اشتريت.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">∞</div><h3>(كم) الخبرية</h3></div>
+        <p>تدلّ على <b>التكثير</b> (بمعنى: كثيراً)، وليس المراد بها العدد الحقيقي.</p>
+        <div class="ex"><span class="q">« وَكَمْ أَرْسَلْنَا مِن نَّبِيٍّ »</span><span class="note">أي: كثيراً من الأنبياء أرسلنا.</span></div>
+        <div class="ok mt2">
+          <b>أحكام تمييزها:</b>
+          <ul class="list mt1">
+            <li>يكون <b>مجموعاً مجروراً</b> بالإضافة أو بـ(من) ← كم كتابٍ / كم من كتابٍ.</li>
+            <li><b>لا يُفرد</b>؛ لأنّ الكلام مبني على التكثير: كم رجالٍ أحببتُهم.</li>
+            <li><b>لا يُحذف</b>؛ لأن المعنى مبهم يحتاج إلى بيان.</li>
+            <li><b>لا يتقدم</b> على (كم)؛ لأن لها الصدارة.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card rv mb2">
+      <div class="card-h"><div class="ic">✦</div><h3>وجوه (كم) الخبرية</h3></div>
+      <ul class="list">
+        <li><b>التقليل:</b> قد تكون بمعنى (قليل) في سياق خاص: كم عابدٍ خيرٌ من الفاجر — أي: قليل.</li>
+        <li><b>التكثير:</b> وهي الأصل: « كم من فئةٍ قليلةٍ غلبت فئةً كثيرة ».</li>
+        <li><b>التعجب:</b> « كم تركوا من جنّاتٍ وعيون » — تعجب من حالهم.</li>
+      </ul>
+      <div class="warn mt2">
+        <b>تنبيه:</b> (كم) الاستفهامية يُسأل بها عن العدد المُبهم، أما الخبرية فلا يُنتظر لها جواب؛ لأنها لإفادة الكثرة.
+      </div>
+    </div>
+
+    <div class="card rv">
+      <div class="card-h"><div class="ic">⏱</div><h3>الزمان والمكان والحال — تمارين الإعراب</h3></div>
+      <div class="acc"><div class="acc-h">نماذج على (متى) و(أيان) <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <div class="ex"><span class="q">« مَتَىٰ نَصْرُ اللَّهِ »</span><span class="note">(متى) اسم استفهام مبني على السكون في محل نصب ظرف زمان، و(نصر الله) مبتدأ مؤخر.</span></div>
+          <div class="ex"><span class="q">« أَيَّانَ يَوْمُ الْقِيَامَةِ »</span><span class="note">(أيان) مبني على الفتح في محل نصب ظرف زمان.</span></div>
+        </div></div>
+      </div>
+      <div class="acc"><div class="acc-h">نماذج على (أين) و(أنى) <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <div class="ex"><span class="q">« أَيْنَ شَرِبْتَ مِنْهُ »</span><span class="note">(أين) ظرف مكان مبني في محل نصب.</span></div>
+          <div class="ex"><span class="q">« مِنْ أَيْنَ لَكَ هَذَا »</span><span class="note">(أين) مجرور بـ(من) مبنية على الفتح في محل جر.</span></div>
+        </div></div>
+      </div>
+      <div class="acc"><div class="acc-h">نماذج على (كيف) <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <div class="ex"><span class="q">« كَيْفَ تَرَى اللَّهُ يَفْعَلُ »</span><span class="note">(كيف) في محل نصب حال منصوب.</span></div>
+          <div class="ex"><span class="q">« فَكَيْفَ تَصْبِرُونَ »</span><span class="note">(كيف) في محل نصب خبر مقدم للفعل الناقص المقدر.</span></div>
+        </div></div>
+      </div>
+      <p class="muted mt2">💡 للتدريب العملي انتقل إلى <a href="#exams">اختبار «الزمان والمكان والحال»</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. البلاغة ================= -->
+<section class="block" id="s5">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">٥</div>
+      <div>
+        <span class="sec-kicker">البلاغة</span>
+        <h2>الأغراض البلاغية للاستفهام</h2>
+        <p>الاستفهام في القرآن غالباً مجازي؛ يخرج عن طلب المعرفة إلى أغراض بلاغية عميقة. هذه أشهرها وأهمها للامتحان.</p>
+      </div>
+    </div>
+
+    <div class="def rv mb2">
+      <b>القاعدة:</b> إذا خرج الاستفهام عن طلب العلم إلى معنى آخر سُمّي <b>مجازياً</b>، فمنها: التقرير، الإنكار، التعجب، التمني، التسوية، النفي، الأمر، العرض، التحضيض، التوبيخ.
+      <br><em class="muted">والاستفهام المجازي هو الغالب في القرآن الكريم.</em>
+    </div>
+
+    <div class="grid g2">
+      <div class="card rv">
+        <div class="card-h"><div class="ic" style="color:var(--jade);background:rgba(53,208,165,.13);border-color:rgba(53,208,165,.26)">✓</div><h3>التقرير</h3></div>
+        <p>تأكيد المعنى وإثباته في نفس المخاطب. ويكون غالباً بالهمزة الداخلة على النفي.</p>
+        <div class="ayah">﴿ أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ ﴾</div>
+        <div class="ayah">﴿ أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ ﴾</div>
+        <div class="ex"><span class="note">المعنى: قد شرحنا لك صدرك + الله أحكم الحاكمين — تقرير.</span></div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic" style="color:var(--rose);background:rgba(242,103,155,.13);border-color:rgba(242,103,155,.26)">!</div><h3>الإنكار</h3></div>
+        <p>استنكار ما يُذكر، وقد يكون معه توبيخ.</p>
+        <div class="ayah">﴿ أَتَعْبُدُونَ مَا تَنْحِتُونَ ﴾</div>
+        <div class="ayah">﴿ أَفَحُكْمَ الْجَاهِلِيَّةِ يَبْغُونَ ﴾</div>
+        <div class="ex"><span class="note">إنكار عبادة الأصنام التي ينحتونها بأيديهم.</span></div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">✦</div><h3>التعجب</h3></div>
+        <p>إظهار العجب من أمر.</p>
+        <div class="ayah">﴿ أَلَمْ تَرَ إِلَى رَبِّكَ كَيْفَ مَدَّ الظِّلَّ ﴾</div>
+        <div class="ayah">﴿ كَيْفَ تَكْفُرُونَ بِاللَّهِ ﴾</div>
+        <div class="ex"><span class="note">التعجب من قدرة الله تعالى.</span></div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">☾</div><h3>التمني</h3></div>
+        <p>طلب أمر لا يُرجى حصوله أو لا يُمكن.</p>
+        <div class="ayah">﴿ فَهَلْ لَنَا مِن شُفَعَاءَ ﴾</div>
+        <div class="ex"><span class="note">تمنّي وجود شفعاء يشفعون لهم.</span></div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">⇄</div><h3>التسوية</h3></div>
+        <p>بيان استواء أمرين. وتأتي بالهمزة مع (أم).</p>
+        <div class="ayah">﴿ سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ ﴾</div>
+        <div class="ex"><span class="note">تسوية بين الإنذار وعدمه.</span></div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">⊘</div><h3>النفي</h3></div>
+        <p>تأتي (هل) بمعنى (ما) النافية.</p>
+        <div class="ayah">﴿ هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ ﴾</div>
+        <div class="ayah">﴿ فَهَلْ يُهْلَكُ إِلَّا الْقَوْمُ الْفَاسِقُونَ ﴾</div>
+        <div class="ex"><span class="note">المعنى: ما جزاء الإحسان إلا الإحسان.</span></div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">→</div><h3>الأمر</h3></div>
+        <p>الدلالة على الطلب.</p>
+        <div class="ayah">﴿ فَهَلْ أَنتُم مُّنتَهُونَ ﴾</div>
+        <div class="ex"><span class="note">المعنى: انتهوا عن المنكر.</span></div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">❖</div><h3>العرض والتحضيض</h3></div>
+        <p>الهمزة الداخلة على (لا) النافية تفيد العرض والحثّ.</p>
+        <div class="ayah">﴿ أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ ﴾</div>
+        <div class="ayah">﴿ أَلَا تُقَاتِلُونَ قَوْمًا نَكَثُوا أَيْمَانَهُمْ ﴾</div>
+        <div class="ex"><span class="note">الأول عرض، والثاني تحضيض.</span></div>
+      </div>
+    </div>
+
+    <div class="card mt2 rv">
+      <div class="card-h"><div class="ic">表</div><h3>جدول جامع: الأداة ← الغرض</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>الآية</th><th>الأداة</th><th>الغرض البلاغي</th></tr></thead>
+          <tbody>
+            <tr><td>« أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ »</td><td>الهمزة + النفي</td><td>التقرير</td></tr>
+            <tr><td>« أَلَسْتُ بِرَبِّكُمْ »</td><td>الهمزة على (ليس)</td><td>التقرير</td></tr>
+            <tr><td>« أَتَعْبُدُونَ مَا تَنْحِتُونَ »</td><td>الهمزة</td><td>الإنكار والتوبيخ</td></tr>
+            <tr><td>« أَفَحُكْمَ الْجَاهِلِيَّةِ يَبْغُونَ »</td><td>الهمزة</td><td>الإنكار</td></tr>
+            <tr><td>« كَيْفَ تَكْفُرُونَ بِاللَّهِ »</td><td>كيف</td><td>التعجب</td></tr>
+            <tr><td>« فَهَلْ لَنَا مِن شُفَعَاءَ »</td><td>هل</td><td>التمني</td></tr>
+            <tr><td>« سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ »</td><td>الهمزة + أم</td><td>التسوية</td></tr>
+            <tr><td>« هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ »</td><td>هل</td><td>النفي</td></tr>
+            <tr><td>« فَهَلْ أَنتُم مُّنتَهُونَ »</td><td>هل</td><td>الأمر</td></tr>
+            <tr><td>« أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ »</td><td>ألا</td><td>العرض</td></tr>
+            <tr><td>« أَلَا تُقَاتِلُونَ قَوْمًا »</td><td>ألا</td><td>التحضيض</td></tr>
+            <tr><td>« أَيْنَ الْمَفَرُّ »</td><td>أين</td><td>النفي (لا مفرّ)</td></tr>
+            <tr><td>« فَأَيْنَ تَذْهَبُونَ »</td><td>أين</td><td>التعجب والإنكار</td></tr>
+            <tr><td>« عَمَّ يَتَسَاءَلُونَ »</td><td>عن + ما</td><td>التفخيم والتهويل</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. الملخص ================= -->
+<section class="block" id="s6">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">٦</div>
+      <div>
+        <span class="sec-kicker">المراجعة السريعة</span>
+        <h2>الملخص الذهبي</h2>
+        <p>كل ما تحتاجه للمراجعة الأخيرة قبل الامتحان في صفحة واحدة — مقسّم ومكثّف.</p>
+      </div>
+    </div>
+
+    <div class="grid g2 mb2">
+      <div class="card rv">
+        <div class="card-h"><div class="ic">①</div><h3>الفروق الجوهرية</h3></div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>الوجه</th><th>الهمزة</th><th>هل</th></tr></thead>
+            <tbody>
+              <tr><td>المطلوب</td><td>التصديق أو التصور</td><td>التصديق فقط</td></tr>
+              <tr><td>الجملة المنفية</td><td>تدخل عليها</td><td>لا تدخل</td></tr>
+              <tr><td>(أم) المعادلة</td><td>يُعادل بها</td><td>لا يُعادل بها</td></tr>
+              <tr><td>الحذف</td><td>قد تُحذف</td><td>لا تُحذف</td></tr>
+              <tr><td>(بل)</td><td>قد تُستبدل بها</td><td>لا تُستبدل</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">②</div><h3>من / ما</h3></div>
+        <ul class="list">
+          <li><b>مبتدأ</b> ← تلاها اسم معرفة، أو فعل لازم/متعدٍّ استوفى مفعوله.</li>
+          <li><b>خبر مقدم</b> ← تلاها اسم نكرة أو شبه جملة.</li>
+          <li><b>مفعول به</b> ← سبقها فعل متعدٍّ لم يستوفِ مفعوله.</li>
+          <li><b>خبر مقدم (نصب)</b> ← سبقها فعل ناقص لم يستوفِ خبره.</li>
+          <li><b>مجرور</b> ← سبقها حرف جر.</li>
+        </ul>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">③</div><h3>الزمان والمكان والحال</h3></div>
+        <ul class="list">
+          <li><b>متى:</b> السكون — للزمان ماضياً ومستقبلاً.</li>
+          <li><b>أيان:</b> الفتح — للمستقبل خاصة.</li>
+          <li><b>أين:</b> الفتح — للمكان.</li>
+          <li><b>كيف:</b> الفتح — للحال.</li>
+          <li><b>أنى:</b> الفتح — للمكان أو الحال.</li>
+        </ul>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic">④</div><h3>كم</h3></div>
+        <ul class="list">
+          <li><b>استفهامية:</b> تمييزها مفرد منصوب، يُطلب بها العدد.</li>
+          <li><b>خبرية:</b> تمييزها مجموع مجرور، تفيد التكثير.</li>
+          <li>لكلتيهما <b>الصدارة</b> فلا يتقدم عليها شيء.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card rv">
+      <div class="card-h"><div class="ic">⑤</div><h3>مصطلحات لا بدّ منها</h3></div>
+      <div class="grid g3">
+        <div class="def"><b>التصديق:</b> الحكم على مضمون الجملة بالصدق أو الكذب، جوابه نعم/لا.</div>
+        <div class="def"><b>التصوّر:</b> تعيين أحد أمرين، جوابه بالتعيين، ويكون مع (أم).</div>
+        <div class="def"><b>الصدارة:</b> لاسم الاستفهام الصدارة في الكلام، فلا يتقدم عليه ما له الصدارة.</div>
+        <div class="def"><b>المحل الإعرابي:</b> الأسماء المبنية لا تُعرب بالحركات بل «في محل رفع/نصب/جر».</div>
+        <div class="def"><b>المضاف إليه:</b> ما يأتي بعد اسم الاستفهام الظرفي من جملة أو اسم مجرور.</div>
+        <div class="def"><b>التمييز:</b> اسم نكرة يرفع الإبهام عن (كم)، وهو منصوب في الاستفهامية.</div>
+      </div>
+    </div>
+
+    <div class="card mt2 rv">
+      <div class="card-h"><div class="ic">⚡</div><h3>بطاقات المراجعة — اضغط البطاقة لقلبها</h3></div>
+      <div class="fc-wrap" id="fcWrap">
+        <div class="fc"><div class="fc-in"><div class="fc-f">هل تدخل على المنفي؟<small>اضغط للجواب</small></div><div class="fc-b">لا — بخلاف الهمزة التي تدخل على المنفي وغيره.</div></div></div>
+        <div class="fc"><div class="fc-in"><div class="fc-f">علامة بناء (أيان)؟<small>اضغط للجواب</small></div><div class="fc-b">الفتح — وهي للزمان المستقبلي خاصة.</div></div></div>
+        <div class="fc"><div class="fc-in"><div class="fc-f">تمييز كم الخبرية؟<small>اضغط للجواب</small></div><div class="fc-b">مجموع مجرور بالإضافة أو بـ(من)، وتفيد التكثير.</div></div></div>
+        <div class="fc"><div class="fc-in"><div class="fc-f">تمييز كم الاستفهامية؟<small>اضغط للجواب</small></div><div class="fc-b">مفرد منصوب — نحو: كم كتاباً قرأت؟</div></div></div>
+        <div class="fc"><div class="fc-in"><div class="fc-f">ما معنى (أنى)؟<small>اضغط للجواب</small></div><div class="fc-b">تأتي بمعنى (أين) للمكان، وبمعنى (كيف) للحال.</div></div></div>
+        <div class="fc"><div class="fc-in"><div class="fc-f">الاسم الاستفهامي المعرب؟<small>اضغط للجواب</small></div><div class="fc-b">(أيّ) وحدها؛ فكل أسماء الاستفهام مبنية ما عداها.</div></div></div>
+        <div class="fc"><div class="fc-in"><div class="fc-f">«أَلَمْ نَشْرَحْ» غرضها؟<small>اضغط للجواب</small></div><div class="fc-b">التقرير — لأن الهمزة دخلت على جملة منفية.</div></div></div>
+        <div class="fc"><div class="fc-in"><div class="fc-f">«سَوَاءٌ عَلَيْهِمْ» غرضها؟<small>اضغط للجواب</small></div><div class="fc-b">التسوية — بين الإنذار وعدمه.</div></div></div>
+      </div>
+      <div class="mt2"><button class="btn btn-ghost btn-sm" id="fcShuffle">⤨ خلط البطاقات</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. بنك الأسئلة ================= -->
+<section class="block" id="bank">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">٧</div>
+      <div>
+        <span class="sec-kicker">تدريب</span>
+        <h2>بنك الأسئلة التفاعلي</h2>
+        <p>اختر الإجابة وستعرف فوراً إن كنت مصيباً، مع التعليل الكامل. صنّف بحسب المحور أو اعرض الكل.</p>
+      </div>
+    </div>
+    <div class="qb" id="bankChips"></div>
+    <div id="bankList" class="rv"></div>
+  </div>
+</section>
+
+<!-- ================= 8. الفراغات ================= -->
+<section class="block" id="fill">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">٨</div>
+      <div>
+        <span class="sec-kicker">إكمال</span>
+        <h2>أسئلة الفراغات</h2>
+        <p>اقرأ الجملة وحاول معرفة الكلمة الناقصة، ثم اضغط الفراغ لكشف الجواب.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
+      <button class="btn btn-gold btn-sm" data-blank-all="#fillList">إظهار جميع الأجوبة</button>
+      <a class="btn btn-ghost btn-sm" href="#exams">تحدَّ نفسك في امتحان 🎯</a>
+    </div>
+    <div id="fillList" class="rv"></div>
+  </div>
+</section>
+
+<!-- ================= 9. الامتحانات ================= -->
+<section class="block" id="exams">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">٩</div>
+      <div>
+        <span class="sec-kicker">الامتحان</span>
+        <h2>الامتحانات التفاعلية</h2>
+        <p>بعد أن فهمت كل شيء، حان وقت الاختبار. ستة امتحانات بمؤقّت، تصحيح فوري، ومراجعة للأخطاء.</p>
+      </div>
+    </div>
+
+    <div class="grid g3 rv mb3">
+      <div class="card">
+        <div class="card-h"><div class="ic">أ</div><h4>هل والهمزة</h4></div>
+        <p class="muted" style="font-size:14px">الفروق الجوهرية وخصائص كل أداة.</p>
+        <button class="btn btn-gold btn-sm mt2" data-quiz="hasla" style="width:100%;justify-content:center">ابدأ الامتحان</button>
+      </div>
+      <div class="card">
+        <div class="card-h"><div class="ic">م</div><h4>من وما</h4></div>
+        <p class="muted" style="font-size:14px">الإعراب بحسب الموقع في الجملة.</p>
+        <button class="btn btn-gold btn-sm mt2" data-quiz="manma" style="width:100%;justify-content:center">ابدأ الامتحان</button>
+      </div>
+      <div class="card">
+        <div class="card-h"><div class="ic">⏱</div><h4>الزمان والمكان والحال</h4></div>
+        <p class="muted" style="font-size:14px">متى، أيان، أين، أنى، كيف.</p>
+        <button class="btn btn-gold btn-sm mt2" data-quiz="zaman" style="width:100%;justify-content:center">ابدأ الامتحان</button>
+      </div>
+      <div class="card">
+        <div class="card-h"><div class="ic">∞</div><h4>كم وأي</h4></div>
+        <p class="muted" style="font-size:14px">الاستفهامية والخبرية والتمييز.</p>
+        <button class="btn btn-gold btn-sm mt2" data-quiz="kam" style="width:100%;justify-content:center">ابدأ الامتحان</button>
+      </div>
+      <div class="card">
+        <div class="card-h"><div class="ic">✦</div><h4>الأغراض البلاغية</h4></div>
+        <p class="muted" style="font-size:14px">استخراج الغرض من الآيات.</p>
+        <button class="btn btn-gold btn-sm mt2" data-quiz="balagha" style="width:100%;justify-content:center">ابدأ الامتحان</button>
+      </div>
+      <div class="card" style="border-color:rgba(230,182,76,.5);background:linear-gradient(160deg,rgba(230,182,76,.12),rgba(10,16,32,.92))">
+        <div class="card-h"><div class="ic">🏁</div><h4>الامتحان النهائي الشامل</h4></div>
+        <p class="muted" style="font-size:14px">٢٥ سؤالاً من كل المحاور — التحدي الأكبر.</p>
+        <button class="btn btn-gold btn-sm mt2" data-quiz="final" style="width:100%;justify-content:center">ابدأ الامتحان</button>
+      </div>
+    </div>
+
+    <div id="quizHasla" class="rv"></div>
+    <div id="quizManMa" class="mt3 rv"></div>
+    <div id="quizZaman" class="mt3 rv"></div>
+    <div id="quizKam" class="mt3 rv"></div>
+    <div id="quizBalagha" class="mt3 rv"></div>
+    <div id="quizFinal" class="mt3 rv"></div>
+  </div>
+</section>
+
+
+<!-- ================= 9b. لوحة التقدم ================= -->
+<section class="block" id="progress" style="padding-top:0">
+  <div class="wrap">
+    <div class="card rv" style="background:linear-gradient(160deg,rgba(230,182,76,.09),rgba(10,16,32,.92));border-color:rgba(230,182,76,.3)">
+      <div class="card-h"><div class="ic">📊</div><h3>لوحة تقدّمك</h3>
+        <span class="badge gold" style="margin-inline-start:auto">أنجزت <b id="progressDone">0 / 6</b></span>
+      </div>
+      <p class="muted">تُحفظ نتائجك تلقائياً في متصفحك — أفضل نتيجة لكل امتحان.</p>
+      <div class="res-grid" id="progressGrid" style="max-width:none"></div>
+      <button class="btn btn-ghost btn-sm" data-reset-progress>↺ تصفير السجل</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10. البحث ================= -->
+<section class="block" id="search">
+  <div class="wrap" style="max-width:820px">
+    <div class="sec-head rv">
+      <div class="sec-num">١٠</div>
+      <div>
+        <span class="sec-kicker">أداة</span>
+        <h2>ابحث في المنصة</h2>
+        <p>اكتب أي كلمة أو عبارة وستظهر لك مواضعها في كل الأقسام.</p>
+      </div>
+    </div>
+    <div class="card rv">
+      <input id="searchInput" type="search" placeholder="مثال: التقرير، كم الخبرية، أيان، الهمزة…"
+        style="width:100%;padding:16px 20px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);font-size:16px;font-family:inherit;direction:rtl;outline:none">
+      <p class="muted" style="margin-top:8px">اختصار: اضغط <span class="kbd">/</span> في أي مكان للانتقال إلى البحث.</p>
+      <div id="searchResults" class="mt2"><p class="muted">اكتب كلمتين على الأقل للبحث في كل أقسام المنصة…</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 11. الوزاريات ================= -->
+<section class="block" id="wizariyat">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">١١</div>
+      <div>
+        <span class="sec-kicker">أسئلة الوزارية</span>
+        <h2>الأسئلة الوزارية</h2>
+        <p>أسئلة من امتحانات الوزارة سابقة — مع الإجابة والتعليل. هذه الأسئلة مأخوذة من الوزاريات المتكررة.</p>
+      </div>
+    </div>
+    <div class="card rv">
+      <p>بعض هذه الأسئلة مدمج في بنك الأسئلة أعلاه (بعلامة «وزاري»). إليك أهمّها مركزة:</p>
+      <div class="grid g2 mt2">
+        <div class="def">
+          <b>س١:</b> «أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ» ما خصيصة الهمزة؟
+          <div class="ex mt1"><span class="note"><b>ج:</b> دخلت على الجملة المنفية، فأفادت التقرير.</span></div>
+        </div>
+        <div class="def">
+          <b>س٢:</b> «كَمْ لَبِثْتُمْ» ما نوع (كم)؟
+          <div class="ex mt1"><span class="note"><b>ج:</b> استفهامية، تمييزها محذوف تقديره (ساعةً).</span></div>
+        </div>
+        <div class="def">
+          <b>س٣:</b> «فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ» أعرب (أي)؟
+          <div class="ex mt1"><span class="note"><b>ج:</b> اسم استفهام مجرور بالباء وعلامة جره الكسرة، وهو مضاف.</span></div>
+        </div>
+        <div class="def">
+          <b>س٤:</b> «أَيَّانَ يَوْمُ الْقِيَامَةِ» أعرب (أيان)؟
+          <div class="ex mt1"><span class="note"><b>ج:</b> اسم استفهام مبني على الفتح في محل نصب ظرف زمان.</span></div>
+        </div>
+        <div class="def">
+          <b>س٥:</b> لماذا لا يصحّ «هل تذهب أم تجلس»؟
+          <div class="ex mt1"><span class="note"><b>ج:</b> لأن (أم) المعادلة لا تقع إلا بعد همزة الاستفهام.</span></div>
+        </div>
+        <div class="def">
+          <b>س٦:</b> «مَا لَكُمْ لَا تَنطِقُونَ» أعرب (ما)؟
+          <div class="ex mt1"><span class="note"><b>ج:</b> اسم استفهام مبني على السكون في محل رفع مبتدأ، و(لكم) خبر مقدم.</span></div>
+        </div>
+        <div class="def">
+          <b>س٧:</b> ما الفرق بين الاستفهام الحقيقي والمجازي؟
+          <div class="ex mt1"><span class="note"><b>ج:</b> الحقيقي طلب معرفة مجهول، والمجازي خروج إلى أغراض بلاغية.</span></div>
+        </div>
+        <div class="def">
+          <b>س٨:</b> «هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ» ما الغرض؟
+          <div class="ex mt1"><span class="note"><b>ج:</b> النفي؛ أي: ما جزاء الإحسان إلا الإحسان.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 12. الأدوات المفردة — تفصيل كامل ================= -->
+<section class="block" id="tools">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">١٢</div>
+      <div>
+        <span class="sec-kicker">موسوعة الأدوات</span>
+        <h2>كل أداة على حدة — تفصيل كامل</h2>
+        <p>ملف كامل لكل أداة: معناها، خصائصها، ما تُسأل عنه، إعرابها، وأمثلة قرآنية.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" data-open-all="#tools" style="margin-inline-start:auto;flex-shrink:0">فتح الكل</button>
+    </div>
+
+    <div class="acc rv"><div class="acc-h">① <b>الهمزة</b> — أداة التصديق والتصوّر <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def"><b>حكمها:</b> حرف استفهام لا محل له من الإعراب.</div>
+        <h5 class="mt2" style="color:var(--gold)">خصائصها:</h5>
+        <ul class="list">
+          <li>تدخل على <b>الجمل المثبتة والمنفية</b>.</li>
+          <li>يُطلب بها <b>التصديق</b> (جوابه نعم/لا) أو <b>التصوّر</b> (جوابه التعيين).</li>
+          <li>يكون التصوّر معها واجباً إذا وقعت بعدها <b>(أم) المعادلة</b>.</li>
+          <li>قد تُحذف إذا كان في الجواب ما يدلّ عليها: (أنت محمد؟).</li>
+          <li>يجوز الاستغناء عنها بـ<b>(بل)</b>.</li>
+          <li>تكون أصلية وقد تكون <b>زائدة</b> للتقرير.</li>
+        </ul>
+        <h5 class="mt2" style="color:var(--gold)">أمثلة:</h5>
+        <div class="ayah">﴿ وَمَا أَدْرَاكَ مَا الْحَاقَّةُ ﴾</div>
+        <div class="ex"><span class="q">« أَذَهَبْتَ إِلَى الْمَدْرَسَةِ ؟ »</span><span class="note">تصديقي — الجواب: نعم / لا.</span></div>
+        <div class="ex"><span class="q">« أَنَذْهَبُ أَمْ نَجْلِسُ ؟ »</span><span class="note">تصوّري — الجواب بالتعيين.</span></div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">② <b>هل</b> — أداة التصديق فقط <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def"><b>حكمها:</b> حرف استفهام لا محل له من الإعراب، مبني.</div>
+        <h5 class="mt2" style="color:var(--gold)">خصائصها:</h5>
+        <ul class="list">
+          <li>تدخل على <b>الجمل المثبتة</b> فقط، ولا تدخل على المنفية.</li>
+          <li>يُطلب بها <b>التصديق</b> فقط.</li>
+          <li><b>لا</b> يُعادلها بـ(أم)؛ لأن (أم) من خصائص الهمزة.</li>
+          <li>لا تُحذف من الكلام.</li>
+          <li>لا تُستبدل بـ(بل).</li>
+          <li>قد تخرج عن الاستفهام إلى <b>النفي</b> أو <b>الأمر</b> أو <b>التمني</b>.</li>
+        </ul>
+        <div class="warn mt2"><b>تنبيه:</b> قولك «هل لم أكتب» خطأ، والصواب بالهمزة: «أَلَمْ أكتب».</div>
+        <div class="ayah">﴿ هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ ﴾</div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">③ <b>من</b> — للعاقل <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def"><b>مبني على السكون</b> — يُسأل بها عن العاقل، وتُعرب بحسب موقعها.</div>
+        <h5 class="mt2" style="color:var(--gold)">المواقع الإعرابية:</h5>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>الموقع</th><th>الشرط</th><th>المثال</th></tr></thead>
+          <tbody>
+            <tr><td>مبتدأ</td><td>تلاها اسم معرفة</td><td>مَن أخوك؟</td></tr>
+            <tr><td>خبر مقدم</td><td>تلاها نكرة أو شبه جملة</td><td>مَن في الدار؟</td></tr>
+            <tr><td>مفعول به</td><td>سبقها فعل متعدٍّ ناقص المفعول</td><td>مَن رأيت؟</td></tr>
+            <tr><td>مجرور</td><td>سبقها حرف جر</td><td>مِن أين؟ / عند مَن؟</td></tr>
+          </tbody>
+        </table></div>
+        <div class="ayah">﴿ مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا ﴾</div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">④ <b>ما / ماذا</b> — لغير العاقل <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def"><b>مبنية على السكون</b> — لغير العاقل غالباً.</div>
+        <h5 class="mt2" style="color:var(--gold)">تنبيهات:</h5>
+        <ul class="list">
+          <li><b>ماذا</b> = (ما) + (ذا)، و(ذا) تكون اسم إشارة أو موصولاً.</li>
+          <li>قد تُستعمل (ما) للعاقل في مواضع: «فَمَا لَهُمْ لَا يُؤْمِنُونَ».</li>
+          <li>تُعرب (ما) بحسب موقعها: مبتدأ، خبراً، مفعولاً به، أو جرّاً.</li>
+        </ul>
+        <div class="ex"><span class="q">« فَأَيْنَ تَذْهَبُونَ »</span></div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">⑤ <b>متى</b> — للزمان ماضياً ومستقبلاً <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def">اسم استفهام <b>مبني على السكون</b> في محل نصب ظرف زمان.</div>
+        <ul class="list">
+          <li>يُسأل بها عن الزمان <b>الماضي والمستقبل</b>.</li>
+          <li>تُعرب ظرفاً في محل نصب، وما بعدها مضاف إليه.</li>
+          <li>إذا دخل عليها حرف جر صارت مجرورة في محل جرّ.</li>
+        </ul>
+        <div class="ayah">﴿ مَتَىٰ نَصْرُ اللَّهِ ﴾</div>
+        <div class="ayah">﴿ فَآمِنُوا بِاللَّهِ وَرَسُولِهِ وَلَا تَعْجَلُوا ﴾</div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">⑥ <b>أيان</b> — للمستقبل خاصة <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def">اسم استفهام <b>مبني على الفتح</b> في محل نصب ظرف زمان.</div>
+        <ul class="list">
+          <li>تختص بالزمان <b>المستقبلي</b> — وهذا فرقها عن (متى).</li>
+          <li>ما بعدها مضاف إليه: (أيان يوم القيامة).</li>
+        </ul>
+        <div class="ayah">﴿ أَيَّانَ يَوْمُ الْقِيَامَةِ ﴾</div>
+        <div class="ayah">﴿ أَيَّانَ يُبْعَثُونَ ﴾</div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">⑦ <b>أين</b> — للمكان <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def">اسم استفهام <b>مبني على الفتح</b> في محل نصب ظرف مكان.</div>
+        <ul class="list">
+          <li>تُسأل عن المكان: «أين تسكن؟».</li>
+          <li>قد يدخل عليها حرف جر: «من أين؟» / «إلى أين؟».</li>
+          <li>قد تكون <b>شرطية</b>: (أينما تكونوا).</li>
+        </ul>
+        <div class="ayah">﴿ أَيْنَ مَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ ﴾</div>
+        <div class="ayah">﴿ أَيْنَ الْمَفَرُّ ﴾</div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">⑧ <b>أنى</b> — للمكان أو الحال <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def">اسم استفهام <b>مبني على الفتح</b>.</div>
+        <ul class="list">
+          <li>تأتي بمعنى <b>(أين)</b> للمكان: «أنّى لك هذا؟».</li>
+          <li>تأتي بمعنى <b>(كيف)</b> للحال: «أنّى شئتَ».</li>
+          <li>قد تأتي بمعنى <b>(متى)</b> في بعض الاستعمال.</li>
+        </ul>
+        <div class="ayah">﴿ أَنَّى شَاءَ اللَّهُ ﴾</div>
+        <div class="ayah">﴿ أَنَّى يُحْيِي الْأَرْضَ بَعْدَ مَوْتِهَا ﴾</div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">⑨ <b>كيف</b> — للحال والهيئة <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def">اسم استفهام <b>مبني على الفتح</b> في محل نصب حال.</div>
+        <ul class="list">
+          <li>يُسأل بها عن <b>الحال والهيئة</b>.</li>
+          <li>تُعرب حالاً في محل نصب، أو خبراً مقدماً للفعل الناقص.</li>
+          <li>قد تخرج إلى <b>التعجب</b> أو <b>الإنكار</b>.</li>
+        </ul>
+        <div class="ayah">﴿ كَيْفَ تَكْفُرُونَ بِاللَّهِ ﴾</div>
+        <div class="ayah">﴿ كَيْفَ تَرَى اللَّهُ يَفْعَلُ ﴾</div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">⑩ <b>كم</b> — للعدد <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def">اسم استفهام عن العدد — استفهامية أو خبرية.</div>
+        <ul class="list">
+          <li><b>الاستفهامية:</b> تمييزها مفرد منصوب، ويُطلب بها العدد المجهول.</li>
+          <li><b>الخبرية:</b> تمييزها مجموع مجرور، وتفيد التكثير.</li>
+          <li>لها <b>الصدارة</b>: لا يتقدم عليها شيء.</li>
+        </ul>
+        <div class="ayah">﴿ كَمْ لَبِثْتَ ﴾</div>
+        <div class="ayah">﴿ كَمْ مِن فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً ﴾</div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">⑪ <b>أيّ</b> — للتمييز بين أمرين <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="def">اسم استفهام <b>مبني على الضم</b>، ويُعرب بحسب موقعه.</div>
+        <ul class="list">
+          <li>يُطلب به <b>تعيين أحد الأمرين</b>.</li>
+          <li>يكون للعاقل وغير العاقل.</li>
+          <li>إذا أُضيف إلى نكرة كان نكرة، وإلى معرفة كان معرفة.</li>
+        </ul>
+        <div class="ayah">﴿ أَيُّكُمْ أَحْسَنُ عَمَلًا ﴾</div>
+        <div class="ayah">﴿ فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ ﴾</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 13. أسئلة اختيار من متعدد — أرشيف وزاري ================= -->
+<section class="block" id="ministry">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">١٣</div>
+      <div>
+        <span class="sec-kicker">أرشيف</span>
+        <h2>الأسئلة الوزارية للسنوات</h2>
+        <p>أسئلة امتحانات الوزارة موزّعة على السنوات — مع الإجابة والتعليل.</p>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card rv"><div class="card-h"><div class="ic">٢٠٢٣</div><h4>دور أول ٢٠٢٣</h4></div>
+        <div class="warn"><b>س:</b> «أَلَمْ تَرَ إِلَى رَبِّكَ كَيْفَ مَدَّ الظِّلَّ» ما الغرض البلاغي للاستفهام؟
+          <br><b class="hl-g">ج:</b> التعجب من قدرة الله، والهمزة دخلت على المنفي فأفادت التقرير والتعجب.</div>
+        <div class="warn mt1"><b>س:</b> أعرب (كيف) في الآية.
+          <br><b class="hl-g">ج:</b> اسم استفهام مبني على الفتح في محل نصب حال.</div>
+      </div>
+      <div class="card rv"><div class="card-h"><div class="ic">٢٠٢٢</div><h4>دور ثاني ٢٠٢٢</h4></div>
+        <div class="warn"><b>س:</b> «كَمْ لَبِثْتُمْ فِي الْأَرْضِ» ما نوع (كم)؟
+          <br><b class="hl-g">ج:</b> استفهامية، وهي في محل نصب ظرف زمان، والتمييز محذوف تقديره (ساعةً).</div>
+        <div class="warn mt1"><b>س:</b> ما الفرق بين (متى) و(أيان)؟
+          <br><b class="hl-g">ج:</b> (متى) للزمان الماضي والمستقبل، و(أيان) للمستقبل خاصة.</div>
+      </div>
+      <div class="card rv"><div class="card-h"><div class="ic">٢٠٢١</div><h4>٢٠٢١</h4></div>
+        <div class="warn"><b>س:</b> «فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ» أعرب (أي)؟
+          <br><b class="hl-g">ج:</b> اسم استفهام مجرور بالباء وعلامة جرّه الكسرة، وهو مضاف.</div>
+        <div class="warn mt1"><b>س:</b> «أَلَسْتُ بِرَبِّكُمْ» ما خصيصة الهمزة؟
+          <br><b class="hl-g">ج:</b> دخلت على جملة منفية بـ(ليس) فأفادت التقرير.</div>
+      </div>
+      <div class="card rv"><div class="card-h"><div class="ic">٢٠٢٠</div><h4>٢٠٢٠</h4></div>
+        <div class="warn"><b>س:</b> «مَا لَكُمْ لَا تَنطِقُونَ» أعرب (ما)؟
+          <br><b class="hl-g">ج:</b> اسم استفهام مبني على السكون في محل رفع مبتدأ، و(لكم) خبر مقدم.</div>
+        <div class="warn mt1"><b>س:</b> «هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ» ما معنى (هل)؟
+          <br><b class="hl-g">ج:</b> بمعنى (ما) النافية؛ أي: ما جزاء الإحسان إلا الإحسان.</div>
+      </div>
+    </div>
+
+    <div class="card mt2 rv">
+      <div class="card-h"><div class="ic">★</div><h3>أسئلة استخراج الغرض — الأكثر تكراراً</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>الآية</th><th>الغرض</th><th>التعليل المختصر</th></tr></thead>
+          <tbody>
+            <tr><td>« أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ »</td><td>التقرير</td><td>الهمزة على منفي = تقرير</td></tr>
+            <tr><td>« أَتَعْبُدُونَ مَا تَنْحِتُونَ »</td><td>الإنكار</td><td>استنكار فعلهم</td></tr>
+            <tr><td>« فَهَلْ أَنتُم مُّنتَهُونَ »</td><td>الأمر</td><td>بمعنى: انتهوا</td></tr>
+            <tr><td>« أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ »</td><td>العرض</td><td>ألا + مضارع = عرض</td></tr>
+            <tr><td>« أَلَا تُقَاتِلُونَ قَوْمًا »</td><td>التحضيض</td><td>ألا + مضارع = حثّ</td></tr>
+            <tr><td>« سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ »</td><td>التسوية</td><td>همزة + أم = تسوية</td></tr>
+            <tr><td>« فَهَلْ لَنَا مِن شُفَعَاءَ »</td><td>التمني</td><td>طلب ما لا يُرجى</td></tr>
+            <tr><td>« مَا لَكُمْ لَا تُؤْمِنُونَ »</td><td>التوبيخ</td><td>إنكار حالهم</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= 14. الأخطاء الشائعة ================= -->
+<section class="block" id="mistakes">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">١٤</div>
+      <div>
+        <span class="sec-kicker">حذارِ</span>
+        <h2>الأخطاء الشائعة</h2>
+        <p>أكثر ما يُخطئ فيه الطلبة في هذا الموضوع — مع التصحيح والتعليل.</p>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card rv">
+        <div class="card-h"><div class="ic" style="color:var(--rose)">✕</div><h3>أخطاء الإعراب</h3></div>
+        <div class="warn">
+          <b>الخطأ:</b> «مَن» في «مَن عندك؟» مبتدأ.<br>
+          <b class="hl-g">الصواب:</b> خبر مقدم؛ لأن ما بعدها شبه جملة، و(عندك) هو المبتدأ المؤخر.
+        </div>
+        <div class="warn mt1">
+          <b>الخطأ:</b> «ما» في «ماذا قرأت؟» مبتدأ.<br>
+          <b class="hl-g">الصواب:</b> مفعول به؛ لأن الفعل متعدٍّ لم يستوفِ مفعوله.
+        </div>
+        <div class="warn mt1">
+          <b>الخطأ:</b> إعراب (هل) اسماً.<br>
+          <b class="hl-g">الصواب:</b> (هل) حرف استفهام لا محل له من الإعراب.
+        </div>
+        <div class="warn mt1">
+          <b>الخطأ:</b> «أين» مبتدأ دائماً.<br>
+          <b class="hl-g">الصواب:</b> ظرف مكان في محل نصب، إلا إذا دخل عليها حرف جر.
+        </div>
+      </div>
+
+      <div class="card rv">
+        <div class="card-h"><div class="ic" style="color:var(--rose)">✕</div><h3>أخطاء القواعد</h3></div>
+        <div class="warn">
+          <b>الخطأ:</b> «هل تذهب أم تجلس؟»<br>
+          <b class="hl-g">الصواب:</b> «أَتذهب أم تجلس؟»؛ لأن (أم) المعادلة لا تقع بعد (هل).
+        </div>
+        <div class="warn mt1">
+          <b>الخطأ:</b> «هل لم أكتب؟»<br>
+          <b class="hl-g">الصواب:</b> «أَلَمْ أكتب؟»؛ لأن (هل) لا تدخل على المنفي.
+        </div>
+        <div class="warn mt1">
+          <b>الخطأ:</b> «بكم دينارٍ اشتريت الكتاب؟»<br>
+          <b class="hl-g">الصواب:</b> «كم ديناراً…»؛ لأن تمييز كم الاستفهامية منصوب مفرد.
+        </div>
+        <div class="warn mt1">
+          <b>الخطأ:</b> «كم كتاباً أحببتُهم» للخبرية.<br>
+          <b class="hl-g">الصواب:</b> «كم كتابٍ أحببتُهم»؛ لأن تمييز الخبرية مجموع مجرور.
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt2 rv">
+      <div class="card-h"><div class="ic">⇄</div><h3>الفروق التي تُنسى</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>الوجه</th><th>الأول</th><th>الثاني</th><th>الضابط</th></tr></thead>
+          <tbody>
+            <tr><td>متى / أيان</td><td>متى: ماضياً ومستقبلاً</td><td>أيان: المستقبل فقط</td><td>أيان للمستقبل خاصة</td></tr>
+            <tr><td>من / ما</td><td>من: العاقل</td><td>ما: غير العاقل</td><td>بحسب نوع المسؤول عنه</td></tr>
+            <tr><td>كم استفهامية / خبرية</td><td>تمييزها منصوب مفرد</td><td>تمييزها مجرور مجموع</td><td>الأولى يُطلب بها العدد</td></tr>
+            <tr><td>أين / أنى</td><td>أين: المكان</td><td>أنى: المكان أو الحال</td><td>أنى تُحتمل الوجهين</td></tr>
+            <tr><td>التصديق / التصوّر</td><td>التصديق: نعم/لا</td><td>التصوّر: بالتعيين</td><td>التصوّر مع (أم)</td></tr>
+            <tr><td>حقيقي / مجازي</td><td>الحقيقي: طلب معرفة</td><td>المجازي: غرض بلاغي</td><td>المجازي هو الغالب في القرآن</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 15. دليل الدراسة ================= -->
+<section class="block" id="guide">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">١٥</div>
+      <div>
+        <span class="sec-kicker">خطة</span>
+        <h2>دليل الدراسة — خطوة بخطوة</h2>
+        <p>خطة مراجعة منظمة لأسبوع كامل قبل الامتحان الوزاري.</p>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card rv">
+        <div class="card-h"><div class="ic">١</div><h3>اليوم الأول — الأساس</h3></div>
+        <ul class="list">
+          <li>اقرأ قسم <a href="#s1">المفاهيم الأساسية</a>.</li>
+          <li>احفظ تعريف الاستفهام الحقيقي والمجازي.</li>
+          <li>راجع جدول خصائص الأدوات.</li>
+          <li>ادخل امتحان <a href="#exams">هل والهمزة</a>.</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <div class="card-h"><div class="ic">٢</div><h3>اليوم الثاني — الأدوات</h3></div>
+        <ul class="list">
+          <li>اقرأ <a href="#tools">موسوعة الأدوات</a> — من وما.</li>
+          <li>طبّق قواعد الإعراب على أمثلة.</li>
+          <li>ادخل امتحان <a href="#exams">من وما</a>.</li>
+          <li>راجع الأخطاء من صفحة النتيجة.</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <div class="card-h"><div class="ic">٣</div><h3>اليوم الثالث — الإعراب</h3></div>
+        <ul class="list">
+          <li>ادرس <a href="#s3">الإعراب التفصيلي</a> للمجموعات الثلاث.</li>
+          <li>احفظ الجدول الذهبي: (من/ما) بحسب الموقع.</li>
+          <li>ادخل امتحان <a href="#exams">الزمان والمكان والحال</a>.</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <div class="card-h"><div class="ic">٤</div><h3>اليوم الرابع — كم وأي</h3></div>
+        <ul class="list">
+          <li>ادرس <a href="#s4">كم الاستفهامية والخبرية</a>.</li>
+          <li>ميّز بين التمييزين: منصوب مفرد / مجرور مجموع.</li>
+          <li>ادخل امتحان <a href="#exams">كم وأي</a>.</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <div class="card-h"><div class="ic">٥</div><h3>اليوم الخامس — البلاغة</h3></div>
+        <ul class="list">
+          <li>ادرس <a href="#s5">الأغراض البلاغية</a>.</li>
+          <li>احفظ الآية ← الغرض من الجدول الجامع.</li>
+          <li>ادخل امتحان <a href="#exams">الأغراض البلاغية</a>.</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <div class="card-h"><div class="ic">٦</div><h3>اليوم السادس — التثبيت</h3></div>
+        <ul class="list">
+          <li>راجع <a href="#s6">الملخص الذهبي</a> والبطاقات.</li>
+          <li>حلّ <a href="#fill">٥٢ فراغاً</a> كاملة.</li>
+          <li>راجع <a href="#mistakes">الأخطاء الشائعة</a>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mt2 rv" style="border-color:rgba(230,182,76,.45);background:linear-gradient(160deg,rgba(230,182,76,.1),rgba(10,16,32,.92))">
+      <div class="card-h"><div class="ic">🏁</div><h3>اليوم السابع — الامتحان النهائي</h3></div>
+      <p>ادخل <b>الامتحان النهائي الشامل</b> (٢٥ سؤالاً). إذا حصلت على ٨٠٪ أو أكثر فأنت جاهز للوزاري بإذن الله.</p>
+      <a href="#exams" class="btn btn-gold btn-sm mt1" data-scroll="#quizFinal">ابدأ الامتحان النهائي 🎯</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= 16. ورشة الإعراب ================= -->
+<section class="block" id="workshop">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">١٦</div>
+      <div>
+        <span class="sec-kicker">تطبيق</span>
+        <h2>ورشة الإعراب — نماذج معربة بالكامل</h2>
+        <p>نماذج معربة إعراباً كاملاً. اقرأ الجملة، أعرب ذهنياً، ثم افتح الإعراب للتأكد.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" data-open-all="#workshop" style="margin-inline-start:auto;flex-shrink:0">فتح الكل</button>
+    </div>
+
+    <div class="q mb2 rv" style="border-color:rgba(230,182,76,.28)">
+      <p style="margin:0"><b>طريقة التدريب:</b> اقرأ الجملة، أعرب اسم الاستفهام ذهنياً، ثم اضغط «اعرض الإعراب» للتأكد. أعد التدريب حتى تصل إلى الإعراب الصحيح دون نظر.</p>
+    </div>
+
+    <h3 class="rv" style="color:var(--gold);margin-bottom:14px">أ · نماذج على (من) و(ما)</h3>
+    <div class="grid g2">
+      <div class="acc rv"><div class="acc-h">« مَن ذَا الَّذِي يَشْفَعُ عِندَهُ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>مَن:</b> اسم استفهام مبني على السكون في محل رفع مبتدأ.</li>
+            <li><b>ذا:</b> اسم إشارة مبني في محل رفع خبر.</li>
+            <li><b>الذي:</b> اسم موصول في محل رفع نعت أو بدل.</li>
+            <li><b>يشفع:</b> فعل مضارع مرفوع، والفاعل مستتر تقديره (هو).</li>
+            <li><b>عنده:</b> ظرف مكان منصوب، والهاء مضاف إليه.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>ما:</b> اسم استفهام مبني على السكون في محل رفع مبتدأ.</li>
+            <li><b>لكم:</b> جار ومجرور خبر مقدم.</li>
+            <li><b>من:</b> حرف جر زائد.</li>
+            <li><b>إله:</b> اسم مجرور لفظاً مرفوع محلاً مبتدأ مؤخر.</li>
+            <li><b>غيره:</b> نعت مرفوع، والهاء مضاف إليه.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« مَاذَا قَرَأْتَ ؟ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>ماذا:</b> (ما) اسم استفهام مبني على السكون في محل نصب مفعول به مقدم، و(ذا) زائدة أو اسم موصول.</li>
+            <li><b>قرأت:</b> فعل ماضٍ مبني على السكون لاتصاله بتاء الفاعل، والتاء ضمير متصل في محل رفع فاعل.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>ما:</b> اسم استفهام مبني في محل رفع مبتدأ.</li>
+            <li><b>ذا:</b> اسم إشارة في محل رفع خبر.</li>
+            <li><b>بعد:</b> ظرف زمان منصوب، وهو مضاف.</li>
+            <li><b>الحق:</b> مضاف إليه مجرور.</li>
+            <li><b>إلا:</b> حرف استثناء.</li>
+            <li><b>الضلال:</b> بدل مرفوع أو خبر ثانٍ.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« مَا لَكُمْ لَا تَنطِقُونَ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>ما:</b> اسم استفهام مبني في محل رفع مبتدأ.</li>
+            <li><b>لكم:</b> جار ومجرور خبر مقدم.</li>
+            <li><b>لا:</b> حرف نفي.</li>
+            <li><b>تنطقون:</b> فعل مضارع مرفوع بثبوت النون، والواو فاعل، والجملة في محل نصب حال.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« قَالَ مَنْ رَبُّكُمَا يَا مُوسَى » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>قال:</b> فعل ماضٍ مبني على الفتح، والفاعل مستتر.</li>
+            <li><b>من:</b> اسم استفهام مبني في محل رفع مبتدأ (تلاها اسم معرفة).</li>
+            <li><b>ربكما:</b> خبر مرفوع بالضم، وهو مضاف و(كما) مضاف إليه.</li>
+            <li><b>يا:</b> حرف نداء. <b>موسى:</b> منادى مبني على الضم في محل نصب.</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+
+    <h3 class="rv mt3" style="color:var(--jade);margin-bottom:14px">ب · نماذج على الزمان والمكان والحال</h3>
+    <div class="grid g2">
+      <div class="acc rv"><div class="acc-h">« يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>يسأل:</b> فعل مضارع مرفوع، والفاعل مستتر.</li>
+            <li><b>أيان:</b> اسم استفهام مبني على الفتح في محل نصب ظرف زمان.</li>
+            <li><b>يوم:</b> مضاف إليه مجرور (أو فاعل مرفوع إذا أُعرب (أيان) مبتدأ).</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« أَيْنَ مَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>أين:</b> اسم استفهام (شرطي) مبني على الفتح في محل نصب ظرف مكان.</li>
+            <li><b>ما:</b> زائدة كافّة.</li>
+            <li><b>تكونوا:</b> فعل مضارع مجزوم بحذف النون، والواو فاعل.</li>
+            <li><b>يدركْكم:</b> فعل مضارع مجزوم جواباً، و(كم) مفعول به.</li>
+            <li><b>الموت:</b> فاعل مرفوع.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« كَيْفَ تَكْفُرُونَ بِاللَّهِ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>كيف:</b> اسم استفهام مبني على الفتح في محل نصب حال.</li>
+            <li><b>تكفرون:</b> فعل مضارع مرفوع، والواو فاعل.</li>
+            <li><b>بالله:</b> جار ومجرور.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« مِنْ أَيْنَ لَكَ هَذَا » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>من:</b> حرف جر.</li>
+            <li><b>أين:</b> اسم استفهام مبني على الفتح في محل جرّ.</li>
+            <li><b>لك:</b> جار ومجرور خبر مقدم.</li>
+            <li><b>هذا:</b> اسم إشارة مبتدأ مؤخر.</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+
+    <h3 class="rv mt3" style="color:var(--sky);margin-bottom:14px">ج · نماذج على (كم) و(أي)</h3>
+    <div class="grid g2">
+      <div class="acc rv"><div class="acc-h">« كَمْ لَبِثْتُمْ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>كم:</b> اسم استفهام مبني على السكون في محل نصب ظرف زمان.</li>
+            <li><b>لبثتم:</b> فعل ماضٍ والتاء فاعل.</li>
+            <li><b>التمييز:</b> محذوف تقديره (ساعةً أو يوماً).</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« وَكَمْ أَرْسَلْنَا مِن نَّبِيٍّ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>كم:</b> خبرية للتكثير، في محل نصب مفعول به مقدم.</li>
+            <li><b>أرسلنا:</b> فعل ماضٍ و(نا) فاعل.</li>
+            <li><b>من:</b> حرف جر زائد. <b>نبي:</b> تمييز مجرور لفظاً منصوب محلاً.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« أَيُّكُمْ أَحْسَنُ عَمَلًا » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>أيّ:</b> اسم استفهام مبني على الضم في محل رفع مبتدأ، وهو مضاف.</li>
+            <li><b>كم:</b> مضاف إليه مبني على السكون في محل جر.</li>
+            <li><b>أحسن:</b> خبر مرفوع، وهو مضاف.</li>
+            <li><b>عملًا:</b> مضاف إليه مجرور (أو تمييز منصوب).</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc rv"><div class="acc-h">« فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ » <span class="chev">▾</span></div>
+        <div class="acc-b"><div class="acc-b-in">
+          <ul class="list">
+            <li><b>الباء:</b> حرف جر. <b>أيّ:</b> اسم استفهام مبني على الضم في محل جر، وهو مضاف.</li>
+            <li><b>حديث:</b> مضاف إليه مجرور.</li>
+            <li><b>بعده:</b> ظرف زمان منصوب، والهاء مضاف إليه.</li>
+            <li><b>يؤمنون:</b> فعل مضارع مرفوع، والواو فاعل.</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="card mt3 rv">
+      <div class="card-h"><div class="ic">★</div><h3>قائمة تحقق قبل الإجابة</h3></div>
+      <ul class="list num">
+        <li>هل الأداة <b>حرف</b> (الهمزة، هل) أم <b>اسم</b>؟ الحرف لا محل له من الإعراب.</li>
+        <li>هل الاسم <b>مبني</b> أم <b>معرب</b>؟ الجميع مبني إلا (أيّ).</li>
+        <li>ما هو <b>موقعها</b>؟ مبتدأ / خبر / مفعول به / ظرف / حال / مجرور.</li>
+        <li>هل قبلها <b>حرف جر</b>؟ إذاً فهي في محل جرّ.</li>
+        <li>هل قبلها <b>فعل متعدٍّ ناقص المفعول</b>؟ إذاً مفعول به.</li>
+        <li>هل هي <b>(كم)</b>؟ حدِّد استفهامية أم خبرية، ثم أعرب التمييز.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= 17. ورقة امتحان وزاري ================= -->
+<section class="block" id="mock">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">١٧</div>
+      <div>
+        <span class="sec-kicker">محاكاة</span>
+        <h2>ورقة امتحان وزاري — أسئلة مقالية</h2>
+        <p>أسئلة بجُمَل كاملة كما تأتي في الامتحان الوزاري. حاول الحل على ورقة، ثم افتح «الجواب النموذجي».</p>
+      </div>
+    </div>
+
+    <div class="card rv mb2" style="border-color:rgba(230,182,76,.32)">
+      <div class="card-h"><div class="ic">📄</div><h3>ملاحظات قبل الحل</h3></div>
+      <ul class="list">
+        <li>اكتب الإعراب كاملاً: <b>اسم استفهام + نوعه + بناؤه + موقعه</b>.</li>
+        <li>في الغرض البلاغي: اذكر <b>الغرض + السبب</b>.</li>
+        <li>في الفروق: استخدم <b>جدولاً</b> أو نقاطاً واضحة.</li>
+        <li>راجع إجابتك على «قائمة التحقق» في <a href="#workshop">ورشة الإعراب</a>.</li>
+      </ul>
+    </div>
+
+    <div class="acc rv"><div class="acc-h">س١ · ما الفرق بين (هل) والهمزة؟ اذكر أربعة فروق. <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>الوجه</th><th>الهمزة</th><th>هل</th></tr></thead>
+          <tbody>
+            <tr><td>ما يُطلب به</td><td>التصديق والتصوّر</td><td>التصديق فقط</td></tr>
+            <tr><td>الجملة المنفية</td><td>تدخل عليها</td><td>لا تدخل عليها</td></tr>
+            <tr><td>(أم) المعادلة</td><td>يُعادل بها</td><td>لا يُعادل بها</td></tr>
+            <tr><td>الحذف والاستبدال</td><td>قد تُحذف وتُستبدل بـ(بل)</td><td>لا تُحذف ولا تُستبدل</td></tr>
+          </tbody>
+        </table></div>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س٢ · أعرب ما تحته خط: «مَن ذَا الَّذِي يَشْفَعُ عِندَهُ» <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <b>(مَن):</b> اسم استفهام مبني على السكون في محل رفع مبتدأ.
+        <br><b>(ذا):</b> اسم إشارة مبني على السكون في محل رفع خبر.
+        <br><b>(الذي):</b> اسم موصول مبني في محل رفع نعت أو بدل.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س٣ · ما الغرض البلاغي في: «أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ»؟ ولماذا؟ <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <b>الغرض:</b> التقرير.
+        <br><b>السبب:</b> لأن الهمزة دخلت على جملة منفية بـ(لم)، فيكون المعنى: قد شرحنا لك صدرك — تقريراً وتأكيداً لا استفهاماً حقيقياً.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س٤ · ميّز بين (كم) الاستفهامية والخبرية في التمييز والحكم. <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <b>الاستفهامية:</b> تمييزها مفرد منصوب، ولا يُجرّ ولا يُحذف إلا بدليل، ويُطلب بها العدد.
+        <br><b>الخبرية:</b> تمييزها مجموع مجرور بالإضافة أو بـ(من)، وتفيد التكثير، ولا يُنتظر لها جواب.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س٥ · أعرب (أيان) في: «يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ» <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <b>(أيان):</b> اسم استفهام مبني على الفتح في محل نصب ظرف زمان، وهو مختص بالزمان المستقبلي، و(يوم القيامة) مضاف إليه.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س٦ · استخرج أداة الاستفهام وبيّن نوعها في: «كَيْفَ تَكْفُرُونَ بِاللَّهِ» <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <b>الأداة:</b> (كيف).
+        <br><b>نوعها:</b> اسم استفهام مبني على الفتح في محل نصب حال.
+        <br><b>الغرض:</b> التعجب من كفرهم.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س٧ · لماذا لا يصح: «هل تذهبُ أم تجلسُ»؟ <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        لأن (أم) المعادلة من خصائص الهمزة، ولا تقع بعد (هل)؛ فالصواب: «أَتذهبُ أم تجلسُ؟»، وهو استفهام تصوّري.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س٨ · ما الغرض البلاغي في «فَهَلْ لَنَا مِن شُفَعَاءَ»؟ <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <b>الغرض:</b> التمني.
+        <br><b>السبب:</b> لأنهم يطلبون ما لا يُرجى حصوله (شفعاء يشفعون لهم)، فخرج الاستفهام عن حقيقته إلى التمني.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س٩ · أعرب (أيّ) في: «فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ» <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <b>(أيّ):</b> اسم استفهام مبني على الضم في محل جرّ بحرف الجر (الباء)، وهو مضاف، و(حديث) مضاف إليه مجرور.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س١٠ · ما الفرق بين الاستفهام الحقيقي والمجازي؟ مثّل لكل منهما. <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <b>الحقيقي:</b> طلب معرفة شيء مجهول لم يعرفه السائل، ويُنتظر له جواب. مثال: أين تسكن؟
+        <br><b>المجازي:</b> خروج الاستفهام عن معناه الأصلي إلى غرض بلاغي (إنكار، تقرير، تعجب…). مثال: «أَتَعْبُدُونَ مَا تَنْحِتُونَ» للإنكار.
+        <br><b>ملاحظة:</b> المجازي هو الغالب في القرآن الكريم.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س١١ · اذكر ثلاثة مواضع يُعرب فيها اسم الاستفهام مفعولاً به. <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        يُعرب مفعولاً به إذا سبقه:
+        <ul class="list mt1">
+          <li>فعل متعدٍّ لم يستوفِ مفعوله: «ماذا قرأت؟».</li>
+          <li>فعل متعدٍّ لمفعولين واستوفى الأول: «ماذا أعطيتَ زيداً؟».</li>
+          <li>فعل مبني للمجهول متعدٍّ: «ماذا كُتب؟».</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س١٢ · ما أنواع (ما) الاستفهامية من حيث الإعراب؟ <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        تُعرب بحسب موقعها في الجملة:
+        <ul class="list mt1">
+          <li><b>مبتدأ</b> في محل رفع: إذا تلاها اسم معرفة أو جملة استوفت أركانها.</li>
+          <li><b>خبراً مقدماً</b> في محل رفع: إذا تلاها اسم نكرة أو شبه جملة.</li>
+          <li><b>مفعولاً به</b> في محل نصب: إذا سبقها فعل متعدٍّ لم يستوفِ مفعوله.</li>
+          <li><b>مجرورة</b>: إذا سبقها حرف جر.</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س١٣ · بيّن خصائص (أم) المعادلة وعلاقتها بالاستفهام. <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        (أم) المعادلة تختص بالهمزة دون (هل)، وتجعل الاستفهام <b>تصوّرياً</b> وجوباً؛ لأنها تطلب تعيين أحد الأمرين: «أَتذهبُ أم تجلسُ؟».
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س١٤ · أعرب: «مَا لَكُمْ لَا تَنطِقُونَ» <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <b>(ما):</b> اسم استفهام مبني على السكون في محل رفع مبتدأ.
+        <br><b>(لكم):</b> جار ومجرور خبر مقدم.
+        <br><b>(لا):</b> حرف نفي.
+        <br><b>(تنطقون):</b> فعل مضارع مرفوع بثبات النون، والواو فاعل، والجملة في محل نصب حال.
+      </div></div>
+    </div>
+
+    <div class="acc"><div class="acc-h">س١٥ · استخرج ثلاثة أغراض بلاغية للاستفهام مع التمثيل. <span class="chev">▾</span></div>
+      <div class="acc-b"><div class="acc-b-in">
+        <ul class="list">
+          <li><b>التقرير:</b> «أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ».</li>
+          <li><b>الإنكار:</b> «أَتَعْبُدُونَ مَا تَنْحِتُونَ».</li>
+          <li><b>التمني:</b> «فَهَلْ لَنَا مِن شُفَعَاءَ».</li>
+          <li><b>التسوية:</b> «سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ».</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="card mt3 rv center">
+      <h3 style="margin-bottom:10px">جاهز للامتحان؟</h3>
+      <p class="muted">اختبر نفسك الآن في الامتحان النهائي الشامل — ٢٥ سؤالاً بمؤقّت.</p>
+      <a href="#exams" class="btn btn-gold mt2" data-scroll="#quizFinal">ابدأ الامتحان النهائي 🎯</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="fbrand">
+    <div class="brand-mark">؟</div>
+    <div class="brand-txt" style="text-align:right"><b>أسلوب الاستفهام</b><span>السادس العلمي · اللغة العربية</span></div>
+  </div>
+  <p>منصة تعليمية شاملة — الشرح · الإعراب · البلاغة · الوزاريات · الاختبارات</p>
+  <p style="margin-top:14px">
+    <span class="fline">✓ ١٢٠+ سؤالاً تفاعلياً</span>
+    <span class="fline">✓ ٣٢ فراغاً</span>
+    <span class="fline">✓ ٦ امتحانات</span>
+    <span class="fline">✓ وضع ليلي/ورقي</span>
+  </p>
+  <p class="muted" style="margin-top:18px;font-size:12px">© 2026 · أُعدّت بعناية لطلبة السادس العلمي · بالتوفيق في امتحاناتكم</p>
+</footer>
+
+<script>
+/* ==========================================================================
+   قاعدة بيانات الأسئلة — أسلوب الاستفهام | السادس العلمي
+   كل سؤال: {id, cat, src, q, o:[...], a:index, e:تعليل}
+   ========================================================================== */
+
+window.BANK = [
+
+/* ============================ 1) هل والهمزة ============================ */
+{cat:'هل والهمزة', src:'وزاري', q:'ما الفرق بين (هل) والهمزة في الاستفهام من حيث الجملة المنفية؟',
+ o:['(هل) لا تدخل على الجملة المنفية، و(الهمزة) تدخل على المنفي وغير المنفي','كلتاهما تدخلان على المنفي','(هل) تدخل على المنفي فقط','لا فرق بينهما'], a:0,
+ e:'(هل) لا تدخل على الجملة المنفية؛ ولذلك لا يقال: (هل لم أكتبْ)، بينما الهمزة تدخل على المنفي نحو: (ألم تكتبْ؟).'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'نحو: «أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ» ما خصيصة (الهمزة) الواردة في الآية؟',
+ o:['دخلت على الجملة المنفية','دخلت على فعل جامد','خرجت إلى التمني','أدت معنى النهي'], a:0,
+ e:'(الهمزة) هنا دخلت على الجملة المنفية؛ لأن (لم) حرف نفي، وهذا من خصائص الهمزة التي تميّزها عن (هل).'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ» ما خصيصة الهمزة في الآية؟',
+ o:['دخلت على الجملة المنفية','دخلت على اسم','خرجت للتمني','أفادت النهي'], a:0,
+ e:'دخلت الهمزة على جملة منفية بـ(ليس)، فيكون معناها التقرير، وفي ذلك تظهر خصيصة الهمزة من مخالفتها لـ(هل).'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ» ما معنى الاستفهام بـ(هل) هنا؟',
+ o:['النفي (بمعنى: ما)','التعجب','التمني','التشكيك'], a:0,
+ e:'(هل) هنا بمعنى (ما) النافية، أي: ما جزاء الإحسان إلا الإحسان.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«فَهَلْ أَنْتُمْ مُنتَهُونَ» ما الغرض البلاغي للاستفهام بـ(هل)؟',
+ o:['الأمر (بمعنى: انتهوا)','النفي','التسوية','التمني'], a:0,
+ e:'(هل) خرجت عن الاستفهام الحقيقي إلى الأمر؛ أي: انتهوا عن المنكر.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'لماذا لا يصحّ أن نقول: «هل تذهبُ أم تجلسُ»؟',
+ o:['لأن (هل) لا يعطف عليها بـ(أم)؛ لأن (أم) تُطلب مع الهمزة لا مع (هل)','لأن (أم) لا تُستعمل في العربية','لأن الجملة استفهامية','لأن الفعل مضارع'], a:0,
+ e:'من الفروق بين الهمزة و(هل): أن (أم) المعادلة لا تقع إلا بعد همزة الاستفهام، فلا يقال: (هل تذهب أم تجلس).'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'نحو: «أَتذهبُ أم تقعدُ؟» كيف يُفهم الاستفهام هنا وما نوعه؟',
+ o:['تصوّري؛ لأن معه (أم) المعادلة','تصديقي فقط','إنكاري','تمنّي'], a:0,
+ e:'الهمزة مع (أم) المعادلة يطلب بها التصور؛ أي تعيين أحد الأمرين.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'ما الذي يمكن الاستغناء عنه بـ(بل) من بين أدوات الاستفهام؟',
+ o:['الهمزة','هل','كم','متى'], a:0,
+ e:'يمكن الاستغناء عن الهمزة بـ(بل)؛ نحو: أتأتي إلينا بل تقعد، وهذا لا يصح مع (هل).'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«أَفَحُكْمَ الْجَاهِلِيَّةِ يَبْغُونَ» ما الغرض البلاغي للاستفهام؟',
+ o:['الإنكار','التقرير','التمني','التسوية'], a:0,
+ e:'الهمزة هنا للإنكار والتوبيخ، أي: إنكار أن يبغوا حكم الجاهلية.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«أَلَسْتُ بِرَبِّكُمْ» ما الغرض البلاغي للاستفهام؟',
+ o:['التقرير','الإنكار','النفي','الأمر'], a:0,
+ e:'الهمزة الداخلة على النفي تُفيد التقرير، أي: أنت ربنا.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«أَلَمْ تَرَ إِلَى رَبِّكَ كَيْفَ مَدَّ الظِّلَّ» ما الغرض البلاغي للاستفهام؟',
+ o:['التعجب','النفي','التسوية','التمني'], a:0,
+ e:'الهمزة هنا خرجت إلى التعجب من قدرة الله تعالى.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ» ما الغرض البلاغي للاستفهام؟',
+ o:['التسوية','الأمر','الإنكار','التعجب'], a:0,
+ e:'الهمزة مع (أم) أفادت التسوية بين الإنذار وعدمه.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«فَهَلْ لَنَا مِن شُفَعَاءَ» ما الغرض البلاغي للاستفهام؟',
+ o:['التمني','الإنكار','التقرير','الأمر'], a:0,
+ e:'(هل) خرجت إلى التمني؛ تمنّي وجود الشفعاء.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ» ما الغرض البلاغي؟',
+ o:['العرض/الحثّ على المغفرة','الإنكار','النفي','التسوية'], a:0,
+ e:'الهمزة الداخلة على (لا) النافية كثيراً ما تفيد العرض والحثّ.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«أَلَا تُقَاتِلُونَ قَوْمًا نَكَثُوا أَيْمَانَهُمْ» ما الغرض البلاغي للاستفهام؟',
+ o:['التحضيض والحثّ على القتال','التمني','التسوية','التعجب'], a:0,
+ e:'(ألا) الاستفهامية الداخلة على المضارع تفيد التحضيض والحثّ.'},
+
+/* ============================ 2) من / ما ============================ */
+{cat:'من وما', src:'وزاري', q:'«مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ» أعرب (مَن)؟',
+ o:['اسم استفهام مبني على السكون في محل رفع مبتدأ','مفعول به','خبر مقدم','فاعل'], a:0,
+ e:'(مَن) اسم استفهام مبني على السكون في محل رفع مبتدأ، و(ذا) اسم إشارة خبر، والجملة استفهامية.'},
+
+{cat:'من وما', src:'وزاري', q:'«مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا» أعرب (مَن)؟',
+ o:['مبتدأ مرفوع محلّاً','خبر مقدم','مفعول به','اسم مجرور'], a:0,
+ e:'(مَن) اسم استفهام مبني في محل رفع مبتدأ، و(ذا) خبر.'},
+
+{cat:'من وما', src:'وزاري', q:'«مَا لَكُم مِّن إِلَٰهٍ غَيْرُهُ» أعرب (ما)؟',
+ o:['اسم استفهام مبني على السكون في محل رفع مبتدأ','مفعول به','ظرف','حرف نفي'], a:0,
+ e:'(ما) اسم استفهام مبني على السكون في محل رفع مبتدأ، و(لكم) خبر مقدم.'},
+
+{cat:'من وما', src:'وزاري', q:'«مَا لَكُمْ لَا تَنطِقُونَ» أعرب (ما)؟',
+ o:['اسم استفهام مبني في محل رفع مبتدأ','مفعول به','فاعل','خبر'], a:0,
+ e:'(ما) مبتدأ، و(لكم) خبر مقدم، وجملة (لا تنطقون) حال.'},
+
+{cat:'من وما', src:'وزاري', q:'«فَمَا لَهُمْ لَا يُؤْمِنُونَ» أعرب (ما)؟',
+ o:['اسم استفهام مبني في محل رفع مبتدأ','مفعول به','خبر','فاعل'], a:0,
+ e:'(ما) اسم استفهام مبني في محل رفع مبتدأ، و(لهم) خبر مقدم.'},
+
+{cat:'من وما', src:'وزاري', q:'«فَمَا أَغْنَاهُمْ مَا كَانُوا يَكْسِبُونَ» ما إعراب (ما) الأولى؟',
+ o:['اسم استفهام مبني في محل نصب مفعول به','مبتدأ','فاعل','خبر'], a:0,
+ e:'(ما) الأولى مفعول به مقدم للفعل (أغنى)، و(ما) الثانية اسم موصول.'},
+
+{cat:'من وما', src:'وزاري', q:'«فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ» أعرب (ماذا)؟',
+ o:['(ما) استفهامية مبتدأ، و(ذا) اسم إشارة خبر','مفعول به','فاعل','حرف'], a:0,
+ e:'(ما) اسم استفهام مبني في محل رفع مبتدأ، و(ذا) اسم إشارة خبر، والجملة استفهامية.'},
+
+{cat:'من وما', src:'وزاري', q:'«وَمَا تِلْكَ بِيَمِينِكَ يَا مُوسَى» أعرب اسم الاستفهام؟',
+ o:['(ما) اسم استفهام مبني في محل رفع مبتدأ','مفعول به','خبر مقدم','فاعل'], a:0,
+ e:'(ما) اسم استفهام مبني في محل رفع مبتدأ، و(تلك) اسم إشارة خبر.'},
+
+{cat:'من وما', src:'وزاري', q:'«قَالَ فَمَن رَّبُّكُمَا يَا مُوسَى» أعرب اسم الاستفهام؟',
+ o:['(مَن) اسم استفهام مبني في محل رفع مبتدأ','مفعول به','خبر','بدل'], a:0,
+ e:'(مَن) اسم استفهام مبني في محل رفع مبتدأ، و(ربكما) خبر مرفوع.'},
+
+{cat:'من وما', src:'وزاري', q:'«قَالَ مَا خَطْبُكُنَّ إِذ ظَنَنتُنَّ» ما فائدة (ما) الاستفهامية هنا؟',
+ o:['سؤال عن حقيقة الخطْب (غير العاقل)','سؤال عن عاقل','سؤال عن زمان','سؤال عن مكان'], a:0,
+ e:'(ما) يُسأل بها عن غير العاقل، وهنا سؤال عن حقيقة الخطْب.'},
+
+{cat:'من وما', src:'وزاري', q:'«مَا لَكُمْ لَا تَرْجُونَ لِلَّهِ وَقَارًا» ما إعراب (ما)؟',
+ o:['اسم استفهام مبني في محل رفع مبتدأ','مفعول به','فاعل','مبتدأ مؤخر'], a:0,
+ e:'(ما) مبتدأ، و(لكم) خبر مقدم.'},
+
+{cat:'من وما', src:'وزاري', q:'«يَا أَيُّهَا الَّذِينَ آمَنُوا مَا لَكُمْ إِذَا قِيلَ لَكُمُ انفِرُوا» إعراب (ما)؟',
+ o:['اسم استفهام مبني في محل رفع مبتدأ','مفعول به','خبر','حرف'], a:0,
+ e:'(ما) اسم استفهام مبني على السكون في محل رفع مبتدأ.'},
+
+{cat:'من وما', src:'وزاري', q:'«وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ» ما نوع الاستفهام في (ما أدراك)؟',
+ o:['استفهام للتعجب والتفخيم','استفهام حقيقي','استفهام إنكاري','استفهام تسوية'], a:0,
+ e:'الاستفهام هنا للتفخيم والتعجب من شأن ليلة القدر.'},
+
+{cat:'من وما', src:'وزاري', q:'متى يكون اسم الاستفهام (ما) في محل نصب مفعول به؟',
+ o:['إذا تلاها فعل متعدٍّ لم يستوفِ مفعوله','إذا تلاها اسم معرفة','إذا تلاها فعل لازم','إذا تلاها حرف جر'], a:0,
+ e:'(ما) مفعول به إذا وقع بعد فعل متعدٍّ لم يستوفِ مفعوله: (ماذا قرأت؟).'},
+
+{cat:'من وما', src:'وزاري', q:'متى يكون اسم الاستفهام (مَن) في محل رفع خبر مقدم؟',
+ o:['إذا تلاها اسم نكرة أو شبه جملة','إذا تلاها اسم معرفة','إذا تلاها فعل متعدٍّ','إذا تلاها حرف'], a:0,
+ e:'(مَن) خبر مقدم إذا تلاها اسم نكرة أو شبه جملة: (مَن عندك؟).'},
+
+{cat:'من وما', src:'وزاري', q:'«مِنْ أَيِّ شَيْءٍ خَلَقَهُ» أعرب (أي)؟',
+ o:['اسم استفهام مجرور بـ(من) وعلامة جرّه الكسرة، وهو مضاف','اسم استفهام مرفوع','مفعول به','حرف جر'], a:0,
+ e:'(أي) اسم استفهام مجرور بحرف الجر (من)، وهو مضاف وما بعده مضاف إليه.'},
+
+/* ============================ 3) متى / أيان / كيف ============================ */
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«أَيَّانَ يَوْمُ الْقِيَامَةِ» ما إعراب (أيان)؟',
+ o:['اسم استفهام مبني على الفتح في محل نصب ظرف زمان','مبتدأ','مفعول به','خبر'], a:0,
+ e:'(أيان) اسم استفهام مبني على الفتح في محل نصب ظرف زمان، وهو للزمان المستقبلي.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ» ما إعراب ما بعده؟',
+ o:['(أيان) ظرف زمان مبني في محل نصب، والجملة بعده مضاف إليه','(أيان) مبتدأ','(أيان) مفعول به','(أيان) فاعل'], a:0,
+ e:'(أيان) ظرف زمان مبني على الفتح في محل نصب، و(يوم القيامة) مضاف إليه.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«وَيْلٌ يَوْمَئِذٍ لِّلْمُكَذِّبِينَ * أَيَّانَ يُبْعَثُونَ» ما معنى (أيان)؟',
+ o:['استفهام عن الزمان المستقبلي','استفهام عن المكان','استفهام عن الحال','استفهام عن العدد'], a:0,
+ e:'(أيان) يُسأل بها عن الزمان المستقبلي خاصة.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«مَتَىٰ نَصْرُ اللَّهِ» ما إعراب (متى)؟',
+ o:['اسم استفهام مبني على السكون في محل نصب ظرف زمان','مبتدأ','مفعول به','خبر'], a:0,
+ e:'(متى) اسم استفهام مبني في محل نصب ظرف زمان، والجملة بعده مضاف إليه.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ» ما صلة (متى) بالاستفهام؟',
+ o:['(متى) للزمان ماضياً ومستقبلاً، بخلاف (أيان) فللمستقبل','(متى) للمكان','(متى) للعدد','(متى) للحال'], a:0,
+ e:'(متى) يُسأل بها عن الزمان ماضياً ومستقبلاً، أما (أيان) فللمستقبل خاصة.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«أَيْنَ شَرِبْتَ مِنْهُ» ما إعراب (أين)؟',
+ o:['اسم استفهام مبني على الفتح في محل نصب ظرف مكان','مبتدأ','مفعول به','خبر'], a:0,
+ e:'(أين) اسم استفهام مبني على الفتح في محل نصب ظرف مكان.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«أَيْنَ مَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ» ما إعراب (أين)؟',
+ o:['اسم استفهام مبني في محل نصب ظرف مكان، و(ما) زائدة','مبتدأ','مفعول به','فاعل'], a:0,
+ e:'(أين) ظرف مكان مبني في محل نصب، و(ما) زائدة كافّة عن الإضافة.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«فَأَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللَّهِ» ما معنى (أين) هنا؟',
+ o:['الشرطية بمعنى: أيُّ جهة تولَّوا','الاستفهامية الحقيقية','التعجب','النفي'], a:0,
+ e:'(أين) هنا شرطية أفادت العموم، وليست استفهامية.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«كَيْفَ تَكْفُرُونَ بِاللَّهِ» ما إعراب (كيف)؟',
+ o:['اسم استفهام مبني على الفتح في محل نصب حال','مبتدأ','خبر','مفعول به'], a:0,
+ e:'(كيف) اسم استفهام مبني على الفتح في محل نصب حال، وجملة (تكفرون) بعده.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«كَيْفَ تَرَى اللَّهُ يَفْعَلُ» ما إعراب (كيف)؟',
+ o:['اسم استفهام مبني في محل نصب حال','ظرف مكان','مفعول مطلق','مبتدأ'], a:0,
+ e:'(كيف) للحال، وهي في محل نصب حال.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«وَهُوَ الَّذِي خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ» — (كيف) سؤال عن:',
+ o:['الحال والهيئة','العدد','الزمان','المكان'], a:0,
+ e:'(كيف) يُسأل بها عن الحال والهيئة.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«أَلَمْ تَرَ إِلَى رَبِّكَ كَيْفَ مَدَّ الظِّلَّ» ما إعراب (كيف)؟',
+ o:['اسم استفهام مبني في محل نصب حال','مبتدأ','مفعول به','خبر'], a:0,
+ e:'(كيف) اسم استفهام مبني على الفتح في محل نصب حال.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«أَنَّى شَاءَ» ما معنى (أنى)؟',
+ o:['بمعنى (أين) للمكان أو (كيف) للحال','للعدد','للزمان','للتعجب فقط'], a:0,
+ e:'(أنى) تأتي بمعنى (أين) للمكان، وبمعنى (كيف) للحال.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«مِنْ أَيْنَ لَكَ هَذَا» ما معنى (أين)؟',
+ o:['استفهام عن المكان','استفهام عن الزمان','استفهام عن العدد','استفهام عن الحال'], a:0,
+ e:'(أين) لسؤال عن المكان، ودخل عليها حرف الجر (من).'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«أَوَلَا يَرَوْنَ أَنَّهُمْ يُفْتَنُونَ» ما خصيصة الهمزة؟',
+ o:['دخلت على جملة منفية فأفادت التوبيخ','دخلت على اسم','دخلت على الحال','دخلت على التمني'], a:0,
+ e:'الهمزة مع (لا) و(الواو) أفادت التوبيخ والتقرير.'},
+
+/* ============================ 4) كم ============================ */
+{cat:'كم وأي', src:'وزاري', q:'«كَمْ لَبِثْتَ» ما نوع (كم) وما إعراب ما بعدها؟',
+ o:['استفهامية، وتمييزها مفرد منصوب محذوف','خبرية، وتمييزها مجرور','استفهامية، وتمييزها مجرور','حرف'], a:0,
+ e:'(كم) استفهامية يُسأل بها عن العدد، وتمييزها مفرد منصوب، وقد حُذف هنا تقديره: كم يومًا لبثت.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«وَكَمْ أَرْسَلْنَا مِن نَّبِيٍّ فِي الْأَوَّلِينَ» ما نوع (كم)؟',
+ o:['خبرية بمعنى (كثيراً)','استفهامية','شرطية','استفهامية للتعجب'], a:0,
+ e:'(كم) هنا خبرية أفادت الكثرة، وتمييزها مجرور بـ(من).'},
+
+{cat:'كم وأي', src:'وزاري', q:'ما علامة إعراب تمييز (كم) الاستفهامية؟',
+ o:['مفرد منصوب','مجموع مجرور','مضاف إليه','مرفوع'], a:0,
+ e:'تمييز كم الاستفهامية يكون مفرداً منصوباً غالباً: (كم كتاباً قرأت؟).'},
+
+{cat:'كم وأي', src:'وزاري', q:'ما علامة إعراب تمييز (كم) الخبرية؟',
+ o:['مجموع مجرور بالإضافة أو بـ(من)','مفرد منصوب','مرفوع','مبني'], a:0,
+ e:'تمييز كم الخبرية مجموع مجرور: (كم كتابٍ قرأت).'},
+
+{cat:'كم وأي', src:'وزاري', q:'«كَمْ مِن فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً» ما نوع (كم)؟',
+ o:['خبرية للتكثير','استفهامية','شرطية','نافية'], a:0,
+ e:'(كم) خبرية أفادت التكثير والتعجب من قلة القليلة الغالبة.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«كَمْ تَرَكُوا مِن جَنَّاتٍ وَعُيُونٍ» ما إعراب (كم)؟',
+ o:['خبرية في محل نصب مفعول به','مبتدأ','فاعل','حرف'], a:0,
+ e:'(كم) خبرية وقعت مفعولاً به مقدماً للفعل (تركوا).'},
+
+{cat:'كم وأي', src:'وزاري', q:'«كَمْ عَمِلُوا» هل (كم) هنا استفهامية أم خبرية؟ ولماذا؟',
+ o:['خبرية؛ بدليل ورودها في سياق التكثير','استفهامية','شرطية','زائدة'], a:0,
+ e:'(كم) خبرية للتكثير؛ لعدم ورودها في سياق السؤال.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«كَمْ لَبِثْتُمْ» ما التقدير الإعرابي لتمييز (كم)؟',
+ o:['تمييز محذوف تقديره (ساعةً/يوماً)','تمييز مجرور','بدل','حال'], a:0,
+ e:'تمييز (كم) الاستفهامية محذوف تقديره: كم ساعةً أو كم يومًا لبثتم.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«أَيُّكُمْ أَحْسَنُ عَمَلًا» أعرب (أي)؟',
+ o:['اسم استفهام مبني على الضم في محل رفع مبتدأ','مفعول به','خبر','نعت'], a:0,
+ e:'(أيّ) اسم استفهام مبني على الضم في محل رفع مبتدأ، وهو مضاف.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ» أعرب (أي)؟',
+ o:['اسم استفهام مجرور بالباء وعلامة جره الكسرة','مرفوع','منصوب','مبني'], a:0,
+ e:'(أي) اسم استفهام مجرور بحرف الجر (الباء) وعلامة جرّه الكسرة، وهو مضاف.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«أَيَّ الْأَجَلَيْنِ قَضَى» ما إعراب (أي)؟',
+ o:['اسم استفهام منصوب على الظرفية','مرفوع','مجرور','مبتدأ'], a:0,
+ e:'(أيّ) منصوبة على الظرفية الزمانية لوقوعها بعد ما يدل على الزمان.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«أَمَّا بَايِعٌ هَذَا» — (أي) في (أيُّهم) تعرب بحسب:',
+ o:['ما تضاف إليه','نوع الفعل','عدد الحروف','الجملة'], a:0,
+ e:'(أي) تُعرب بحسب ما تضاف إليه: مبتدأ أو مفعول به أو خبر أو جرّ.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«أَيُّ يَوْمٍ أَحْسَنُ الْعَمَلَ» ما الغرض من الاستفهام بـ(أي)؟',
+ o:['طلب تعيين أفضل يوم','النفي','التعجب','الأمر'], a:0,
+ e:'(أيّ) للاستفهام عن تمييز أحد الشيئين، وهنا طلب تعيين أفضل الأيام.'},
+
+/* ============================ 5) الأغراض البلاغية ============================ */
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«مَا لَكُمْ لَا تُؤْمِنُونَ بِاللَّهِ» ما الغرض البلاغي للاستفهام؟',
+ o:['التوبيخ والإنكار','التمني','التسوية','الأمر'], a:0,
+ e:'الاستفهام هنا للإنكار والتوبيخ على ترك الإيمان.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَتَعْبُدُونَ مَا تَنْحِتُونَ» ما الغرض البلاغي؟',
+ o:['الإنكار والتوبيخ','التعجب','التقرير','التمني'], a:0,
+ e:'الهمزة أفادت إنكار عبادة ما ينحتون بأيديهم.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَغَيْرَ اللَّهِ تَدْعُونَ» ما الغرض البلاغي؟',
+ o:['الإنكار','التقرير','الأمر','التسوية'], a:0,
+ e:'الاستفهام للإنكار، وقد جاء المفعول به (غير) مقدماً للاختصاص.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَأَنتُمْ تَخْلُقُونَهُ أَمْ نَحْنُ الْخَالِقُونَ» ما الغرض البلاغي؟',
+ o:['التقرير والتوبيخ','التمني','النفي','الأمر'], a:0,
+ e:'الاستفهام أفاد التقرير بأن الله هو الخالق، والتوبيخ على إنكارهم.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَلَمْ نَجْعَل لَّهُ عَيْنَيْنِ» ما الغرض البلاغي؟',
+ o:['التقرير والامتنان','الإنكار','النفي','التسوية'], a:0,
+ e:'الهمزة على النفي أفادت التقرير والامتنان على نِعَم الله.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَلَيْسَ ذَلِكَ بِقَادِرٍ» ما الغرض البلاغي؟',
+ o:['التقرير','الإنكار','التمني','النفي'], a:0,
+ e:'الهمزة الداخلة على (ليس) تفيد التقرير؛ أي: بلى قادر.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«هَلْ يَسْتَوِي الْأَعْمَى وَالْبَصِيرُ» ما الغرض البلاغي؟',
+ o:['النفي (بمعنى: ما) والتقرير','التمني','الأمر','التعجب'], a:0,
+ e:'(هل) بمعنى النفي: ما يستوي الأعمى والبصير.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«فَهَلْ يُهْلَكُ إِلَّا الْقَوْمُ الْفَاسِقُونَ» ما الغرض البلاغي؟',
+ o:['النفي والتقرير','التمني','التعجب','التسوية'], a:0,
+ e:'(هل) بمعنى (ما) النافية، أي: ما يُهلك إلا القوم الفاسقون.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَيُّهُمْ أَقْوَمُ» أي غرض بلاغي يتحقق بالاستفهام هنا؟',
+ o:['التعجب','الأمر','النفي','التمني'], a:0,
+ e:'الاستفهام أفاد التعجب من حالهم.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'متى يكون الاستفهام حقيقياً؟',
+ o:['إذا طلب به معرفة شيء مجهول لم يعرفه السائل','إذا خرج للتعجب','إذا أفاد النفي','إذا أفاد الأمر'], a:0,
+ e:'الاستفهام الحقيقي: طلب معرفة شيء مجهول لم يكن معلوماً للسائل.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'متى يكون الاستفهام مجازياً؟',
+ o:['إذا خرج عن طلب المعرفة إلى أغراض بلاغية','إذا كان للسائل جواب','إذا دخلت عليه (هل)','إذا كان في القرآن'], a:0,
+ e:'الاستفهام المجازي: خروجه عن معناه الأصلي إلى أغراض بلاغية كالتعجب والإنكار.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'ما أغراض الاستفهام الخارج عن معناه الأصلي؟',
+ o:['التعجب، التمني، العرض، التحضيض، الإنكار، التقرير، التسوية','الرفع، النصب، الجر، الجزم','الماضي، المضارع، الأمر','الإفراد، التثنية، الجمع'], a:0,
+ e:'من أشهر أغراضه: التعجب والتمني والعرض والتحضيض والإنكار والتقرير والتسوية والنفي والأمر.'},
+
+/* ============================ 6) إعراب / قواعد عامة ============================ */
+{cat:'قواعد عامة', src:'وزاري', q:'أسماء الاستفهام كلها:',
+ o:['مبنية إلا (أي) فهي معربة','معربة كلها','مبنية كلها','لا تُعرب'], a:0,
+ e:'جميع أسماء الاستفهام مبنية ما عدا (أيّ) فهي معربة. (ما) و(من) يُحتمل الإعراب بمحلّ.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'ما إعراب (من) و(ما) الاستفهاميتين؟',
+ o:['مبنيتان، وتُعربان بحسب موقعهما في الجملة (في محل رفع/نصب/جر)','معربتان بالحركات','مبنيتان على الضم دائماً','مجرورتان دائماً'], a:0,
+ e:'(من) و(ما) اسمان مبنيان، ويُقدَّر إعرابهما بحسب موقعهما: في محل رفع أو نصب أو جر.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'علامة بناء (من) و(ما) و(متى) و(أين) و(كيف)؟',
+ o:['السكون','الفتح','الضم','الوقف'], a:0,
+ e:'(من، ما، متى) مبنية على السكون، و(أين، كيف، أنى، أيان) مبنية على الفتح.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'علامة بناء (أين) و(كيف) و(أيان) و(أنى)؟',
+ o:['الفتح','السكون','الضم','الكسرة'], a:0,
+ e:'هذه الأسماء مبنية على الفتح.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'علامة بناء (أي)؟',
+ o:['الضم','الفتح','السكون','معربة'], a:0,
+ e:'(أيّ) اسم استفهام مبني على الضم، وهو معرب في محلّه.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'هل (هل) و(الهمزة) اسمان أم حرفان؟',
+ o:['حرفان لا محل لهما من الإعراب','اسمان مبنيان','اسمان معربان','فعلان'], a:0,
+ e:'(هل) و(الهمزة) حرفا استفهام لا محل لهما من الإعراب.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'أي أدوات الاستفهام تختص بالزمان المستقبلي؟',
+ o:['أيان','متى','أين','كيف'], a:0,
+ e:'(أيان) تختص بالزمان المستقبلي، أما (متى) فللماضي والمستقبل.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'أي أدوات الاستفهام تختص بالعاقل؟',
+ o:['من','ما','متى','كم'], a:0,
+ e:'(من) يُسأل بها عن العاقل، و(ما) عن غير العاقل.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'(ما) الاستفهامية تُسأل عن:',
+ o:['غير العاقل غالباً','العاقل فقط','الزمان','المكان'], a:0,
+ e:'(ما) لغير العاقل، وقد تُستعمل للعاقل في مواضع خاصة.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'(كم) الاستفهامية يُسأل بها عن:',
+ o:['العدد','الزمان','المكان','الحال'], a:0,
+ e:'(كم) للاستفهام عن العدد، ويكون تمييزها منصوباً مفرداً.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'إذا كان الاستفهام بـ(هل) فالجواب يكون:',
+ o:['نعم أو لا','بالتعيين','بالتكرار','بالجملة الفعلية'], a:0,
+ e:'(هل) يُطلب بها التصديق، وجوابها: نعم أو لا.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'إذا كان الاستفهام بالهمزة مع (أم) فالجواب يكون:',
+ o:['بالتعيين (أحد الأمرين)','نعم أو لا','بالنفي','بالسكوت'], a:0,
+ e:'الهمزة مع (أم) المعادلة يُطلب بها التصور، والجواب بالتعيين.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«أَإِلَٰهٌ مَّعَ اللَّهِ» ما الغرض البلاغي؟',
+ o:['الإنكار','التعجب','التمني','التسوية'], a:0,
+ e:'الهمزة أفادت إنكار وجود إله مع الله.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«أَفَلَا يَنظُرُونَ إِلَى الْإِبِلِ كَيْفَ خُلِقَتْ» ما الغرض البلاغي؟',
+ o:['الحثّ على التأمل والاعتبار (الإنكار على ترك النظر)','النفي','التمني','الأمر المباشر'], a:0,
+ e:'الهمزة مع (لا) أفادت الإنكار والحثّ على التفكر في مخلوقات الله.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«فَأَيْنَ تَذْهَبُونَ» ما الغرض البلاغي؟',
+ o:['التعجب والإنكار','الأمر','النفي','التمني'], a:0,
+ e:'الاستفهام بـ(أين) أفاد التعجب من انحرافهم والإنكار عليهم.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«عَمَّ يَتَسَاءَلُونَ» ما أصل (عمّ)؟',
+ o:['(عن) + (ما) الاستفهامية فحُذفت الألف','(عن) + (من)','(على) + (ما)','(عن) + (متى)'], a:0,
+ e:'(عمّ) أصلها (عن + ما)، فحُذفت ألف (ما) لالتقاء الساكنين، ودخلت (عن) على (ما) الاستفهامية.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«فِيمَ أَنتَ» ما أصل (فيم)؟',
+ o:['(في) + (ما) الاستفهامية وحُذفت الألف','(في) + (من)','(في) + (ماذا)','(في) + (متى)'], a:0,
+ e:'(فيم) أصلها (في + ما)، وحُذفت ألف (ما) لالتقاء الساكنين.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«مِمَّ خُلِقَ» ما أصل (ممّ)؟',
+ o:['(من) + (ما) الاستفهامية وأُدغمت النون في الميم','(من) + (من)','(ما) + (ما)','(عن) + (ما)'], a:0,
+ e:'(مِمَّ) أصلها (من + ما)، فأُدغمت النون في الميم وحُذفت الألف.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«إِنَّ اللَّهَ لَا يَسْتَحْيِي أَن يَضْرِبَ مَثَلًا» — أيّ أدوات الاستفهام تظهر في «مَاذَا»؟',
+ o:['(ما) الاستفهامية + (ذا)','(من) + (ذا)','(ما) النافية + (ذا)','(مذ) + (الذي)'], a:0,
+ e:'(ماذا) مركبة من (ما) الاستفهامية و(ذا)، وقد تكون (ما) استفهامية و(ذا) موصولاً أو إشارة.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'الاستفهام الحقيقي في القرآن قليل، والغالب فيه:',
+ o:['المجازي لأغراض بلاغية','الحقيقي','التشكيك','السخرية'], a:0,
+ e:'الغالب في القرآن الكريم الاستفهام المجازي لما فيه من الأغراض البلاغية.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«أَيْنَ الْمَفَرُّ» ما الغرض البلاغي؟',
+ o:['النفي (لا مفرّ) والتوبيخ','التمني','العدد','الأمر'], a:0,
+ e:'الاستفهام أفاد النفي؛ أي: لا مفرّ، مع التوبيخ.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«وَلِمَن دَخَلَ بَيْتِيَ مُؤْمِنًا» — (من) هنا:',
+ o:['اسم موصول بمعنى (الذي) وليست استفهامية','استفهامية','شرطية','نكرة'], a:0,
+ e:'(من) هنا موصولة بمعنى (الذي)، والسياق ليس سياق سؤال.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'كيف نفرّق بين (من) الاستفهامية و(من) الموصولة؟',
+ o:['الاستفهامية يطلب بها العلم، وتقع في أول الكلام غالباً','لا فرق','بالشكل فقط','بعدد الحروف'], a:0,
+ e:'(من) الاستفهامية يُطلب بها معرفة مجهول، وتأتي في صدر الكلام، بخلاف الموصولة.'},
+];
+
+/* ==========================================================================
+   أسئلة الفراغات (fill-in-the-blank)
+   ========================================================================== */
+window.FILL = [
+ {cat:'هل والهمزة', q:'(____) حرف استفهام لا يدخل على الجملة المنفية.', a:'هل'},
+ {cat:'هل والهمزة', q:'الهمزة حرف استفهام (____) على المنفي وغيره.', a:'يدخل'},
+ {cat:'هل والهمزة', q:'(____) يُطلب بها التصديق فقط، بخلاف الهمزة.', a:'هل'},
+ {cat:'هل والهمزة', q:'لا يصح أن نقول: «هل تذهب أم تجلس» لأن (____) المعادلة لا تقع إلا مع الهمزة.', a:'أم'},
+ {cat:'من وما', q:'(____) يُسأل بها عن العاقل.', a:'من'},
+ {cat:'من وما', q:'(____) يُسأل بها عن غير العاقل.', a:'ما'},
+ {cat:'من وما', q:'اسم الاستفهام (من) يكون مبتدأً إذا تلاه اسم (____).', a:'معرفة'},
+ {cat:'من وما', q:'اسم الاستفهام (ما) يكون خبراً مقدماً إذا تلاه اسم (____) أو شبه جملة.', a:'نكرة'},
+ {cat:'من وما', q:'(ما) تكون مفعولاً به إذا سبقها فعل (____) لم يستوفِ مفعوله.', a:'متعدٍّ'},
+ {cat:'الزمان والمكان والحال', q:'(____) يُسأل بها عن الزمان المستقبلي خاصة.', a:'أيان'},
+ {cat:'الزمان والمكان والحال', q:'(متى) يُسأل بها عن الزمان (____) ومستقبلاً.', a:'ماضياً'},
+ {cat:'الزمان والمكان والحال', q:'(____) يُسأل بها عن الحال والهيئة.', a:'كيف'},
+ {cat:'الزمان والمكان والحال', q:'(____) يُسأل بها عن المكان.', a:'أين'},
+ {cat:'الزمان والمكان والحال', q:'(أنى) تأتي بمعنى (أين) للمكان وبمعنى (____) للحال.', a:'كيف'},
+ {cat:'كم وأي', q:'(كم) الاستفهامية تمييزها مفرد (____).', a:'منصوب'},
+ {cat:'كم وأي', q:'(كم) الخبرية تمييزها مجموع (____) بالإضافة أو بـ(من).', a:'مجرور'},
+ {cat:'كم وأي', q:'(كم) الخبرية تفيد (____) العدد.', a:'الكثرة'},
+ {cat:'كم وأي', q:'كل أسماء الاستفهام مبنية ما عدا (____) فهي معربة.', a:'أي'},
+ {cat:'كم وأي', q:'(أيّ) اسم استفهام مبني على (____).', a:'الضم'},
+ {cat:'قواعد عامة', q:'(أين) و(كيف) مبنيتان على (____).', a:'الفتح'},
+ {cat:'قواعد عامة', q:'(من) و(ما) و(متى) مبنية على (____).', a:'السكون'},
+ {cat:'قواعد عامة', q:'الاستفهام الذي يُطلب به معرفة شيء مجهول يسمّى استفهاماً (____).', a:'حقيقياً'},
+ {cat:'قواعد عامة', q:'خروج الاستفهام عن معناه الأصلي إلى أغراض بلاغية يسمّى استفهاماً (____).', a:'مجازياً'},
+ {cat:'الأغراض البلاغية', q:'«أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ» الغرض البلاغي (____) والامتنان.', a:'التقرير'},
+ {cat:'الأغراض البلاغية', q:'«أَلَسْتُ بِرَبِّكُمْ» الغرض البلاغي (____).', a:'التقرير'},
+ {cat:'الأغراض البلاغية', q:'«فَهَلْ لَنَا مِن شُفَعَاءَ» الغرض البلاغي (____).', a:'التمني'},
+ {cat:'الأغراض البلاغية', q:'«سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ» الغرض البلاغي (____).', a:'التسوية'},
+ {cat:'الأغراض البلاغية', q:'«أَتَعْبُدُونَ مَا تَنْحِتُونَ» الغرض البلاغي (____).', a:'الإنكار'},
+ {cat:'الأغراض البلاغية', q:'«هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ» (هل) هنا بمعنى (____).', a:'ما'},
+ {cat:'الأغراض البلاغية', q:'«فَهَلْ أَنتُم مُّنتَهُونَ» الغرض البلاغي (____)، أي انتهوا.', a:'الأمر'},
+ {cat:'الأغراض البلاغية', q:'«أَلَمْ تَرَ إِلَى رَبِّكَ كَيْفَ مَدَّ الظِّلَّ» الغرض البلاغي (____).', a:'التعجب'},
+ {cat:'الأغراض البلاغية', q:'«أَلَا تُقَاتِلُونَ قَوْمًا» الغرض البلاغي (____) والحثّ.', a:'التحضيض'},
+];
+
+/* ===== إضافات: أسئلة متقدمة، أخطاء شائعة، تطبيقات إعرابية ===== */
+window.BANK.push(
+
+{cat:'قواعد عامة', src:'وزاري', q:'«أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ» ما الغرض البلاغي؟',
+ o:['الإنكار والحثّ على التدبر','التمني','التسوية','التعجب'], a:0,
+ e:'الهمزة مع (لا) أفادت الإنكار على ترك التدبر والحثّ عليه.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«أَلَمْ يَعْلَم بِأَنَّ اللَّهَ يَرَىٰ» ما الغرض البلاغي؟',
+ o:['التقرير والتهديد','التمني','التسوية','العرض'], a:0,
+ e:'الهمزة على النفي أفادت التقرير مع التهديد والتوبيخ.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«مَا أَصْحَابُ الْيَمِينِ» — (ما) هنا:',
+ o:['استفهامية للتفخيم والتعجب','نافية','موصولة','شرطية'], a:0,
+ e:'الاستفهام بـ(ما) أفاد التفخيم والتعجب من شأن أصحاب اليمين.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«مَا سَلَكَكُمْ فِي سَقَرَ» أعرب (ما)؟',
+ o:['اسم استفهام مبني في محل نصب مفعول به','مبتدأ','خبر','فاعل'], a:0,
+ e:'(ما) مفعول به مقدم للفعل (سلك)، و(كم) مفعول به ثانٍ.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«عَمَّ يَتَسَاءَلُونَ * عَنِ النَّبَإِ الْعَظِيمِ» ما الغرض البلاغي؟',
+ o:['التفخيم والتهويل','التمني','التسوية','الأمر'], a:0,
+ e:'الاستفهام أفاد التفخيم والتهويل لشأن النبأ العظيم.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«أَيُّهُمْ أَزْكَىٰ» ما الغرض البلاغي؟',
+ o:['التعجب','الأمر','النفي','التمني'], a:0,
+ e:'الاستفهام للتعجب من حالهم وتزكيتهم لأنفسهم.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«أَإِلَٰهٌ مَعَ اللَّهِ» ما الغرض البلاغي؟',
+ o:['الإنكار والتوبيخ','التقرير','العرض','التمني'], a:0,
+ e:'الهمزة أفادت الإنكار لوجود إله مع الله.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«فَأَيْنَ تَذْهَبُونَ» ما إعراب (أين)؟',
+ o:['ظرف مكان مبني في محل نصب','مبتدأ','مفعول به','مجرور'], a:0,
+ e:'(أين) اسم استفهام مبني على الفتح في محل نصب ظرف مكان.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«وَيْلٌ يَوْمَئِذٍ لِّلْمُكَذِّبِينَ» — (يومئذٍ) ما إعرابها؟',
+ o:['ظرف زمان منصوب','مبتدأ','مفعول به','مجرور'], a:0,
+ e:'(يومئذٍ) ظرف زمان منصوب، وهو مضاف و(إذ) مضاف إليه.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«أَلَمْ تَكُنْ آيَاتِي تُتْلَىٰ عَلَيْكُمْ» ما خصيصة الهمزة؟',
+ o:['دخلت على جملة منفية فأفادت التقرير والتوبيخ','دخلت على اسم','خرجت للتمني','أفادت التسوية'], a:0,
+ e:'الهمزة على المنفي = تقرير، ومعه توبيخ على إعراضهم.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«مَن كَانَ عَدُوًّا لِّلَّهِ» أعرب (مَن)؟',
+ o:['اسم استفهام في محل رفع مبتدأ','مفعول به','خبر','مجرور'], a:0,
+ e:'(مَن) مبتدأ في محل رفع، وخبره (عدوًّا لله).'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَلَيْسَ فِي جَهَنَّمَ مَثْوًى لِّلْمُتَكَبِّرِينَ» ما الغرض؟',
+ o:['التقرير','التمني','التسوية','العرض'], a:0,
+ e:'الهمزة على (ليس) تفيد التقرير: بلى، فيها مثوى.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَجَعَلَ الْآلِهَةَ إِلَٰهًا وَاحِدًا» ما الغرض البلاغي؟',
+ o:['التعجب والإنكار','الأمر','التمني','النفي'], a:0,
+ e:'الاستفهام أفاد تعجبهم وإنكارهم توحيد الإله.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَغَيْرَ اللَّهِ تَدْعُونَ» ما الأداة والغرض؟',
+ o:['الهمزة — الإنكار','هل — النفي','كيف — التعجب','كم — التكثير'], a:0,
+ e:'الهمزة أفادت الإنكار على دعاء غير الله.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«هَلْ يَنظُرُونَ إِلَّا تَأْوِيلَهُ» ما معنى (هل) هنا؟',
+ o:['النفي بمعنى (ما)','الاستفهام الحقيقي','التمني','الأمر'], a:0,
+ e:'(هل) بمعنى (ما) النافية؛ أي: ما ينظرون إلا تأويله.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَفَلَا يَعْقِلُونَ» ما الغرض البلاغي؟',
+ o:['الإنكار والتوبيخ','التمني','العرض','التسوية'], a:0,
+ e:'الهمزة مع (لا) أفادت الإنكار على ترك العقل والتوبيخ.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَتُحَاجُّونِّي فِي اللَّهِ» ما الغرض البلاغي؟',
+ o:['التعجب والإنكار','الأمر','التمني','النفي'], a:0,
+ e:'الاستفهام أفاد التعجب من حالهم والإنكار عليهم.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«مَا لِيَ لَا أَعْبُدُ الَّذِي فَطَرَنِي» ما الغرض البلاغي؟',
+ o:['التعجب والإنكار','الأمر','التمني','التسوية'], a:0,
+ e:'الاستفهام أفاد التعجب من ترك العبادة، ومعه إنكار.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«كَيْفَ تَكْفُرُونَ بِاللَّهِ وَكُنتُمْ أَمْوَاتًا» ما الأداة والغرض؟',
+ o:['كيف — التعجب','أين — النفي','كم — التكثير','أي — التمييز'], a:0,
+ e:'(كيف) أفادت التعجب من كفرهم بعد إحيائه لهم.'},
+
+{cat:'الأغراض البلاغية', src:'وزاري', q:'«أَيَحْسَبُ الْإِنسَانُ أَلَّن نَّجْمَعَ عِظَامَهُ» ما الغرض البلاغي؟',
+ o:['الإنكار والتعجب','الأمر','التمني','التسوية'], a:0,
+ e:'الهمزة أفادت إنكار حسبانه وتعجباً من ظنه.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«وَكَم مِّن دَابَّةٍ لَّا تَحْمِلُ رِزْقَهَا» ما نوع (كم) وإعرابها؟',
+ o:['خبرية في محل رفع مبتدأ','استفهامية منصوبة','خبرية منصوبة','استفهامية مجرورة'], a:0,
+ e:'(كم) خبرية للتكثير، في محل رفع مبتدأ، و(من دابة) تمييزها المجرور.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«كَمْ أَهْلَكْنَا قَبْلَهُم مِّن قَرْنٍ» ما نوع (كم)؟',
+ o:['خبرية للتكثير','استفهامية للعدد','شرطية','نافية'], a:0,
+ e:'(كم) خبرية أفادت التكثير، وتمييزها (قرنٍ) مجرور بـ(من).'},
+
+{cat:'كم وأي', src:'وزاري', q:'«سَلْ بَنِي إِسْرَائِيلَ كَمْ آتَيْنَاهُم مِّنْ آيَةٍ» ما نوع (كم)؟',
+ o:['خبرية للتكثير','استفهامية','شرطية','زائدة'], a:0,
+ e:'(كم) خبرية للتكثير، وتمييزها مجرور بـ(من).'},
+
+{cat:'كم وأي', src:'وزاري', q:'«كَمْ عِندَهُم مِّنَ الْغَيْبِ» ما نوع (كم)؟',
+ o:['استفهامية بمعنى الإنكار','خبرية للتكثير','شرطية','نافية'], a:0,
+ e:'هنا (كم) استفهامية خرجت إلى الإنكار؛ أي: ليس عندهم شيء من الغيب.'},
+
+{cat:'كم وأي', src:'وزاري', q:'علامة إعراب (أي) في «أَيُّ الْكِتَابَيْنِ تُفَضِّلُ»؟',
+ o:['مفعول به منصوب','مبتدأ مرفوع','مجرور','فاعل'], a:0,
+ e:'(أيّ) مفعول به منصوب للفعل (تفضّل)، وهو مضاف.'},
+
+{cat:'كم وأي', src:'وزاري', q:'«فَأَيُّكُمْ أَشَدُّ عَمَلًا» ما الموقع الإعرابي لـ(أي)؟',
+ o:['مبتدأ في محل رفع','مفعول به','خبر','حال'], a:0,
+ e:'(أيّ) مبتدأ في محل رفع، و(أشدّ) خبر.'},
+
+{cat:'من وما', src:'وزاري', q:'«وَمَا أَدْرَاكَ مَا هِيَهْ» أعرب (ما) الثانية؟',
+ o:['اسم استفهام مبتدأ في محل رفع','مفعول به','خبر','حرف نفي'], a:0,
+ e:'(ما) الثانية اسم استفهام مبتدأ، وجملة (هيه) خبرها.'},
+
+{cat:'من وما', src:'وزاري', q:'«مَا لِيَ لَا أَعْبُدُ» أعرب (ما)؟',
+ o:['مبتدأ في محل رفع','مفعول به','مجرور','خبر مقدم'], a:0,
+ e:'(ما) اسم استفهام مبتدأ في محل رفع، و(لي) خبر مقدم.'},
+
+{cat:'من وما', src:'وزاري', q:'«فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ» — (من) هنا:',
+ o:['شرطية وليست استفهامية','استفهامية','موصولة','نكرة'], a:0,
+ e:'(من) هنا شرطية جازمة؛ بدليل جزم الفعلين (يعملْ، يرهُ).'},
+
+{cat:'من وما', src:'وزاري', q:'«مَن يُحْيِي الْعِظَامَ وَهِيَ رَمِيمٌ» أعرب (من)؟',
+ o:['مبتدأ في محل رفع','مفعول به','فاعل','مجرور'], a:0,
+ e:'(من) اسم استفهام مبتدأ في محل رفع، وجملة (يحيي) خبره.'},
+
+{cat:'من وما', src:'وزاري', q:'«قُلْ مَن يَرْزُقُكُم مِّنَ السَّمَاءِ وَالْأَرْضِ» أعرب (من)؟',
+ o:['مبتدأ في محل رفع','مفعول به','مجرور','خبر'], a:0,
+ e:'(من) مبتدأ في محل رفع، والجملة بعده خبر.'},
+
+{cat:'من وما', src:'وزاري', q:'«مَاذَا أَرَادَ رَبُّ رَبُّكُم» — ما موقع (ماذا)؟',
+ o:['مفعول به مقدم','مبتدأ','خبر','فاعل'], a:0,
+ e:'(ماذا) مفعول به مقدم للفعل (أراد)، و(ربكم) فاعل.'},
+
+{cat:'من وما', src:'وزاري', q:'ما الذي يجعل (ما) مبتدأ لا مفعولاً به؟',
+ o:['أن يليها اسم معرفة أو فعل لازم','أن يليها فعل متعدٍّ ناقص','أن يسبقها حرف جر','أن تكون نكرة'], a:0,
+ e:'(ما) مبتدأ إذا تلاها اسم معرفة أو جملة فعلية فعلها لازم أو متعدٍّ استوفى مفعوله.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«فَأَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللَّهِ» إعراب (أين)؟',
+ o:['شرطية في محل نصب ظرف مكان','استفهامية مبتدأ','مفعول به','حال'], a:0,
+ e:'(أين) شرطية جازمة، (ما) زائدة، وهي في محل نصب ظرف مكان.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«أَيْنَ شَرِبْتَ مِنْهُ» ما إعراب (أين)؟',
+ o:['ظرف مكان مبني على الفتح في محل نصب','مبتدأ','مفعول به','مجرور'], a:0,
+ e:'(أين) ظرف مكان مبني على الفتح في محل نصب.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«مِنْ أَيْنَ لَكَ هَذَا» ما إعراب (أين)؟',
+ o:['مجرور بـ(من) في محل جرّ','مرفوع','منصوب','مبني على الضم'], a:0,
+ e:'(أين) اسم استفهام مبني على الفتح في محل جرّ بحرف الجر (من).'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«كَيْفَ تَصْبِرُونَ» ما إعراب (كيف)؟',
+ o:['في محل نصب خبر مقدم للفعل الناقص','حال','مبتدأ','مفعول به'], a:0,
+ e:'(كيف) خبر مقدم لفعل ناقص محذوف تقديره (تكونون).'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«أَنَّى لَكِ هَذَا» ما معنى (أنى)؟',
+ o:['من أين (للمكان)','كيف (للحال)','متى (للزمان)','كم (للعدد)'], a:0,
+ e:'(أنى) هنا بمعنى (من أين) للسؤال عن المكان.'},
+
+{cat:'الزمان والمكان والحال', src:'وزاري', q:'«قَالَ أَنَّىٰ يُحْيِي هَٰذِهِ اللَّهُ» ما معنى (أنى)؟',
+ o:['كيف (للحال)','أين (للمكان)','متى','كم'], a:0,
+ e:'(أنى) هنا بمعنى (كيف) للحال؛ أي: كيف يحييها.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«أَلَا إِنَّهُمْ هُمُ الْمُفْسِدُونَ» — (ألا) الاستفتاحية:',
+ o:['حرف تنبيه واستفتاح وليست للاستفهام','حرف استفهام','حرف نفي','حرف جر'], a:0,
+ e:'(ألا) هنا استفتاحية للتنبيه، وليست للاستفهام؛ لأن ما بعدها (إنّ) لا يُستفهم عنه.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'«هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ» ما الغرض البلاغي؟',
+ o:['التشويق والتفخيم','النفي','الأمر','التسوية'], a:0,
+ e:'الاستفهام أفاد التشويق والتفخيم لشأن الحديث.'},
+
+{cat:'هل والهمزة', src:'وزاري', q:'كيف نفرّق بين (هل) الاستفهامية و(هل) بمعنى (قد)؟',
+ o:['(هل) بمعنى (قد) تختص بالماضي وتدخل على المثبت','لا فرق','بالحركة فقط','بعدد الحروف'], a:0,
+ e:'(هل) قد تأتي بمعنى (قد) فتختص بالفعل الماضي المثبت: «هل أتى على الإنسان».'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«مَا مَنَعَكَ أَلَّا تَسْجُدَ» أعرب (ما)؟',
+ o:['اسم استفهام مبتدأ في محل رفع','مفعول به','خبر','حرف نفي'], a:0,
+ e:'(ما) اسم استفهام مبتدأ في محل رفع، والجملة بعده خبر.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'أيّ الجمل فيها استفهام مجازي؟',
+ o:['«أَتَعْبُدُونَ مَا تَنْحِتُونَ»','«أين بيتك؟»','«متى موعد السفر؟»','«كم كتاباً قرأت؟»'], a:0,
+ e:'الأولى للإنكار (مجازي)، والباقي استفهام حقيقي يُطلب به العلم.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'ما الذي يميّز الاستفهام التصوّري عن التصديقي؟',
+ o:['التصوّري يُطلب به تعيين أحد أمرين ويكون مع (أم)','لا فرق','التصديقي يكون مع (أم)','التصوّري لا جواب له'], a:0,
+ e:'التصوّري: تعيين أحد الأمرين، ويكون غالباً مع (أم) المعادلة.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«أَيْنَ الْمَفَرُّ» ما الغرض البلاغي؟',
+ o:['النفي والتوبيخ (لا مفرّ)','التمني','الأمر','التسوية'], a:0,
+ e:'الاستفهام أفاد النفي؛ أي: لا مفرّ، ومعه توبيخ.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«لِمَنِ الْمُلْكُ الْيَوْمَ» ما إعراب (من)؟',
+ o:['مجرور باللام في محل جرّ','مبتدأ','مفعول به','خبر'], a:0,
+ e:'(من) اسم استفهام مبني على السكون في محل جرّ بحرف الجر (اللام).'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«عَمَّ يَتَسَاءَلُونَ» ما إعراب (عمّ)؟',
+ o:['في محل جرّ بـ(عن)','مبتدأ','مفعول به','خبر'], a:0,
+ e:'(عمّ) أصلها (عن + ما)، فهي في محل جرّ بحرف الجر (عن).'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«فِيمَ أَنتَ» ما إعراب (فيم)؟',
+ o:['في محل جرّ بـ(في)','مبتدأ','مفعول به','خبر'], a:0,
+ e:'(فيم) = (في + ما) الاستفهامية، في محل جرّ بحرف الجر (في).'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'«قُلْ سِيرُوا فِي الْأَرْضِ فَانظُرُوا كَيْفَ بَدَأَ الْخَلْقَ» ما إعراب (كيف)؟',
+ o:['حال في محل نصب','مبتدأ','مفعول به','خبر'], a:0,
+ e:'(كيف) اسم استفهام مبني على الفتح في محل نصب حال، والجملة مفسّرة.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'متى تُعرب (أيّ) نكرة؟',
+ o:['إذا أُضيفت إلى نكرة','إذا أُضيفت إلى معرفة','إذا كانت مبتدأ','دائماً معرفة'], a:0,
+ e:'(أيّ) تكتسب التعريف والإبهام من المضاف إليه؛ فإذا أُضيفت لنكرة كانت نكرة.'},
+
+{cat:'قواعد عامة', src:'وزاري', q:'لماذا نقول إن لاسم الاستفهام «الصدارة»؟',
+ o:['لأنه يتقدم في الكلام ولا يتقدم عليه ما له الصدارة','لأنه معرب','لأنه مفعول به','لأنه منصوب'], a:0,
+ e:'لاسم الاستفهام الصدارة في الكلام، فلا يتقدم عليه ما له الصدارة مثل (كم، أيّ).'},
+
+/* ===== أسئلة الفراغات الإضافية ===== */
+);
+
+window.FILL.push(
+ {cat:'الزمان والمكان والحال', q:'(____) تُعرب حالاً في محل نصب.', a:'كيف'},
+ {cat:'الزمان والمكان والحال', q:'(أين) تُعرب ظرف (____) في محل نصب.', a:'مكان'},
+ {cat:'الزمان والمكان والحال', q:'(متى) تُعرب ظرف (____) في محل نصب.', a:'زمان'},
+ {cat:'كم وأي', q:'لـ(كم) و(أي) (____) في الكلام فلا يتقدم عليها شيء.', a:'الصدارة'},
+ {cat:'كم وأي', q:'(أيّ) تكتسب التعريف والإبهام من (____).', a:'المضاف إليه'},
+ {cat:'من وما', q:'(ما) تكون مبتدأً إذا تلاها اسم (____).', a:'معرفة'},
+ {cat:'قواعد عامة', q:'(عمّ) أصلها (____) + ما.', a:'عن'},
+ {cat:'قواعد عامة', q:'(فيمَ) أصلها (____) + ما.', a:'في'},
+ {cat:'قواعد عامة', q:'(مِمَّ) أصلها (____) + ما وأُدغمت النون في الميم.', a:'من'},
+ {cat:'قواعد عامة', q:'الاستفهام الذي يُطلب به تعيين أحد أمرين يسمى استفهاماً (____).', a:'تصوّرياً'},
+ {cat:'قواعد عامة', q:'الاستفهام الذي يُطلب به التصديق يسمى استفهاماً (____).', a:'تصديقياً'},
+ {cat:'هل والهمزة', q:'(هل) قد تأتي بمعنى (____) فتختص بالفعل الماضي المثبت.', a:'قد'},
+ {cat:'الأغراض البلاغية', q:'«أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ» الغرض (____).', a:'العرض'},
+ {cat:'الأغراض البلاغية', q:'«هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ» الغرض (____) والتفخيم.', a:'التشويق'},
+ {cat:'الأغراض البلاغية', q:'«أَفَلَا يَعْقِلُونَ» الغرض (____) والتوبيخ.', a:'الإنكار'},
+ {cat:'الأغراض البلاغية', q:'«أَلَمْ يَعْلَم بِأَنَّ اللَّهَ يَرَىٰ» الغرض (____) والتهديد.', a:'التقرير'},
+ {cat:'الأغراض البلاغية', q:'«مَا أَصْحَابُ الْيَمِينِ» الغرض (____) والتعجب.', a:'التفخيم'},
+ {cat:'الزمان والمكان والحال', q:'(أنى) في «أَنَّى لَكِ هَذَا» بمعنى (____).', a:'من أين'},
+ {cat:'الزمان والمكان والحال', q:'(أنى) في «أَنَّىٰ يُحْيِي هَٰذِهِ اللَّهُ» بمعنى (____).', a:'كيف'},
+ {cat:'كم وأي', q:'(كم) في «كَمْ عِندَهُم مِّنَ الْغَيْبِ» استفهامية خرجت إلى (____).', a:'الإنكار'}
+);
+
+</script>
+<script>
+/* ==========================================================================
+   منصة الاستفهام — محرك التفاعل
+   ========================================================================== */
+(() => {
+'use strict';
+
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const STORE = {
+  get(k, d){ try{ const v = localStorage.getItem('istifham_' + k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem('istifham_' + k, JSON.stringify(v)); }catch(e){} }
+};
+
+/* ---------- toast ---------- */
+let toastEl = null, toastT = null;
+function toast(msg, icon = '✓'){
+  if(!toastEl){
+    toastEl = document.createElement('div');
+    toastEl.id = 'toast';
+    document.body.appendChild(toastEl);
+  }
+  toastEl.innerHTML = `<span style="font-size:16px">${icon}</span><span>${msg}</span>`;
+  toastEl.classList.add('show');
+  clearTimeout(toastT);
+  toastT = setTimeout(() => toastEl.classList.remove('show'), 2600);
+}
+
+/* ---------- reading progress ---------- */
+function initReadbar(){
+  const bar = $('#readbar > i');
+  if(!bar) return;
+  const upd = () => {
+    const h = document.documentElement;
+    const p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+    bar.style.width = Math.min(100, Math.max(0, p * 100)) + '%';
+  };
+  addEventListener('scroll', upd, {passive:true});
+  addEventListener('resize', upd);
+  upd();
+}
+
+/* ---------- nav: active link on scroll ---------- */
+function initScrollSpy(){
+  const links = $$('.nav-links a[href^="#"]');
+  if(!links.length) return;
+  const sections = links.map(a => ({ a, el: document.getElementById(a.getAttribute('href').slice(1)) })).filter(x => x.el);
+  const spy = () => {
+    const y = scrollY + 140;
+    let cur = sections[0];
+    for(const s of sections){ if(s.el.offsetTop <= y) cur = s; }
+    links.forEach(a => a.classList.toggle('on', a === cur.a));
+  };
+  addEventListener('scroll', spy, {passive:true});
+  spy();
+}
+
+/* ---------- mobile drawer ---------- */
+function initDrawer(){
+  const btn = $('#menuBtn'), drawer = $('#drawer');
+  if(!btn || !drawer) return;
+  const close = () => drawer.classList.remove('open');
+  btn.addEventListener('click', () => drawer.classList.toggle('open'));
+  $('#drawerBg')?.addEventListener('click', close);
+  $$('#drawer a').forEach(a => a.addEventListener('click', close));
+}
+
+/* ---------- theme + font size ---------- */
+function initPrefs(){
+  const body = document.body;
+  if(STORE.get('theme', 'dark') === 'light') body.classList.add('light');
+  if(STORE.get('narrow', false)) body.classList.add('narrow');
+
+  const tBtn = $('#themeBtn');
+  tBtn?.addEventListener('click', () => {
+    body.classList.toggle('light');
+    STORE.set('theme', body.classList.contains('light') ? 'light' : 'dark');
+    tBtn.classList.toggle('active', body.classList.contains('light'));
+    toast(body.classList.contains('light') ? 'الوضع الورقي (فاتح)' : 'الوضع الليلي (داكن)', '◐');
+  });
+  tBtn?.classList.toggle('active', body.classList.contains('light'));
+
+  const wBtn = $('#widthBtn');
+  wBtn?.addEventListener('click', () => {
+    body.classList.toggle('narrow');
+    STORE.set('narrow', body.classList.contains('narrow'));
+    toast(body.classList.contains('narrow') ? 'عرض قراءة مركّز' : 'عرض كامل', '⇔');
+  });
+
+  // font size
+  let fs = STORE.get('fs', 100);
+  const applyFs = v => {
+    fs = Math.min(140, Math.max(88, v));
+    const pct = fs / 100;
+    document.body.style.setProperty('--z', pct);
+    document.body.style.zoom = pct;
+    STORE.set('fs', fs);
+  };
+  applyFs(fs);
+  $('#fsUp')?.addEventListener('click', () => { applyFs(fs + 5); toast('تكبير الخط ' + fs + '%', 'A+'); });
+  $('#fsDown')?.addEventListener('click', () => { applyFs(fs - 5); toast('تصغير الخط ' + fs + '%', 'A−'); });
+}
+
+/* ---------- accordions ---------- */
+function initAcc(){
+  $$('.acc-h').forEach(h => {
+    h.addEventListener('click', () => h.parentElement.classList.toggle('open'));
+  });
+  $$('[data-open-all]').forEach(b => b.addEventListener('click', () => {
+    const scope = document.querySelector(b.dataset.openAll);
+    const accs = $$('.acc', scope || document);
+    const allOpen = accs.every(a => a.classList.contains('open'));
+    accs.forEach(a => a.classList.toggle('open', !allOpen));
+    b.textContent = allOpen ? 'فتح الكل' : 'إغلاق الكل';
+  }));
+}
+
+/* ---------- flashcards ---------- */
+function initFlash(){
+  $$('.fc').forEach(c => c.addEventListener('click', () => c.classList.toggle('flip')));
+  $('#fcShuffle')?.addEventListener('click', () => {
+    const wrap = $('#fcWrap');
+    if(!wrap) return;
+    const cards = [...wrap.children];
+    cards.sort(() => Math.random() - .5).forEach(c => { c.classList.remove('flip'); wrap.appendChild(c); });
+    toast('تم خلط البطاقات', '⤨');
+  });
+}
+
+/* ---------- blank click-to-reveal ---------- */
+function initBlanks(){
+  $$('.blank').forEach(b => {
+    b.addEventListener('click', () => {
+      if(b.classList.contains('revealed')){ b.classList.remove('revealed'); b.classList.add('blank-hidden'); }
+      else { b.classList.remove('blank-hidden'); b.classList.add('revealed'); }
+    });
+  });
+  $$('[data-blank-all]').forEach(btn => btn.addEventListener('click', () => {
+    const scope = document.querySelector(btn.dataset.blankAll);
+    const bl = $$('.blank', scope || document);
+    const all = bl.every(b => b.classList.contains('revealed'));
+    bl.forEach(b => { b.classList.toggle('revealed', !all); b.classList.toggle('blank-hidden', all); });
+    btn.textContent = all ? 'إظهار جميع الأجوبة' : 'إخفاء جميع الأجوبة';
+  }));
+}
+
+/* ---------- question bank rendering ---------- */
+function renderBank(){
+  const host = $('#bankList');
+  if(!host || !window.BANK) return;
+
+  let cat = 'الكل';
+  const BANK = window.BANK;
+  const cats = ['الكل', ...new Set(BANK.map(q => q.cat))];
+
+  const chips = $('#bankChips');
+  if(chips){
+    chips.innerHTML = cats.map((c, i) =>
+      `<button class="chip ${i===0?'on':''}" data-cat="${c}">${c} <span style="opacity:.6">${c==='الكل'?BANK.length:BANK.filter(q=>q.cat===c).length}</span></button>`
+    ).join('');
+    chips.addEventListener('click', e => {
+      const b = e.target.closest('.chip'); if(!b) return;
+      $$('.chip', chips).forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      cat = b.dataset.cat;
+      paint();
+    });
+  }
+
+  function paint(){
+    const list = cat === 'الكل' ? BANK : BANK.filter(q => q.cat === cat);
+    host.innerHTML = list.map((q, i) => `
+      <article class="q" data-i="${i}">
+        <div class="q-head">
+          <div class="q-n">${i + 1}</div>
+          <div>
+            <div class="q-txt">${q.q}</div>
+            <div style="margin-top:7px">
+              <span class="tag ${q.src === 'وزاري' ? 'r' : 'b'}">${q.src}</span>
+              <span class="tag">${q.cat}</span>
+            </div>
+          </div>
+        </div>
+        <div class="q-opts">
+          ${q.o.map((o, k) => `<button class="opt" data-k="${k}"><span class="k">${'أبتث'[k] || k+1}</span><span>${o}</span></button>`).join('')}
+        </div>
+        <div class="q-ans"><b>الجواب:</b> ${q.o[q.a]}<br><b>التعليل:</b> ${q.e}</div>
+        <div class="q-act">
+          <button class="btn btn-ghost btn-sm" data-show>عرض الجواب والتعليل</button>
+        </div>
+      </article>`).join('');
+  }
+
+  host.addEventListener('click', e => {
+    const card = e.target.closest('.q'); if(!card) return;
+    const data = (cat === 'الكل' ? BANK : BANK.filter(q => q.cat === cat))[+card.dataset.i];
+    const opt = e.target.closest('.opt');
+    if(opt && data){
+      const opts = $$('.opt', card);
+      if(opts.some(o => o.classList.contains('locked'))) return;
+      opts.forEach(o => o.classList.add('locked'));
+      const k = +opt.dataset.k;
+      if(k === data.a){ opt.classList.add('correct'); toast('إجابة صحيحة!', '🎯'); }
+      else { opt.classList.add('wrong'); opts[data.a].classList.add('correct'); }
+      $('.q-ans', card).classList.add('show');
+      $('[data-show]', card).textContent = 'إخفاء الجواب';
+      return;
+    }
+    if(e.target.closest('[data-show]')){
+      const ans = $('.q-ans', card);
+      ans.classList.toggle('show');
+      e.target.closest('[data-show]').textContent = ans.classList.contains('show') ? 'إخفاء الجواب' : 'عرض الجواب والتعليل';
+    }
+  });
+
+  paint();
+}
+
+/* ==========================================================================
+   Quiz engine
+   ========================================================================== */
+const Quiz = {
+  pool: [], idx: 0, answers: [], timer: null, left: 0, perQ: 0, cfg: null,
+
+  start(hostId, cfg){
+    const host = document.getElementById(hostId) || this.el;
+    if(!host) return;
+    const pool = cfg.build();
+    if(!pool.length){ host.innerHTML = '<p class="muted">لا توجد أسئلة.</p>'; return; }
+    this.pool = pool.sort(() => Math.random() - .5).slice(0, cfg.limit || pool.length);
+    this.idx = 0; this.answers = []; this.cfg = cfg; this.el = host;
+    this.render(host);
+    this.beginTimer();
+    setTimeout(() => host.scrollIntoView({behavior:'smooth', block:'center'}), 80);
+  },
+
+  beginTimer(){
+    clearInterval(this.timer);
+    if(!this.cfg.seconds) return;
+    this.left = this.cfg.seconds;
+    const el = this.el ? this.el.querySelector('#qzTimer') : $('#qzTimer');
+    const tick = () => {
+      if(!el) return;
+      const m = String(Math.floor(this.left / 60)).padStart(2, '0');
+      const s = String(this.left % 60).padStart(2, '0');
+      el.textContent = `${m}:${s}`;
+      el.style.color = this.left <= 30 ? 'var(--rose)' : '';
+      if(this.left <= 0){ clearInterval(this.timer); this.finish(true); return; }
+      this.left--;
+    };
+    tick();
+    this.timer = setInterval(tick, 1000);
+  },
+
+  render(host){
+    const q = this.pool[this.idx];
+    const n = this.pool.length;
+    host.innerHTML = `
+      <div class="quiz-shell">
+        <div class="quiz-top">
+          <h3>${this.cfg.title}</h3>
+          <div class="quiz-meta">
+            ${this.cfg.seconds ? `<div class="badge rose">⏱ <span id="qzTimer">--:--</span></div>` : ''}
+            <div class="badge">السؤال ${this.idx + 1} / ${n}</div>
+            <div class="badge gold">النقاط: <b id="qzScore">0</b></div>
+          </div>
+        </div>
+        <div class="quiz-body">
+          <div class="qz-progress"><i id="qzBar"></i></div>
+          <div class="qz-q"><span class="qnum">${this.idx + 1}.</span>${q.q}</div>
+          <div class="qz-opts" id="qzOpts">
+            ${q.o.map((o, k) => `<button class="qz-opt" data-k="${k}"><span class="k">${'أبتث'[k] || k+1}</span><span>${o}</span></button>`).join('')}
+          </div>
+          <div class="qz-expl" id="qzExpl"><b>التعليل:</b> ${q.e}</div>
+          <div class="qz-foot">
+            <button class="btn btn-gold btn-sm" id="qzNext" disabled>السؤال التالي →</button>
+            <span class="spacer"></span>
+            <button class="btn btn-ghost btn-sm" id="qzQuit">إنهاء الامتحان</button>
+          </div>
+        </div>
+      </div>`;
+    const root = host;
+    root.querySelector('#qzBar').style.width = ((this.idx) / n * 100) + '%';
+    root.querySelector('#qzScore').textContent = this.answers.filter(a => a.ok).length * 5;
+    this.bind(root);
+  },
+
+  bind(root){
+    const q = this.pool[this.idx];
+    const opts = [...root.querySelectorAll('#qzOpts .qz-opt')];
+    const expl = root.querySelector('#qzExpl');
+    const next = root.querySelector('#qzNext');
+    const scoreEl = root.querySelector('#qzScore');
+    let picked = false;
+    opts.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if(picked) return;
+        picked = true;
+        const k = +btn.dataset.k;
+        const ok = k === q.a;
+        opts.forEach(b => b.classList.add('dis'));
+        btn.classList.add(ok ? 'ok' : 'no');
+        if(!ok) opts[q.a].classList.add('ok');
+        expl.classList.add('show');
+        this.answers.push({ q, k, ok });
+        scoreEl.textContent = this.answers.filter(a => a.ok).length * 5;
+        next.disabled = false;
+        next.textContent = this.idx === this.pool.length - 1 ? 'عرض النتيجة 🏁' : 'السؤال التالي →';
+      });
+    });
+    next.addEventListener('click', () => {
+      if(this.idx < this.pool.length - 1){ this.idx++; this.render(root); }
+      else this.finish(false);
+    });
+    root.querySelector('#qzQuit').addEventListener('click', () => this.finish(false));
+  },
+
+  finish(timeout){
+    clearInterval(this.timer);
+    const hostEl = this.el;
+    const host = hostEl && hostEl.isConnected ? hostEl : document.getElementById(this.cfg.host);
+    if(!host) return;
+    this.el = host;
+    const total = this.pool.length;
+    const right = this.answers.filter(a => a.ok).length;
+    const pct = Math.round(right / total * 100);
+    const wrong = this.answers.filter(a => !a.ok);
+    const skipped = total - this.answers.length;
+    const grade = pct >= 90 ? 'ممتاز 🌟' : pct >= 80 ? 'جيد جداً ✨' : pct >= 70 ? 'جيد 👍' : pct >= 50 ? 'متوسط 💪' : 'يحتاج مراجعة 📖';
+    const circ = 2 * Math.PI * 76;
+
+    host.innerHTML = `
+      <div class="quiz-shell">
+        <div class="quiz-body">
+          <div class="result">
+            <div class="ring">
+              <svg width="172" height="172">
+                <circle cx="86" cy="86" r="76" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="11"/>
+                <circle cx="86" cy="86" r="76" fill="none" stroke="url(#gg)" stroke-width="11"
+                  stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ - circ * pct / 100}"/>
+                <defs><linearGradient id="gg"><stop offset="0" stop-color="#e6b64c"/><stop offset="1" stop-color="#35d0a5"/></linearGradient></defs>
+              </svg>
+              <div class="val">${pct}%</div>
+            </div>
+            <h3>${timeout ? 'انتهى الوقت ⏰' : 'نتيجتك: ' + grade}</h3>
+            <p>أجبت بشكل صحيح على <b>${right}</b> من <b>${total}</b> سؤالاً.</p>
+            <div class="res-grid">
+              <div class="res-cell"><b style="color:var(--jade)">${right}</b><span>صحيحة</span></div>
+              <div class="res-cell"><b style="color:var(--rose)">${this.answers.length - right}</b><span>خاطئة</span></div>
+              <div class="res-cell"><b>${skipped}</b><span>متروكة</span></div>
+              <div class="res-cell"><b>${right * 5}</b><span>نقطة</span></div>
+            </div>
+            ${wrong.length ? `
+              <div style="text-align:right;max-width:760px;margin:26px auto 0">
+                <h4 style="font-size:16px;margin-bottom:12px;color:var(--gold-soft)">📌 مراجعة الأخطاء</h4>
+                ${wrong.map(w => `
+                  <div class="q" style="margin-bottom:10px">
+                    <div class="q-txt" style="font-size:14.5px;margin-bottom:7px">${w.q.q}</div>
+                    <div style="font-size:13.5px;color:var(--jade)">✓ ${w.q.o[w.q.a]}</div>
+                    <div style="font-size:13px;color:var(--mute);margin-top:5px">${w.q.e}</div>
+                  </div>`).join('')}
+              </div>` : `<p style="color:var(--jade);font-weight:800;margin-top:20px">🎉 إجابات كاملة! أتقنت هذا المحور.</p>`}
+            <div class="qz-foot" style="justify-content:center">
+              <button class="btn btn-gold btn-sm" id="qzAgain">إعادة الامتحان 🔄</button>
+              <a class="btn btn-ghost btn-sm" href="#bank">مراجعة بنك الأسئلة</a>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+    if(pct >= 80) toast('نتيجة ممتازة! ' + pct + '%', '🏆');
+    STORE.set('lastScore_' + this.cfg.id, {pct, right, total, at: Date.now()});
+    this.updateDashboard();
+    host.querySelector('#qzAgain')?.addEventListener('click', () => this.start(this.cfg.host, this.cfg));
+  }
+};
+
+/* ---------- fill-in-the-blanks renderer ---------- */
+function renderFill(){
+  const host = $('#fillList');
+  if(!host || !window.FILL) return;
+  const FILL = window.FILL;
+  host.innerHTML = FILL.map((f, i) => `
+    <article class="q">
+      <div class="q-head">
+        <div class="q-n">${i + 1}</div>
+        <div class="q-txt">
+          ${f.q.replace('____', `<span class="blank blank-hidden" data-ans="${f.a}">${f.a}</span>`)}
+          <div style="margin-top:7px"><span class="tag b">${f.cat}</span></div>
+        </div>
+      </div>
+    </article>`).join('');
+  $$('.blank', host).forEach(b => b.addEventListener('click', () => {
+    b.classList.toggle('revealed');
+    b.classList.toggle('blank-hidden');
+  }));
+}
+
+/* ---------- site search ---------- */
+function initSearch(){
+  const inp = $('#searchInput');
+  if(!inp) return;
+  const idx = [];
+  // index headings & paragraphs
+  $$('section.block').forEach(sec => {
+    $$('h3, h4, .q-txt, .acc-h, p, li', sec).forEach(el => {
+      const t = el.textContent.trim();
+      if(t.length > 12 && t.length < 400) idx.push({ t, el, sec });
+    });
+  });
+  const out = $('#searchResults');
+  let tmr;
+  inp.addEventListener('input', () => {
+    clearTimeout(tmr);
+    tmr = setTimeout(() => {
+      const v = inp.value.trim();
+      if(v.length < 2){ out.innerHTML = '<p class="muted">اكتب كلمتين على الأقل للبحث في كل أقسام المنصة…</p>'; return; }
+      const res = idx.filter(x => x.t.includes(v)).slice(0, 12);
+      out.innerHTML = res.length
+        ? res.map(r => `
+          <a href="#${r.sec.id}" class="search-hit" data-txt="${r.t.slice(0,120)}">
+            <b>${r.sec.querySelector('h2')?.textContent || ''}</b>
+            <span>${r.t.slice(0, 150)}${r.t.length > 150 ? '…' : ''}</span>
+          </a>`).join('')
+        : `<p class="muted">لا نتائج لـ «${v}» — جرّب كلمة أخرى مثل: التقرير، كم، أيان، الهمزة.</p>`;
+    }, 180);
+  });
+  out.addEventListener('click', e => {
+    const a = e.target.closest('.search-hit');
+    if(a) setTimeout(() => out.scrollIntoView({behavior:'smooth', block:'center'}), 60);
+  });
+}
+
+/* ---------- copy section link ---------- */
+function initDeepLinks(){
+  $$('[data-copy]').forEach(b => b.addEventListener('click', () => {
+    const url = location.origin + location.pathname + b.dataset.copy;
+    navigator.clipboard?.writeText(url).then(() => toast('تم نسخ رابط القسم', '🔗')).catch(() => toast('تعذّر النسخ', '⚠'));
+  }));
+}
+
+/* ---------- reveal on scroll ---------- */
+function initReveal(){
+  if(!('IntersectionObserver' in window)) { $$('.rv').forEach(e => e.classList.add('in')); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.08, rootMargin:'0px 0px -40px 0px'});
+  $$('.rv').forEach(e => io.observe(e));
+}
+
+/* ---------- counters ---------- */
+function initCounters(){
+  $$('[data-count]').forEach(el => {
+    const end = +el.dataset.count;
+    let cur = 0;
+    const step = Math.max(1, Math.ceil(end / 40));
+    const t = setInterval(() => {
+      cur += step;
+      if(cur >= end){ cur = end; clearInterval(t); }
+      el.textContent = cur;
+    }, 26);
+  });
+}
+
+/* ---------- exam configs (defined per page) ---------- */
+window.QUIZ_CFG = {
+  hasla: {
+    id:'hasla', host:'quizHasla', title:'امتحان: هل والهمزة', limit:12, seconds:300,
+    build: () => window.BANK.filter(q => q.cat === 'هل والهمزة')
+  },
+  manma: {
+    id:'manma', host:'quizManMa', title:'امتحان: من وما', limit:12, seconds:300,
+    build: () => window.BANK.filter(q => q.cat === 'من وما')
+  },
+  zaman: {
+    id:'zaman', host:'quizZaman', title:'امتحان: الزمان والمكان والحال', limit:12, seconds:300,
+    build: () => window.BANK.filter(q => q.cat === 'الزمان والمكان والحال')
+  },
+  kam: {
+    id:'kam', host:'quizKam', title:'امتحان: كم وأي', limit:10, seconds:240,
+    build: () => window.BANK.filter(q => q.cat === 'كم وأي')
+  },
+  balagha: {
+    id:'balagha', host:'quizBalagha', title:'امتحان: الأغراض البلاغية', limit:12, seconds:360,
+    build: () => window.BANK.filter(q => q.cat === 'الأغراض البلاغية')
+  },
+  final: {
+    id:'final', host:'quizFinal', title:'الامتحان النهائي الشامل', limit:25, seconds:900,
+    build: () => window.BANK.slice()
+  }
+};
+
+/* ---------- results dashboard ---------- */
+Quiz.updateDashboard = function(){
+  const host = document.querySelector('#progressGrid');
+  if(!host) return;
+  const keys = [
+    ['hasla','هل والهمزة'],['manma','من وما'],['zaman','الزمان والمكان والحال'],
+    ['kam','كم وأي'],['balagha','الأغراض البلاغية'],['final','النهائي الشامل']
+  ];
+  host.innerHTML = keys.map(([k, name]) => {
+    const r = STORE.get('lastScore_' + k, null);
+    const pct = r && typeof r === 'object' ? r.pct : (typeof r === 'number' ? r : null);
+    const ok = pct === null ? null : pct >= 60;
+    return `<div class="res-cell" style="text-align:center">
+      <b style="color:${pct===null?'var(--mute)':ok?'var(--jade)':'var(--rose)'}">${pct===null?'—':pct+'%'}</b>
+      <span>${name}</span>
+    </div>`;
+  }).join('');
+  const done = keys.reduce((n,[k]) => {
+    const r = STORE.get('lastScore_' + k, null);
+    return n + (r !== null ? 1 : 0);
+  }, 0);
+  const el = document.querySelector('#progressDone');
+  if(el) el.textContent = done + ' / 6';
+};
+
+/* ---------- boot ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  initReadbar();
+  initScrollSpy();
+  initDrawer();
+  initPrefs();
+  initAcc();
+  initFlash();
+  initBlanks();
+  renderBank();
+  renderFill();
+  initSearch();
+  initDeepLinks();
+  initReveal();
+  initCounters();
+  Quiz.updateDashboard();
+
+  $$('[data-scroll]').forEach(b => b.addEventListener('click', () => {
+    document.querySelector(b.dataset.scroll)?.scrollIntoView({behavior:'smooth', block:'start'});
+  }));
+
+  $$('[data-reset-progress]').forEach(b => b.addEventListener('click', () => {
+    ['hasla','manma','zaman','kam','balagha','final'].forEach(k => localStorage.removeItem('istifham_lastScore_' + k));
+    Quiz.updateDashboard();
+    toast('تم تصفير سجل النتائج', '↺');
+  }));
+
+  $$('[data-quiz]').forEach(btn => btn.addEventListener('click', () => {
+    const cfg = window.QUIZ_CFG[btn.dataset.quiz];
+    if(cfg) Quiz.start(cfg.host, cfg);
+  }));
+
+  // number keys select quiz options when a quiz is visible
+  addEventListener('keydown', e => {
+    if(!/^[1-4]$/.test(e.key)) return;
+    const act = document.activeElement;
+    if(act && /INPUT|TEXTAREA/.test(act.tagName)) return;
+    const shells = [...document.querySelectorAll('.quiz-body')].filter(el => {
+      const r = el.getBoundingClientRect();
+      return r.top < innerHeight * .7 && r.bottom > 100;
+    });
+    const shell = shells[0];
+    if(!shell) return;
+    const opts = shell.querySelectorAll('.qz-opt');
+    const o = opts[+e.key - 1];
+    if(o) o.click();
+  });
+
+  // keyboard shortcuts
+  addEventListener('keydown', e => {
+    if(e.key === '/' && document.activeElement !== $('#searchInput')){
+      const s = $('#searchInput');
+      if(s){ e.preventDefault(); s.focus(); s.scrollIntoView({behavior:'smooth', block:'center'}); }
+    }
+  });
+
+  window.__quiz = Quiz;
+});
+})();
+
+</script>
+</body>
+</html>
