@@ -40,7 +40,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
 body{
   font-family:var(--font-body);
   background:var(--ink-900);
@@ -603,8 +603,13 @@ body.light .acc{background:#fffdf8}
 body.narrow .wrap,body.narrow .hero-in{max-width:880px}
 
 /* reveal on scroll */
-.rv{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.8,.3,1)}
-.rv.in{opacity:1;transform:none}
+/* Reveal-on-scroll.
+   IMPORTANT: content is visible by default. The animation is applied only when
+   JS has confirmed it can observe elements (html.js-anim). This guarantees the
+   page is never blank if scripts fail, are slow, or the observer misfires. */
+.rv{opacity:1;transform:none}
+html.js-anim .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.3,1)}
+html.js-anim .rv.in{opacity:1;transform:none}
 
 /* ==========================================================================
    Responsive
@@ -674,10 +679,10 @@ body.narrow .wrap,body.narrow .hero-in{max-width:880px}
 .search-hit span{font-size:14px;color:var(--dim);line-height:1.85;display:block}
 #searchInput:focus{border-color:var(--gold) !important;box-shadow:0 0 0 3px rgba(230,182,76,.13)}
 
-/* decorative section divider */
+/* decorative section divider (kept inside the section box, never wider than it) */
 section.block::before{
-  content:'';position:absolute;top:0;inset-inline-start:50%;transform:translateX(-50%);
-  width:min(70%,420px);height:1px;
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(70%,420px);max-width:100%;height:1px;pointer-events:none;
   background:linear-gradient(90deg,transparent,rgba(230,182,76,.35),transparent);
 }
 section.block:first-of-type::before{display:none}
@@ -823,4 +828,269 @@ body.light .acc.open{background:#fdf8ec}
   content:'';position:absolute;inset:18%;border-radius:50%;
   box-shadow:0 0 90px 30px rgba(230,182,76,.07) inset;
   pointer-events:none;
+}
+
+/* ==========================================================================
+   SVG icon system — replaces emoji so glyphs NEVER render as ▯ boxes
+   on devices/browsers lacking a colour-emoji font.
+   ========================================================================== */
+.ico{
+  width:1em;height:1em;display:inline-block;vertical-align:-.14em;
+  fill:none;stroke:currentColor;flex-shrink:0;
+}
+.ico[fill="currentColor"]{fill:currentColor;stroke:none}
+svg.ico{overflow:visible}
+.btn .ico{width:1.05em;height:1.05em}
+.badge .ico,.pill .ico{width:.95em;height:.95em}
+.card-h .ic .ico{width:1.15em;height:1.15em;vertical-align:0}
+.drawer-panel a .ico{width:1em;height:1em;opacity:.9;margin-inline-end:6px;vertical-align:-.13em}
+.acc-h .ico{width:.95em;height:.95em}
+.list .ico{width:.95em;height:.95em;color:var(--jade)}
+.fc-f .ico{width:1.2em;height:1.2em}
+/* icon inside rounded chip boxes */
+.ic:has(.ico){font-size:19px}
+
+/* ==========================================================================
+   HOTFIX PASS — mobile fidelity & performance
+   ========================================================================== */
+
+/* 1. Hero ornament: was 118vw on phones (overflowed the viewport and produced
+      the "wireframe scribble" behind the quick-nav). Keep it a soft backdrop. */
+.hero-orn{
+  width:min(86vw,560px) !important;
+  height:min(86vw,560px) !important;
+  max-width:560px;max-height:560px;
+}
+@media(max-width:760px){
+  .hero-orn{
+    width:min(128vw,470px) !important;
+    height:min(128vw,470px) !important;
+    opacity:.20 !important;top:38%;
+  }
+  .hero-orn svg{animation:none !important}
+}
+@media(max-width:420px){
+  .hero-orn{opacity:.14 !important}
+}
+/* never let decorative layers create horizontal overflow */
+.hero-orn,.hero-grid,.hero::before{contain:paint;pointer-events:none}
+
+/* 2. Chevrons / marks that were emoji-font dependent */
+.chev{font-family:var(--font-body);font-size:11px;opacity:.8;transition:transform .25s}
+.acc.open .chev{transform:rotate(180deg)}
+
+/* 3. Phone nav: tighter, guaranteed single row */
+@media(max-width:900px){
+  .nav-in{height:56px;padding:0 12px;gap:8px}
+  .brand-mark{width:34px;height:34px;border-radius:11px;font-size:17px}
+  .brand-txt b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:44vw}
+  .iconbtn{width:32px;height:32px;border-radius:9px;font-size:13.5px}
+  .nav-tools{gap:5px}
+  .brand{gap:8px;min-width:0}
+  html{scroll-padding-top:70px}
+}
+@media(max-width:400px){
+  .brand-txt b{font-size:12.5px;max-width:38vw}
+  .iconbtn{width:30px;height:30px}
+  #fsDown{display:none}
+}
+
+/* 4. Phone typography & rhythm */
+@media(max-width:600px){
+  .hero{padding:34px 15px 46px}
+  .hero h1{font-size:clamp(27px,8.2vw,34px);letter-spacing:-.6px;line-height:1.32}
+  .hero .sub{font-size:14.3px;line-height:1.95}
+  .hero .aya{font-size:16.5px;margin:20px auto 2px}
+  .hero-cta{margin-top:24px;gap:9px}
+  .quicknav{margin-top:30px}
+  section.block{padding:44px 0}
+  .sec-head{margin-bottom:26px;gap:11px}
+  .sec-num{width:40px;height:40px;border-radius:12px;font-size:12.5px}
+  .sec-head h2{font-size:21px;line-height:1.45}
+  .sec-head p{font-size:13.6px;line-height:1.9}
+  .card{padding:17px;border-radius:18px}
+  .card-h h3{font-size:16.5px}
+  .card-h h4{font-size:15px}
+  .card-h .ic{width:36px;height:36px;border-radius:10px}
+  .card p{font-size:14.2px}
+  .q{padding:15px}
+  .q-txt{font-size:14.8px}
+  .opt,.qz-opt{font-size:14px}
+  .qz-q{font-size:16px}
+  .list li{font-size:14.2px}
+  .acc-h{font-size:14.2px;padding:14px 15px}
+  .acc-b-in{font-size:14.2px;padding:15px}
+  .res-grid{grid-template-columns:repeat(2,1fr);gap:9px}
+  .ring{width:148px;height:148px}
+  .ring .val{font-size:32px}
+  .result h3{font-size:21px}
+  .def,.rule,.warn,.ok{padding:14px 15px;font-size:14.2px}
+  .ayah{font-size:17px;padding:15px 13px}
+  #toast{bottom:14px;padding:11px 16px;font-size:13px}
+  footer{padding:36px 15px 28px}
+  .wrap{padding:0 14px}
+}
+
+/* 5. Tables readable on phones (no giant empty horizontal scroll) */
+@media(max-width:600px){
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px -2px}
+  table{min-width:0;width:100%;font-size:12.6px}
+  table.keep-wide{min-width:430px}
+  thead th{font-size:11.6px;padding:9px 9px;white-space:normal}
+  tbody td{padding:9px 9px;line-height:1.75}
+  .tbl-wrap::after{content:'↔ اسحب أفقياً لرؤية بقية الجدول';font-size:10.5px;padding:5px 8px}
+}
+
+/* 6. Performance: the fixed background + heavy blurs are the main scroll-stutter
+      culprits on mid-range Android. Swap to a cheaper static gradient. */
+@media(max-width:900px){
+  body{background-attachment:scroll !important}
+  .nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(9,14,28,.97)}
+  .drawer-bg{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(3,6,14,.85)}
+  .card:hover{box-shadow:none}
+  .qn:hover,.stat:hover{transform:none}
+}
+/* respect devices that ask for less motion */
+@media(prefers-reduced-motion:reduce){
+  .hero-orn svg{animation:none !important}
+  html.js-anim .rv{opacity:1 !important;transform:none !important}
+}
+
+/* 7. Make sure nothing can ever create a sideways scroll again */
+html,body{max-width:100%;overflow-x:clip}
+@supports not (overflow:clip){html,body{overflow-x:hidden}}
+main,header.hero,footer,nav.nav,section.block{max-width:100vw;overflow-x:clip}
+@supports not (overflow:clip){main,header.hero,footer,nav.nav,section.block{overflow-x:hidden}}
+
+/* Nav: 12 links get cramped between 900-1120px — switch to drawer sooner */
+@media(max-width:1120px){
+  .nav-links{display:none}
+  .menu-toggle{display:grid}
+  .nav-tools{margin-inline-start:auto}
+}
+@media(min-width:1121px){
+  .nav-links{display:flex}
+  .menu-toggle{display:none}
+  .nav-tools{margin-inline-start:0}
+}
+/* quick-nav tile labels must never force width */
+.qn span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ==========================================================================
+   Round-3 fixes
+   ========================================================================== */
+
+/* A. Anchor jumps must clear the sticky nav (was hiding section headers) */
+html{scroll-padding-top:88px}
+@media(max-width:900px){html{scroll-padding-top:74px}}
+section.block{scroll-margin-top:88px}
+@media(max-width:900px){section.block{scroll-margin-top:74px}}
+#top{scroll-margin-top:0}
+
+/* B. Quran ornament brackets ﴿ ﴾ (U+FD3E/FD3F) have no glyph on many Android
+      builds. Draw them with CSS instead so the ayah always looks right. */
+.ayah .qopen,.ayah .qclose{
+  font-family:var(--font-quran);
+  display:inline-block;width:.62em;height:.9em;position:relative;
+  vertical-align:-.06em;
+}
+.ayah .qopen::before,.ayah .qclose::before{
+  content:'';position:absolute;inset:0;
+  border:2px solid currentColor;border-radius:50%;
+  clip-path:polygon(0 0,58% 0,42% 50%,58% 100%,0 100%,18% 50%);
+  opacity:.75;
+}
+.ayah .qclose::before{clip-path:polygon(100% 0,42% 0,58% 50%,42% 100%,100% 100%,82% 50%)}
+
+/* C. Sub-pixel text clipping inside gradient-clipped headings */
+.hero h1,body.light .hero h1{padding-bottom:.1em}
+
+/* D. Sticky nav shadow so content sliding beneath reads as "under" not "broken" */
+.nav{box-shadow:0 6px 22px rgba(0,0,0,.34)}
+body.light .nav{box-shadow:0 6px 22px rgba(90,70,20,.10)}
+
+/* E. Long Arabic words / ayahs must never overflow their card */
+.card,.def,.rule,.warn,.ok,.acc-b-in,.ex{overflow-wrap:anywhere;word-break:break-word}
+.ayah{overflow-wrap:anywhere}
+
+/* F. Quiz option labels on very narrow screens */
+@media(max-width:400px){
+  .qz-opt{padding:12px 13px;gap:9px;font-size:13.4px}
+  .qz-opt .k{width:25px;height:25px;border-radius:8px;font-size:11.5px}
+  .qz-q{font-size:15.2px;line-height:1.85}
+  .quiz-body{padding:14px}
+  .quiz-top{padding:13px 14px;gap:9px}
+  .quiz-top h3{font-size:16px}
+  .badge{font-size:11px;padding:5px 9px}
+  .res-grid{grid-template-columns:repeat(2,1fr)}
+  .btn{padding:12px 18px;font-size:13.5px}
+  .qn b{width:23px;height:23px;font-size:13px}
+  .qn span{font-size:9.6px}
+}
+
+/* G. Scroll performance: promote only what needs it, avoid layout thrash */
+.rv{will-change:auto}
+html.js-anim .rv{will-change:opacity,transform}
+html.js-anim .rv.in{will-change:auto}
+
+/* H. One-tap "jump to content": clear the sticky nav after navigating */
+.sect-anchor{display:block;position:relative;top:-96px;visibility:hidden}
+@media(max-width:900px){.sect-anchor{top:-74px}}
+/* nav icon buttons: center the SVG perfectly */
+.iconbtn .ico{width:16px;height:16px;stroke-width:1.9}
+@media(max-width:900px){.iconbtn .ico{width:15px;height:15px}}
+/* toast icon sizing */
+#toast .ico{width:1.05em;height:1.05em}
+
+/* Chevron drawn with borders — no glyph, no font dependency */
+.chev{
+  width:8px;height:8px;flex-shrink:0;
+  border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  transform:rotate(45deg);display:inline-block;opacity:.75;
+  transition:transform .25s ease;margin-top:-4px;
+}
+.acc.open .chev{transform:rotate(-135deg);margin-top:2px}
+.acc-h .chev{margin-inline-start:auto}
+
+/* ==========================================================================
+   Round-4: desktop polish
+   ========================================================================== */
+
+/* A. Ornament restrained to a whisper on desktop (was a distracting scribble) */
+.hero-orn{
+  width:min(72vw,620px) !important;
+  height:min(72vw,620px) !important;
+  opacity:.30 !important;
+  top:46%;
+}
+@media(max-width:1100px){.hero-orn{opacity:.22 !important}}
+@media(max-width:760px){
+  .hero-orn{width:min(120vw,430px) !important;height:min(120vw,430px) !important;
+            opacity:.16 !important;top:40%}
+}
+
+/* B. Quick-nav: a tidy, symmetric grid at every width (was 7+1 wrap on desktop) */
+.quicknav{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  max-width:540px;
+  margin:34px auto 0;
+}
+@media(max-width:600px){
+  .quicknav{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;max-width:none}
+}
+@media(min-width:1100px){
+  .quicknav{grid-template-columns:repeat(8,minmax(0,1fr));max-width:900px;gap:9px}
+}
+.qn{min-width:0;padding:13px 6px}
+.qn b{font-size:14px;width:25px;height:25px}
+.qn span{font-size:11.5px}
+
+/* C. Desktop hero breathing room */
+@media(min-width:901px){
+  .hero{padding:70px 20px 78px}
+  .hero h1{font-size:clamp(40px,4.6vw,58px)}
+  .hero-cta{margin-top:28px}
+  .stats{margin-top:40px}
 }

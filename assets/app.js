@@ -83,7 +83,7 @@ function initPrefs(){
   wBtn?.addEventListener('click', () => {
     body.classList.toggle('narrow');
     STORE.set('narrow', body.classList.contains('narrow'));
-    toast(body.classList.contains('narrow') ? 'عرض قراءة مركّز' : 'عرض كامل', '⇔');
+    toast(body.classList.contains('narrow') ? 'عرض قراءة مركّز' : 'عرض كامل', '⇄');
   });
 
   // font size
@@ -122,7 +122,7 @@ function initFlash(){
     if(!wrap) return;
     const cards = [...wrap.children];
     cards.sort(() => Math.random() - .5).forEach(c => { c.classList.remove('flip'); wrap.appendChild(c); });
-    toast('تم خلط البطاقات', '⤨');
+    toast('تم خلط البطاقات', '↻');
   });
 }
 
@@ -199,7 +199,7 @@ function renderBank(){
       if(opts.some(o => o.classList.contains('locked'))) return;
       opts.forEach(o => o.classList.add('locked'));
       const k = +opt.dataset.k;
-      if(k === data.a){ opt.classList.add('correct'); toast('إجابة صحيحة!', '🎯'); }
+      if(k === data.a){ opt.classList.add('correct'); toast('إجابة صحيحة!', '✓'); }
       else { opt.classList.add('wrong'); opts[data.a].classList.add('correct'); }
       $('.q-ans', card).classList.add('show');
       $('[data-show]', card).textContent = 'إخفاء الجواب';
@@ -304,7 +304,7 @@ const Quiz = {
         this.answers.push({ q, k, ok });
         scoreEl.textContent = this.answers.filter(a => a.ok).length * 5;
         next.disabled = false;
-        next.textContent = this.idx === this.pool.length - 1 ? 'عرض النتيجة 🏁' : 'السؤال التالي →';
+        next.textContent = this.idx === this.pool.length - 1 ? 'عرض النتيجة »' : 'السؤال التالي →';
       });
     });
     next.addEventListener('click', () => {
@@ -325,7 +325,7 @@ const Quiz = {
     const pct = Math.round(right / total * 100);
     const wrong = this.answers.filter(a => !a.ok);
     const skipped = total - this.answers.length;
-    const grade = pct >= 90 ? 'ممتاز 🌟' : pct >= 80 ? 'جيد جداً ✨' : pct >= 70 ? 'جيد 👍' : pct >= 50 ? 'متوسط 💪' : 'يحتاج مراجعة 📖';
+    const grade = pct >= 90 ? 'ممتاز' : pct >= 80 ? 'جيد جداً' : pct >= 70 ? 'جيد' : pct >= 50 ? 'متوسط' : 'يحتاج مراجعة';
     const circ = 2 * Math.PI * 76;
 
     host.innerHTML = `
@@ -351,23 +351,23 @@ const Quiz = {
             </div>
             ${wrong.length ? `
               <div style="text-align:right;max-width:760px;margin:26px auto 0">
-                <h4 style="font-size:16px;margin-bottom:12px;color:var(--gold-soft)">📌 مراجعة الأخطاء</h4>
+                <h4 style="font-size:16px;margin-bottom:12px;color:var(--gold-soft)">مراجعة الأخطاء</h4>
                 ${wrong.map(w => `
                   <div class="q" style="margin-bottom:10px">
                     <div class="q-txt" style="font-size:14.5px;margin-bottom:7px">${w.q.q}</div>
                     <div style="font-size:13.5px;color:var(--jade)">✓ ${w.q.o[w.q.a]}</div>
                     <div style="font-size:13px;color:var(--mute);margin-top:5px">${w.q.e}</div>
                   </div>`).join('')}
-              </div>` : `<p style="color:var(--jade);font-weight:800;margin-top:20px">🎉 إجابات كاملة! أتقنت هذا المحور.</p>`}
+              </div>` : `<p style="color:var(--jade);font-weight:800;margin-top:20px">إجابات كاملة! أتقنت هذا المحور.</p>`}
             <div class="qz-foot" style="justify-content:center">
-              <button class="btn btn-gold btn-sm" id="qzAgain">إعادة الامتحان 🔄</button>
+              <button class="btn btn-gold btn-sm" id="qzAgain">إعادة الامتحان ↻</button>
               <a class="btn btn-ghost btn-sm" href="#bank">مراجعة بنك الأسئلة</a>
             </div>
           </div>
         </div>
       </div>`;
 
-    if(pct >= 80) toast('نتيجة ممتازة! ' + pct + '%', '🏆');
+    if(pct >= 80) toast('نتيجة ممتازة! ' + pct + '%', '★');
     STORE.set('lastScore_' + this.cfg.id, {pct, right, total, at: Date.now()});
     this.updateDashboard();
     host.querySelector('#qzAgain')?.addEventListener('click', () => this.start(this.cfg.host, this.cfg));
@@ -434,17 +434,49 @@ function initSearch(){
 function initDeepLinks(){
   $$('[data-copy]').forEach(b => b.addEventListener('click', () => {
     const url = location.origin + location.pathname + b.dataset.copy;
-    navigator.clipboard?.writeText(url).then(() => toast('تم نسخ رابط القسم', '🔗')).catch(() => toast('تعذّر النسخ', '⚠'));
+    navigator.clipboard?.writeText(url).then(() => toast('تم نسخ رابط القسم', '⧉')).catch(() => toast('تعذّر النسخ', '!'));
   }));
 }
 
-/* ---------- reveal on scroll ---------- */
+/* ---------- reveal on scroll ----------
+   Safety-first: content must NEVER stay invisible. Anything already in (or above)
+   the viewport is revealed immediately; an observer handles the rest; a scroll
+   listener + a final timer guarantee full reveal even if the IO misfires. */
 function initReveal(){
-  if(!('IntersectionObserver' in window)) { $$('.rv').forEach(e => e.classList.add('in')); return; }
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-  }), {threshold:.08, rootMargin:'0px 0px -40px 0px'});
-  $$('.rv').forEach(e => io.observe(e));
+  const items = $$('.rv');
+  if(!items.length) return;
+  // Only enable the hide-then-animate behaviour when we can actually drive it.
+  if(!('IntersectionObserver' in window) || !('requestAnimationFrame' in window)){
+    document.documentElement.classList.remove('js-anim');
+    return;
+  }
+  document.documentElement.classList.add('js-anim');
+  const reveal = el => { if(el && !el.classList.contains('in')) el.classList.add('in'); };
+  const inView = el => {
+    const r = el.getBoundingClientRect();
+    return r.top < (innerHeight || 800) * .92 && r.bottom > -80;
+  };
+  // 1) reveal everything currently at/above the viewport right away
+  items.forEach(el => { if(inView(el)) reveal(el); });
+  // 2) observe the rest
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); }
+    }), {threshold:0, rootMargin:'0px 0px -8% 0px'});
+    items.forEach(el => { if(!el.classList.contains('in')) io.observe(el); });
+  }
+  // 3) belt & braces: on scroll (throttled) and once after load, reveal in-view items
+  let t = 0;
+  const sweep = () => { items.forEach(el => { if(inView(el)) reveal(el); }); };
+  addEventListener('scroll', () => {
+    if(t) return;
+    t = requestAnimationFrame(() => { t = 0; sweep(); });
+  }, {passive:true});
+  addEventListener('resize', sweep, {passive:true});
+  setTimeout(sweep, 400);
+  setTimeout(() => items.forEach(reveal), 2500);   // absolute guarantee
+  // 4) never leave content hidden if printing
+  addEventListener('beforeprint', () => items.forEach(reveal));
 }
 
 /* ---------- counters ---------- */
