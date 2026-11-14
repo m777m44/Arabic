@@ -6,9 +6,6 @@
 <meta name="theme-color" content="#070b16">
 <title>أسلوب الاستفهام · السادس العلمي — المنصة الشاملة</title>
 <meta name="description" content="المنصة الشاملة لأسلوب الاستفهام في اللغة العربية للصف السادس العلمي: شرح مفصّل، أنواع، إعراب، أغراض بلاغية، وزاريات، اختبارات وامتحانات تفاعلية.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 /* ==========================================================================
    منصة الاستفهام — أسلوب الاستفهام في اللغة العربية — السادس العلمي
@@ -52,7 +49,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
 body{
   font-family:var(--font-body);
   background:var(--ink-900);
@@ -615,8 +612,13 @@ body.light .acc{background:#fffdf8}
 body.narrow .wrap,body.narrow .hero-in{max-width:880px}
 
 /* reveal on scroll */
-.rv{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.8,.3,1)}
-.rv.in{opacity:1;transform:none}
+/* Reveal-on-scroll.
+   IMPORTANT: content is visible by default. The animation is applied only when
+   JS has confirmed it can observe elements (html.js-anim). This guarantees the
+   page is never blank if scripts fail, are slow, or the observer misfires. */
+.rv{opacity:1;transform:none}
+html.js-anim .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.3,1)}
+html.js-anim .rv.in{opacity:1;transform:none}
 
 /* ==========================================================================
    Responsive
@@ -686,10 +688,10 @@ body.narrow .wrap,body.narrow .hero-in{max-width:880px}
 .search-hit span{font-size:14px;color:var(--dim);line-height:1.85;display:block}
 #searchInput:focus{border-color:var(--gold) !important;box-shadow:0 0 0 3px rgba(230,182,76,.13)}
 
-/* decorative section divider */
+/* decorative section divider (kept inside the section box, never wider than it) */
 section.block::before{
-  content:'';position:absolute;top:0;inset-inline-start:50%;transform:translateX(-50%);
-  width:min(70%,420px);height:1px;
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(70%,420px);max-width:100%;height:1px;pointer-events:none;
   background:linear-gradient(90deg,transparent,rgba(230,182,76,.35),transparent);
 }
 section.block:first-of-type::before{display:none}
@@ -837,6 +839,271 @@ body.light .acc.open{background:#fdf8ec}
   pointer-events:none;
 }
 
+/* ==========================================================================
+   SVG icon system — replaces emoji so glyphs NEVER render as ▯ boxes
+   on devices/browsers lacking a colour-emoji font.
+   ========================================================================== */
+.ico{
+  width:1em;height:1em;display:inline-block;vertical-align:-.14em;
+  fill:none;stroke:currentColor;flex-shrink:0;
+}
+.ico[fill="currentColor"]{fill:currentColor;stroke:none}
+svg.ico{overflow:visible}
+.btn .ico{width:1.05em;height:1.05em}
+.badge .ico,.pill .ico{width:.95em;height:.95em}
+.card-h .ic .ico{width:1.15em;height:1.15em;vertical-align:0}
+.drawer-panel a .ico{width:1em;height:1em;opacity:.9;margin-inline-end:6px;vertical-align:-.13em}
+.acc-h .ico{width:.95em;height:.95em}
+.list .ico{width:.95em;height:.95em;color:var(--jade)}
+.fc-f .ico{width:1.2em;height:1.2em}
+/* icon inside rounded chip boxes */
+.ic:has(.ico){font-size:19px}
+
+/* ==========================================================================
+   HOTFIX PASS — mobile fidelity & performance
+   ========================================================================== */
+
+/* 1. Hero ornament: was 118vw on phones (overflowed the viewport and produced
+      the "wireframe scribble" behind the quick-nav). Keep it a soft backdrop. */
+.hero-orn{
+  width:min(86vw,560px) !important;
+  height:min(86vw,560px) !important;
+  max-width:560px;max-height:560px;
+}
+@media(max-width:760px){
+  .hero-orn{
+    width:min(128vw,470px) !important;
+    height:min(128vw,470px) !important;
+    opacity:.20 !important;top:38%;
+  }
+  .hero-orn svg{animation:none !important}
+}
+@media(max-width:420px){
+  .hero-orn{opacity:.14 !important}
+}
+/* never let decorative layers create horizontal overflow */
+.hero-orn,.hero-grid,.hero::before{contain:paint;pointer-events:none}
+
+/* 2. Chevrons / marks that were emoji-font dependent */
+.chev{font-family:var(--font-body);font-size:11px;opacity:.8;transition:transform .25s}
+.acc.open .chev{transform:rotate(180deg)}
+
+/* 3. Phone nav: tighter, guaranteed single row */
+@media(max-width:900px){
+  .nav-in{height:56px;padding:0 12px;gap:8px}
+  .brand-mark{width:34px;height:34px;border-radius:11px;font-size:17px}
+  .brand-txt b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:44vw}
+  .iconbtn{width:32px;height:32px;border-radius:9px;font-size:13.5px}
+  .nav-tools{gap:5px}
+  .brand{gap:8px;min-width:0}
+  html{scroll-padding-top:70px}
+}
+@media(max-width:400px){
+  .brand-txt b{font-size:12.5px;max-width:38vw}
+  .iconbtn{width:30px;height:30px}
+  #fsDown{display:none}
+}
+
+/* 4. Phone typography & rhythm */
+@media(max-width:600px){
+  .hero{padding:34px 15px 46px}
+  .hero h1{font-size:clamp(27px,8.2vw,34px);letter-spacing:-.6px;line-height:1.32}
+  .hero .sub{font-size:14.3px;line-height:1.95}
+  .hero .aya{font-size:16.5px;margin:20px auto 2px}
+  .hero-cta{margin-top:24px;gap:9px}
+  .quicknav{margin-top:30px}
+  section.block{padding:44px 0}
+  .sec-head{margin-bottom:26px;gap:11px}
+  .sec-num{width:40px;height:40px;border-radius:12px;font-size:12.5px}
+  .sec-head h2{font-size:21px;line-height:1.45}
+  .sec-head p{font-size:13.6px;line-height:1.9}
+  .card{padding:17px;border-radius:18px}
+  .card-h h3{font-size:16.5px}
+  .card-h h4{font-size:15px}
+  .card-h .ic{width:36px;height:36px;border-radius:10px}
+  .card p{font-size:14.2px}
+  .q{padding:15px}
+  .q-txt{font-size:14.8px}
+  .opt,.qz-opt{font-size:14px}
+  .qz-q{font-size:16px}
+  .list li{font-size:14.2px}
+  .acc-h{font-size:14.2px;padding:14px 15px}
+  .acc-b-in{font-size:14.2px;padding:15px}
+  .res-grid{grid-template-columns:repeat(2,1fr);gap:9px}
+  .ring{width:148px;height:148px}
+  .ring .val{font-size:32px}
+  .result h3{font-size:21px}
+  .def,.rule,.warn,.ok{padding:14px 15px;font-size:14.2px}
+  .ayah{font-size:17px;padding:15px 13px}
+  #toast{bottom:14px;padding:11px 16px;font-size:13px}
+  footer{padding:36px 15px 28px}
+  .wrap{padding:0 14px}
+}
+
+/* 5. Tables readable on phones (no giant empty horizontal scroll) */
+@media(max-width:600px){
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px -2px}
+  table{min-width:0;width:100%;font-size:12.6px}
+  table.keep-wide{min-width:430px}
+  thead th{font-size:11.6px;padding:9px 9px;white-space:normal}
+  tbody td{padding:9px 9px;line-height:1.75}
+  .tbl-wrap::after{content:'↔ اسحب أفقياً لرؤية بقية الجدول';font-size:10.5px;padding:5px 8px}
+}
+
+/* 6. Performance: the fixed background + heavy blurs are the main scroll-stutter
+      culprits on mid-range Android. Swap to a cheaper static gradient. */
+@media(max-width:900px){
+  body{background-attachment:scroll !important}
+  .nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(9,14,28,.97)}
+  .drawer-bg{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(3,6,14,.85)}
+  .card:hover{box-shadow:none}
+  .qn:hover,.stat:hover{transform:none}
+}
+/* respect devices that ask for less motion */
+@media(prefers-reduced-motion:reduce){
+  .hero-orn svg{animation:none !important}
+  html.js-anim .rv{opacity:1 !important;transform:none !important}
+}
+
+/* 7. Make sure nothing can ever create a sideways scroll again */
+html,body{max-width:100%;overflow-x:clip}
+@supports not (overflow:clip){html,body{overflow-x:hidden}}
+main,header.hero,footer,nav.nav,section.block{max-width:100vw;overflow-x:clip}
+@supports not (overflow:clip){main,header.hero,footer,nav.nav,section.block{overflow-x:hidden}}
+
+/* Nav: 12 links get cramped between 900-1120px — switch to drawer sooner */
+@media(max-width:1120px){
+  .nav-links{display:none}
+  .menu-toggle{display:grid}
+  .nav-tools{margin-inline-start:auto}
+}
+@media(min-width:1121px){
+  .nav-links{display:flex}
+  .menu-toggle{display:none}
+  .nav-tools{margin-inline-start:0}
+}
+/* quick-nav tile labels must never force width */
+.qn span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ==========================================================================
+   Round-3 fixes
+   ========================================================================== */
+
+/* A. Anchor jumps must clear the sticky nav (was hiding section headers) */
+html{scroll-padding-top:88px}
+@media(max-width:900px){html{scroll-padding-top:74px}}
+section.block{scroll-margin-top:88px}
+@media(max-width:900px){section.block{scroll-margin-top:74px}}
+#top{scroll-margin-top:0}
+
+/* B. Quran ornament brackets ﴿ ﴾ (U+FD3E/FD3F) have no glyph on many Android
+      builds. Draw them with CSS instead so the ayah always looks right. */
+.ayah .qopen,.ayah .qclose{
+  font-family:var(--font-quran);
+  display:inline-block;width:.62em;height:.9em;position:relative;
+  vertical-align:-.06em;
+}
+.ayah .qopen::before,.ayah .qclose::before{
+  content:'';position:absolute;inset:0;
+  border:2px solid currentColor;border-radius:50%;
+  clip-path:polygon(0 0,58% 0,42% 50%,58% 100%,0 100%,18% 50%);
+  opacity:.75;
+}
+.ayah .qclose::before{clip-path:polygon(100% 0,42% 0,58% 50%,42% 100%,100% 100%,82% 50%)}
+
+/* C. Sub-pixel text clipping inside gradient-clipped headings */
+.hero h1,body.light .hero h1{padding-bottom:.1em}
+
+/* D. Sticky nav shadow so content sliding beneath reads as "under" not "broken" */
+.nav{box-shadow:0 6px 22px rgba(0,0,0,.34)}
+body.light .nav{box-shadow:0 6px 22px rgba(90,70,20,.10)}
+
+/* E. Long Arabic words / ayahs must never overflow their card */
+.card,.def,.rule,.warn,.ok,.acc-b-in,.ex{overflow-wrap:anywhere;word-break:break-word}
+.ayah{overflow-wrap:anywhere}
+
+/* F. Quiz option labels on very narrow screens */
+@media(max-width:400px){
+  .qz-opt{padding:12px 13px;gap:9px;font-size:13.4px}
+  .qz-opt .k{width:25px;height:25px;border-radius:8px;font-size:11.5px}
+  .qz-q{font-size:15.2px;line-height:1.85}
+  .quiz-body{padding:14px}
+  .quiz-top{padding:13px 14px;gap:9px}
+  .quiz-top h3{font-size:16px}
+  .badge{font-size:11px;padding:5px 9px}
+  .res-grid{grid-template-columns:repeat(2,1fr)}
+  .btn{padding:12px 18px;font-size:13.5px}
+  .qn b{width:23px;height:23px;font-size:13px}
+  .qn span{font-size:9.6px}
+}
+
+/* G. Scroll performance: promote only what needs it, avoid layout thrash */
+.rv{will-change:auto}
+html.js-anim .rv{will-change:opacity,transform}
+html.js-anim .rv.in{will-change:auto}
+
+/* H. One-tap "jump to content": clear the sticky nav after navigating */
+.sect-anchor{display:block;position:relative;top:-96px;visibility:hidden}
+@media(max-width:900px){.sect-anchor{top:-74px}}
+/* nav icon buttons: center the SVG perfectly */
+.iconbtn .ico{width:16px;height:16px;stroke-width:1.9}
+@media(max-width:900px){.iconbtn .ico{width:15px;height:15px}}
+/* toast icon sizing */
+#toast .ico{width:1.05em;height:1.05em}
+
+/* Chevron drawn with borders — no glyph, no font dependency */
+.chev{
+  width:8px;height:8px;flex-shrink:0;
+  border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  transform:rotate(45deg);display:inline-block;opacity:.75;
+  transition:transform .25s ease;margin-top:-4px;
+}
+.acc.open .chev{transform:rotate(-135deg);margin-top:2px}
+.acc-h .chev{margin-inline-start:auto}
+
+/* ==========================================================================
+   Round-4: desktop polish
+   ========================================================================== */
+
+/* A. Ornament restrained to a whisper on desktop (was a distracting scribble) */
+.hero-orn{
+  width:min(72vw,620px) !important;
+  height:min(72vw,620px) !important;
+  opacity:.30 !important;
+  top:46%;
+}
+@media(max-width:1100px){.hero-orn{opacity:.22 !important}}
+@media(max-width:760px){
+  .hero-orn{width:min(120vw,430px) !important;height:min(120vw,430px) !important;
+            opacity:.16 !important;top:40%}
+}
+
+/* B. Quick-nav: a tidy, symmetric grid at every width (was 7+1 wrap on desktop) */
+.quicknav{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  max-width:540px;
+  margin:34px auto 0;
+}
+@media(max-width:600px){
+  .quicknav{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;max-width:none}
+}
+@media(min-width:1100px){
+  .quicknav{grid-template-columns:repeat(8,minmax(0,1fr));max-width:900px;gap:9px}
+}
+.qn{min-width:0;padding:13px 6px}
+.qn b{font-size:14px;width:25px;height:25px}
+.qn span{font-size:11.5px}
+
+/* C. Desktop hero breathing room */
+@media(min-width:901px){
+  .hero{padding:70px 20px 78px}
+  .hero h1{font-size:clamp(40px,4.6vw,58px)}
+  .hero-cta{margin-top:28px}
+  .stats{margin-top:40px}
+}
+
 </style>
 </head>
 <body>
@@ -868,11 +1135,11 @@ body.light .acc.open{background:#fdf8ec}
       <a href="#mistakes">أخطاء شائعة</a>
     </div>
     <div class="nav-tools">
-      <button class="iconbtn" id="themeBtn" title="الوضع الليلي/الورقي">◐</button>
-      <button class="iconbtn" id="widthBtn" title="عرض القراءة">⇔</button>
+      <button class="iconbtn" id="themeBtn" title="الوضع الليلي/الورقي" aria-label="تبديل المظهر"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg></button>
+      <button class="iconbtn" id="widthBtn" title="عرض القراءة" aria-label="عرض القراءة"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 12h18M6 8.5 2.5 12 6 15.5M18 8.5l3.5 3.5-3.5 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <button class="iconbtn" id="fsUp" title="تكبير الخط">A+</button>
       <button class="iconbtn" id="fsDown" title="تصغير الخط">A−</button>
-      <button class="iconbtn menu-toggle" id="menuBtn" title="القائمة">☰</button>
+      <button class="iconbtn menu-toggle" id="menuBtn" title="القائمة"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
     </div>
   </div>
 </nav>
@@ -891,12 +1158,12 @@ body.light .acc.open{background:#fdf8ec}
     <a href="#fill">٨ · الفراغات</a>
     <a href="#wizariyat">٩ · الوزاريات</a>
     <a href="#exams">١٠ · الامتحانات</a>
-    <a href="#progress">📊 لوحة التقدم</a>
-    <a href="#tools">📚 موسوعة الأدوات</a>
-    <a href="#workshop">✍ ورشة الإعراب</a>
-    <a href="#mock">📄 ورقة امتحان وزاري</a>
-    <a href="#mistakes">⚠ الأخطاء الشائعة</a>
-    <a href="#guide">🗺 دليل الدراسة</a>
+    <a href="#progress"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke-linecap="round"/></svg> لوحة التقدم</a>
+    <a href="#tools"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 6.5h6v13H3zM10.5 4.5h6v15h-6zM18 7.5h3v12h-3z"/></svg> موسوعة الأدوات</a>
+    <a href="#workshop"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M16.5 3.5 20.5 7.5 8 20H4v-4z" stroke-linejoin="round"/></svg> ورشة الإعراب</a>
+    <a href="#mock"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5M8.5 13h7M8.5 17h4.5"/></svg> ورقة امتحان وزاري</a>
+    <a href="#mistakes"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3.5 22 20H2z" stroke-linejoin="round"/><path d="M12 9.5v5M12 17.4v.1" stroke-linecap="round"/></svg> الأخطاء الشائعة</a>
+    <a href="#guide"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="m9 4 6 2 6-2v15l-6 2-6-2-6 2V6zM9 4v15M15 6v15"/></svg> دليل الدراسة</a>
     <a href="#search">١١ · بحث</a>
   </div>
 </div>
@@ -904,73 +1171,54 @@ body.light .acc.open{background:#fdf8ec}
 <!-- ================= HERO ================= -->
 <header class="hero" id="top">
   <div class="hero-grid"></div>
-  <div class="hero-orn"><svg viewBox="0 0 600 600" class="mandala" aria-hidden="true">
+  <div class="hero-orn"><svg viewBox="0 0 600 600" aria-hidden="true">
   <defs>
     <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f5d98b" stop-opacity=".95"/>
-      <stop offset=".4" stop-color="#e6b64c" stop-opacity=".75"/>
-      <stop offset="1" stop-color="#35d0a5" stop-opacity=".55"/>
+      <stop offset="0" stop-color="#f5d98b" stop-opacity=".9"/>
+      <stop offset=".5" stop-color="#e6b64c" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#35d0a5" stop-opacity=".45"/>
     </linearGradient>
     <radialGradient id="mglow" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#e6b64c" stop-opacity=".16"/>
-      <stop offset="60%" stop-color="#e6b64c" stop-opacity=".05"/>
+      <stop offset="0" stop-color="#e6b64c" stop-opacity=".14"/>
+      <stop offset="65%" stop-color="#e6b64c" stop-opacity=".04"/>
       <stop offset="1" stop-color="#e6b64c" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <circle cx="300" cy="300" r="292" fill="url(#mglow)"/>
-  <g stroke="url(#mg)" fill="none" stroke-linejoin="round">
-    <!-- outer ring -->
-    <circle cx="300" cy="300" r="268" stroke-width="1"/>
-    <circle cx="300" cy="300" r="252" stroke-width="1.6" stroke-dasharray="1 6"/>
-    <!-- 16-point star lattice -->
-    <g id="rosette" stroke-width="1.15">
-      <path d="M300 44 L332 300 L300 556 L268 300 Z"/>
-      <path d="M44 300 L300 268 L556 300 L300 332 Z"/>
-      <path d="M112 112 L332 268 L488 488 L268 332 Z"/>
-      <path d="M488 112 L332 332 L112 488 L268 268 Z"/>
-      <path d="M300 74 L470 190 L526 410 L380 526 L170 470 L74 230 Z"/>
-      <path d="M300 526 L130 410 L74 190 L220 74 L430 130 L526 370 Z"/>
+  <circle cx="300" cy="300" r="290" fill="url(#mglow)"/>
+  <g stroke="url(#mg)" fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="300" cy="300" r="272" stroke-width=".9" opacity=".5"/>
+    <circle cx="300" cy="300" r="246" stroke-width="1.5" stroke-dasharray="2 9" opacity=".55"/>
+    <circle cx="300" cy="300" r="196" stroke-width=".8" opacity=".35"/>
+    <circle cx="300" cy="300" r="150" stroke-width="1" opacity=".3"/>
+    <g stroke-width="1.05" opacity=".55">
+      <path d="M300 54 C338 128 338 182 300 246 C262 182 262 128 300 54 Z"/>
+      <path d="M300 546 C338 472 338 418 300 354 C262 418 262 472 300 546 Z"/>
+      <path d="M54 300 C128 262 182 262 246 300 C182 338 128 338 54 300 Z"/>
+      <path d="M546 300 C472 338 418 338 354 300 C418 262 472 262 546 300 Z"/>
+      <path d="M126 126 C196 158 238 200 270 270 C200 238 158 196 126 126 Z"/>
+      <path d="M474 474 C404 442 362 400 330 330 C400 362 442 404 474 474 Z"/>
+      <path d="M474 126 C442 196 400 238 330 270 C362 200 404 158 474 126 Z"/>
+      <path d="M126 474 C196 442 238 400 270 330 C238 400 196 442 126 474 Z"/>
     </g>
-    <!-- petal ring -->
-    <g stroke-width=".95" opacity=".85">
-      <path d="M300 96 C336 150 336 206 300 262 C264 206 264 150 300 96 Z"/>
-      <path d="M300 504 C336 450 336 394 300 338 C264 394 264 450 300 504 Z"/>
-      <path d="M96 300 C150 264 206 264 262 300 C206 336 150 336 96 300 Z"/>
-      <path d="M504 300 C450 264 394 264 338 300 C394 336 450 336 504 300 Z"/>
-      <path d="M156 156 C216 176 252 212 272 272 C212 252 176 216 156 156 Z"/>
-      <path d="M444 444 C384 424 348 388 328 328 C388 348 424 384 444 444 Z"/>
-      <path d="M444 156 C424 216 388 252 328 272 C348 212 384 176 444 156 Z"/>
-      <path d="M156 444 C216 424 252 388 272 328 C212 348 176 384 156 444 Z"/>
-    </g>
-    <!-- inner octagram -->
-    <g stroke-width="1.3">
-      <path d="M300 182 L368 232 L418 300 L368 368 L300 418 L232 368 L182 300 L232 232 Z"/>
-      <path d="M300 210 L350 250 L390 300 L350 350 L300 390 L250 350 L210 300 L250 250 Z" stroke-width=".9" opacity=".8"/>
-      <circle cx="300" cy="300" r="74" stroke-width="1.1"/>
+    <g stroke-width="1.25" opacity=".65">
+      <path d="M300 210 L363 256 L410 300 L363 344 L300 390 L237 344 L190 300 L237 256 Z"/>
+      <circle cx="300" cy="300" r="62" stroke-width="1" opacity=".7"/>
     </g>
   </g>
-  <!-- center glyph -->
-  <text x="300" y="352" text-anchor="middle" font-family="Cairo, serif" font-size="108" font-weight="900" fill="url(#mg)" opacity=".92">؟</text>
-  <!-- corner accents -->
-  <g stroke="url(#mg)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".9">
-    <path d="M300 8 l8 12 -8 -6 -8 6 z"/>
-    <path d="M300 592 l8 -12 -8 6 -8 -6 z"/>
-    <path d="M8 300 l12 8 -6 -8 6 -8 z"/>
-    <path d="M592 300 l-12 8 6 -8 -6 -8 z"/>
-  </g>
+  <text x="300" y="350" text-anchor="middle" font-family="Cairo, serif" font-size="104" font-weight="900" fill="url(#mg)" opacity=".55">؟</text>
 </svg></div>
   <div class="hero-in">
     <span class="pill"><span class="dot"></span> منهاج السادس العلمي · 2026</span>
     <h1>أسلوب الاستفهام<br>في اللغة العربية</h1>
     <p class="sub">المنصة الشاملة التي تجمع كل ما تحتاجه في موضوع الاستفهام: الشرح المفصّل، الأدوات وإعرابها، الأغراض البلاغية، الوزاريات، والاختبارات التفاعلية — في مكان واحد.</p>
     <div class="aya">
-      ﴿ فَلْيَنظُرِ الْإِنسَانُ مِمَّ خُلِقَ ﴾
+      <span class="qopen" aria-hidden="true"></span> فَلْيَنظُرِ الْإِنسَانُ مِمَّ خُلِقَ <span class="qclose" aria-hidden="true"></span>
       <small>سورة الطارق</small>
     </div>
     <div class="hero-cta">
-      <a href="#s1" class="btn btn-gold">ابدأ الدراسة 📖</a>
-      <a href="#exams" class="btn btn-ghost">ادخل الامتحان 🎯</a>
-      <a href="#s6" class="btn btn-ghost">الملخص السريع ⚡</a>
+      <a href="#s1" class="btn btn-gold">ابدأ الدراسة <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 5.5A2 2 0 0 1 6 3.5h5v17H6a2 2 0 0 1-2-2z"/><path d="M20 5.5a2 2 0 0 0-2-2h-5v17h5a2 2 0 0 0 2-2z"/></svg></a>
+      <a href="#exams" class="btn btn-ghost">ادخل الامتحان <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#s6" class="btn btn-ghost">الملخص السريع <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="quicknav">
       <a href="#s1" class="qn"><b>١</b><span>المفاهيم</span></a>
@@ -1020,7 +1268,7 @@ body.light .acc.open{background:#fdf8ec}
       </div>
 
       <div class="card rv">
-        <div class="card-h"><div class="ic">⚖</div><h3>الحقيقي والمجازي</h3></div>
+        <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v18M6 21h12M4 8h16M8 8 5 14h6zM16 8l-3 6h6z" stroke-linejoin="round"/></svg></div><h3>الحقيقي والمجازي</h3></div>
         <div class="def">
           <b>الاستفهام الحقيقي:</b> هو الذي يُطلب به معرفة أمر مجهول لم يعرفه السائل، ويُنتظر له جواب.
           <br><em class="muted">مثال: أين تسكن؟ مدينة الموصل.</em>
@@ -1034,7 +1282,7 @@ body.light .acc.open{background:#fdf8ec}
     </div>
 
     <div class="card mt2 rv">
-      <div class="card-h"><div class="ic">✦</div><h3>لماذا ندرس الاستفهام؟</h3></div>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></div><h3>لماذا ندرس الاستفهام؟</h3></div>
       <div class="grid g3">
         <div>
           <h4 style="color:var(--gold)">١. في الإعراب</h4>
@@ -1124,21 +1372,21 @@ body.light .acc.open{background:#fdf8ec}
       </div>
 
       <h4 class="mt3" style="color:var(--gold)">الهمزة وأغراضها:</h4>
-      <div class="acc"><div class="acc-h">١ · الهمزة الداخلة على الجملة المثبتة — التصديق والتصور <span class="chev">▾</span></div>
+      <div class="acc"><div class="acc-h">١ · الهمزة الداخلة على الجملة المثبتة — التصديق والتصور <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <div class="ex"><span class="q">« أَحَدَثَ حَادِثٌ فِي الْمَدِينَةِ ؟ »</span><span class="note">جوابها: نعم / لا ← استفهام تصديقي.</span></div>
           <div class="ex"><span class="q">« أَتُحِبُّ الْقِرَاءَةَ أَمِ الْكِتَابَةَ ؟ »</span><span class="note">جوابها بالتعيين ← استفهام تصوّري.</span></div>
         </div></div>
       </div>
-      <div class="acc"><div class="acc-h">٢ · الهمزة الداخلة على الجملة المنفية — التقرير <span class="chev">▾</span></div>
+      <div class="acc"><div class="acc-h">٢ · الهمزة الداخلة على الجملة المنفية — التقرير <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <p>إذا دخلت الهمزة على جملة منفية أفادت <b>التقرير</b> والتأكيد، ولا يُطلب بها جواب حقيقي.</p>
-          <div class="ayah">﴿ أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ ﴾<span class="ref">الشرح: ١</span></div>
-          <div class="ayah">﴿ أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ ﴾<span class="ref">التين: ٨</span></div>
+          <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ <span class="qclose" aria-hidden="true"></span><span class="ref">الشرح: ١</span></div>
+          <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ <span class="qclose" aria-hidden="true"></span><span class="ref">التين: ٨</span></div>
           <div class="ex"><span class="note">المعنى: قد شرحنا لك صدرك، والله أحكم الحاكمين — تقرير لا استفهام.</span></div>
         </div></div>
       </div>
-      <div class="acc"><div class="acc-h">٣ · الهمزة التي يُطلب بها التصور — (أم) المعادلة <span class="chev">▾</span></div>
+      <div class="acc"><div class="acc-h">٣ · الهمزة التي يُطلب بها التصور — (أم) المعادلة <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <p>إذا وقعت <b>(أم)</b> المعادلة بعد الهمزة كان الاستفهام <b>تصوّرياً</b> وجوباً، والجواب بالتعيين.</p>
           <div class="ex"><span class="q">« أَأَنْتَ كَتَبْتَ الرِّسَالَةَ أَمْ أَخُوكَ ؟ »</span><span class="note">الجواب: أنا / أخي — تعيين.</span></div>
@@ -1146,7 +1394,7 @@ body.light .acc.open{background:#fdf8ec}
       </div>
 
       <div class="warn mt2">
-        <b>⚠ تنبيه وزاري:</b> لا يصح أن نقول «هل تذهبُ أم تجلسُ»؛ لأن (أم) المعادلة من خصائص الهمزة، ولا تقع بعد (هل).
+        <b><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3.5 22 20H2z" stroke-linejoin="round"/><path d="M12 9.5v5M12 17.4v.1" stroke-linecap="round"/></svg> تنبيه وزاري:</b> لا يصح أن نقول «هل تذهبُ أم تجلسُ»؛ لأن (أم) المعادلة من خصائص الهمزة، ولا تقع بعد (هل).
       </div>
     </div>
 
@@ -1182,7 +1430,7 @@ body.light .acc.open{background:#fdf8ec}
       <div class="ex"><span class="q">« فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ »</span>
         <span class="note"><b>(ما)</b> مبتدأ، <b>(ذا)</b> اسم إشارة خبر، والجملة استفهامية.</span></div>
 
-      <div class="acc mt2"><div class="acc-h">أصل (عمَّ) و(فيمَ) و(مِمَّ) — حذف ألف (ما) <span class="chev">▾</span></div>
+      <div class="acc mt2"><div class="acc-h">أصل (عمَّ) و(فيمَ) و(مِمَّ) — حذف ألف (ما) <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>عمَّ</b> = عن + ما ← حُذفت ألف (ما) لالتقاء الساكنين.</li>
@@ -1196,7 +1444,7 @@ body.light .acc.open{background:#fdf8ec}
 
     <!-- ZAMAN MAKAN HAL -->
     <div class="card rv mb2">
-      <div class="card-h"><div class="ic">⏱</div><h3>متى / أيان / أين / أنى / كيف</h3></div>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4.2l2.6 1.6M9.5 2h5M12 2v2.5" stroke-linecap="round"/></svg></div><h3>متى / أيان / أين / أنى / كيف</h3></div>
       <div class="grid g2">
         <div>
           <h4 style="color:var(--gold)">للزمان:</h4>
@@ -1423,7 +1671,7 @@ body.light .acc.open{background:#fdf8ec}
       </div>
 
       <div class="card rv">
-        <div class="card-h"><div class="ic">∞</div><h3>(كم) الخبرية</h3></div>
+        <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M7.2 8.5c2.2 0 3.2 3.5 4.8 3.5s2.6-3.5 4.8-3.5a3.5 3.5 0 1 1 0 7c-2.2 0-3.2-3.5-4.8-3.5s-2.6 3.5-4.8 3.5a3.5 3.5 0 1 1 0-7z"/></svg></div><h3>(كم) الخبرية</h3></div>
         <p>تدلّ على <b>التكثير</b> (بمعنى: كثيراً)، وليس المراد بها العدد الحقيقي.</p>
         <div class="ex"><span class="q">« وَكَمْ أَرْسَلْنَا مِن نَّبِيٍّ »</span><span class="note">أي: كثيراً من الأنبياء أرسلنا.</span></div>
         <div class="ok mt2">
@@ -1439,7 +1687,7 @@ body.light .acc.open{background:#fdf8ec}
     </div>
 
     <div class="card rv mb2">
-      <div class="card-h"><div class="ic">✦</div><h3>وجوه (كم) الخبرية</h3></div>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></div><h3>وجوه (كم) الخبرية</h3></div>
       <ul class="list">
         <li><b>التقليل:</b> قد تكون بمعنى (قليل) في سياق خاص: كم عابدٍ خيرٌ من الفاجر — أي: قليل.</li>
         <li><b>التكثير:</b> وهي الأصل: « كم من فئةٍ قليلةٍ غلبت فئةً كثيرة ».</li>
@@ -1451,26 +1699,26 @@ body.light .acc.open{background:#fdf8ec}
     </div>
 
     <div class="card rv">
-      <div class="card-h"><div class="ic">⏱</div><h3>الزمان والمكان والحال — تمارين الإعراب</h3></div>
-      <div class="acc"><div class="acc-h">نماذج على (متى) و(أيان) <span class="chev">▾</span></div>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4.2l2.6 1.6M9.5 2h5M12 2v2.5" stroke-linecap="round"/></svg></div><h3>الزمان والمكان والحال — تمارين الإعراب</h3></div>
+      <div class="acc"><div class="acc-h">نماذج على (متى) و(أيان) <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <div class="ex"><span class="q">« مَتَىٰ نَصْرُ اللَّهِ »</span><span class="note">(متى) اسم استفهام مبني على السكون في محل نصب ظرف زمان، و(نصر الله) مبتدأ مؤخر.</span></div>
           <div class="ex"><span class="q">« أَيَّانَ يَوْمُ الْقِيَامَةِ »</span><span class="note">(أيان) مبني على الفتح في محل نصب ظرف زمان.</span></div>
         </div></div>
       </div>
-      <div class="acc"><div class="acc-h">نماذج على (أين) و(أنى) <span class="chev">▾</span></div>
+      <div class="acc"><div class="acc-h">نماذج على (أين) و(أنى) <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <div class="ex"><span class="q">« أَيْنَ شَرِبْتَ مِنْهُ »</span><span class="note">(أين) ظرف مكان مبني في محل نصب.</span></div>
           <div class="ex"><span class="q">« مِنْ أَيْنَ لَكَ هَذَا »</span><span class="note">(أين) مجرور بـ(من) مبنية على الفتح في محل جر.</span></div>
         </div></div>
       </div>
-      <div class="acc"><div class="acc-h">نماذج على (كيف) <span class="chev">▾</span></div>
+      <div class="acc"><div class="acc-h">نماذج على (كيف) <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <div class="ex"><span class="q">« كَيْفَ تَرَى اللَّهُ يَفْعَلُ »</span><span class="note">(كيف) في محل نصب حال منصوب.</span></div>
           <div class="ex"><span class="q">« فَكَيْفَ تَصْبِرُونَ »</span><span class="note">(كيف) في محل نصب خبر مقدم للفعل الناقص المقدر.</span></div>
         </div></div>
       </div>
-      <p class="muted mt2">💡 للتدريب العملي انتقل إلى <a href="#exams">اختبار «الزمان والمكان والحال»</a>.</p>
+      <p class="muted mt2"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M9 18h6M10 21h4M12 2a6.5 6.5 0 0 0-3.7 11.8V16h7.4v-2.2A6.5 6.5 0 0 0 12 2z" stroke-linecap="round" stroke-linejoin="round"/></svg> للتدريب العملي انتقل إلى <a href="#exams">اختبار «الزمان والمكان والحال»</a>.</p>
     </div>
   </div>
 </section>
@@ -1494,63 +1742,63 @@ body.light .acc.open{background:#fdf8ec}
 
     <div class="grid g2">
       <div class="card rv">
-        <div class="card-h"><div class="ic" style="color:var(--jade);background:rgba(53,208,165,.13);border-color:rgba(53,208,165,.26)">✓</div><h3>التقرير</h3></div>
+        <div class="card-h"><div class="ic" style="color:var(--jade);background:rgba(53,208,165,.13);border-color:rgba(53,208,165,.26)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12.5 5 5.5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>التقرير</h3></div>
         <p>تأكيد المعنى وإثباته في نفس المخاطب. ويكون غالباً بالهمزة الداخلة على النفي.</p>
-        <div class="ayah">﴿ أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ ﴾</div>
-        <div class="ayah">﴿ أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ <span class="qclose" aria-hidden="true"></span></div>
         <div class="ex"><span class="note">المعنى: قد شرحنا لك صدرك + الله أحكم الحاكمين — تقرير.</span></div>
       </div>
 
       <div class="card rv">
         <div class="card-h"><div class="ic" style="color:var(--rose);background:rgba(242,103,155,.13);border-color:rgba(242,103,155,.26)">!</div><h3>الإنكار</h3></div>
         <p>استنكار ما يُذكر، وقد يكون معه توبيخ.</p>
-        <div class="ayah">﴿ أَتَعْبُدُونَ مَا تَنْحِتُونَ ﴾</div>
-        <div class="ayah">﴿ أَفَحُكْمَ الْجَاهِلِيَّةِ يَبْغُونَ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَتَعْبُدُونَ مَا تَنْحِتُونَ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَفَحُكْمَ الْجَاهِلِيَّةِ يَبْغُونَ <span class="qclose" aria-hidden="true"></span></div>
         <div class="ex"><span class="note">إنكار عبادة الأصنام التي ينحتونها بأيديهم.</span></div>
       </div>
 
       <div class="card rv">
-        <div class="card-h"><div class="ic">✦</div><h3>التعجب</h3></div>
+        <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></div><h3>التعجب</h3></div>
         <p>إظهار العجب من أمر.</p>
-        <div class="ayah">﴿ أَلَمْ تَرَ إِلَى رَبِّكَ كَيْفَ مَدَّ الظِّلَّ ﴾</div>
-        <div class="ayah">﴿ كَيْفَ تَكْفُرُونَ بِاللَّهِ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَلَمْ تَرَ إِلَى رَبِّكَ كَيْفَ مَدَّ الظِّلَّ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> كَيْفَ تَكْفُرُونَ بِاللَّهِ <span class="qclose" aria-hidden="true"></span></div>
         <div class="ex"><span class="note">التعجب من قدرة الله تعالى.</span></div>
       </div>
 
       <div class="card rv">
-        <div class="card-h"><div class="ic">☾</div><h3>التمني</h3></div>
+        <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.5 8.5 0 1 0 20 14.2z" stroke-linejoin="round"/></svg></div><h3>التمني</h3></div>
         <p>طلب أمر لا يُرجى حصوله أو لا يُمكن.</p>
-        <div class="ayah">﴿ فَهَلْ لَنَا مِن شُفَعَاءَ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> فَهَلْ لَنَا مِن شُفَعَاءَ <span class="qclose" aria-hidden="true"></span></div>
         <div class="ex"><span class="note">تمنّي وجود شفعاء يشفعون لهم.</span></div>
       </div>
 
       <div class="card rv">
         <div class="card-h"><div class="ic">⇄</div><h3>التسوية</h3></div>
         <p>بيان استواء أمرين. وتأتي بالهمزة مع (أم).</p>
-        <div class="ayah">﴿ سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ <span class="qclose" aria-hidden="true"></span></div>
         <div class="ex"><span class="note">تسوية بين الإنذار وعدمه.</span></div>
       </div>
 
       <div class="card rv">
         <div class="card-h"><div class="ic">⊘</div><h3>النفي</h3></div>
         <p>تأتي (هل) بمعنى (ما) النافية.</p>
-        <div class="ayah">﴿ هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ ﴾</div>
-        <div class="ayah">﴿ فَهَلْ يُهْلَكُ إِلَّا الْقَوْمُ الْفَاسِقُونَ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> فَهَلْ يُهْلَكُ إِلَّا الْقَوْمُ الْفَاسِقُونَ <span class="qclose" aria-hidden="true"></span></div>
         <div class="ex"><span class="note">المعنى: ما جزاء الإحسان إلا الإحسان.</span></div>
       </div>
 
       <div class="card rv">
         <div class="card-h"><div class="ic">→</div><h3>الأمر</h3></div>
         <p>الدلالة على الطلب.</p>
-        <div class="ayah">﴿ فَهَلْ أَنتُم مُّنتَهُونَ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> فَهَلْ أَنتُم مُّنتَهُونَ <span class="qclose" aria-hidden="true"></span></div>
         <div class="ex"><span class="note">المعنى: انتهوا عن المنكر.</span></div>
       </div>
 
       <div class="card rv">
-        <div class="card-h"><div class="ic">❖</div><h3>العرض والتحضيض</h3></div>
+        <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></div><h3>العرض والتحضيض</h3></div>
         <p>الهمزة الداخلة على (لا) النافية تفيد العرض والحثّ.</p>
-        <div class="ayah">﴿ أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ ﴾</div>
-        <div class="ayah">﴿ أَلَا تُقَاتِلُونَ قَوْمًا نَكَثُوا أَيْمَانَهُمْ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَلَا تُقَاتِلُونَ قَوْمًا نَكَثُوا أَيْمَانَهُمْ <span class="qclose" aria-hidden="true"></span></div>
         <div class="ex"><span class="note">الأول عرض، والثاني تحضيض.</span></div>
       </div>
     </div>
@@ -1656,7 +1904,7 @@ body.light .acc.open{background:#fdf8ec}
     </div>
 
     <div class="card mt2 rv">
-      <div class="card-h"><div class="ic">⚡</div><h3>بطاقات المراجعة — اضغط البطاقة لقلبها</h3></div>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z" stroke-linejoin="round"/></svg></div><h3>بطاقات المراجعة — اضغط البطاقة لقلبها</h3></div>
       <div class="fc-wrap" id="fcWrap">
         <div class="fc"><div class="fc-in"><div class="fc-f">هل تدخل على المنفي؟<small>اضغط للجواب</small></div><div class="fc-b">لا — بخلاف الهمزة التي تدخل على المنفي وغيره.</div></div></div>
         <div class="fc"><div class="fc-in"><div class="fc-f">علامة بناء (أيان)؟<small>اضغط للجواب</small></div><div class="fc-b">الفتح — وهي للزمان المستقبلي خاصة.</div></div></div>
@@ -1667,7 +1915,7 @@ body.light .acc.open{background:#fdf8ec}
         <div class="fc"><div class="fc-in"><div class="fc-f">«أَلَمْ نَشْرَحْ» غرضها؟<small>اضغط للجواب</small></div><div class="fc-b">التقرير — لأن الهمزة دخلت على جملة منفية.</div></div></div>
         <div class="fc"><div class="fc-in"><div class="fc-f">«سَوَاءٌ عَلَيْهِمْ» غرضها؟<small>اضغط للجواب</small></div><div class="fc-b">التسوية — بين الإنذار وعدمه.</div></div></div>
       </div>
-      <div class="mt2"><button class="btn btn-ghost btn-sm" id="fcShuffle">⤨ خلط البطاقات</button></div>
+      <div class="mt2"><button class="btn btn-ghost btn-sm" id="fcShuffle">↻ خلط البطاقات</button></div>
     </div>
   </div>
 </section>
@@ -1701,7 +1949,7 @@ body.light .acc.open{background:#fdf8ec}
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
       <button class="btn btn-gold btn-sm" data-blank-all="#fillList">إظهار جميع الأجوبة</button>
-      <a class="btn btn-ghost btn-sm" href="#exams">تحدَّ نفسك في امتحان 🎯</a>
+      <a class="btn btn-ghost btn-sm" href="#exams">تحدَّ نفسك في امتحان <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg></a>
     </div>
     <div id="fillList" class="rv"></div>
   </div>
@@ -1731,22 +1979,22 @@ body.light .acc.open{background:#fdf8ec}
         <button class="btn btn-gold btn-sm mt2" data-quiz="manma" style="width:100%;justify-content:center">ابدأ الامتحان</button>
       </div>
       <div class="card">
-        <div class="card-h"><div class="ic">⏱</div><h4>الزمان والمكان والحال</h4></div>
+        <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4.2l2.6 1.6M9.5 2h5M12 2v2.5" stroke-linecap="round"/></svg></div><h4>الزمان والمكان والحال</h4></div>
         <p class="muted" style="font-size:14px">متى، أيان، أين، أنى، كيف.</p>
         <button class="btn btn-gold btn-sm mt2" data-quiz="zaman" style="width:100%;justify-content:center">ابدأ الامتحان</button>
       </div>
       <div class="card">
-        <div class="card-h"><div class="ic">∞</div><h4>كم وأي</h4></div>
+        <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M7.2 8.5c2.2 0 3.2 3.5 4.8 3.5s2.6-3.5 4.8-3.5a3.5 3.5 0 1 1 0 7c-2.2 0-3.2-3.5-4.8-3.5s-2.6 3.5-4.8 3.5a3.5 3.5 0 1 1 0-7z"/></svg></div><h4>كم وأي</h4></div>
         <p class="muted" style="font-size:14px">الاستفهامية والخبرية والتمييز.</p>
         <button class="btn btn-gold btn-sm mt2" data-quiz="kam" style="width:100%;justify-content:center">ابدأ الامتحان</button>
       </div>
       <div class="card">
-        <div class="card-h"><div class="ic">✦</div><h4>الأغراض البلاغية</h4></div>
+        <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></div><h4>الأغراض البلاغية</h4></div>
         <p class="muted" style="font-size:14px">استخراج الغرض من الآيات.</p>
         <button class="btn btn-gold btn-sm mt2" data-quiz="balagha" style="width:100%;justify-content:center">ابدأ الامتحان</button>
       </div>
       <div class="card" style="border-color:rgba(230,182,76,.5);background:linear-gradient(160deg,rgba(230,182,76,.12),rgba(10,16,32,.92))">
-        <div class="card-h"><div class="ic">🏁</div><h4>الامتحان النهائي الشامل</h4></div>
+        <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 21V4M5 5h11l-1.6 4L16 13H5" stroke-linejoin="round"/></svg></div><h4>الامتحان النهائي الشامل</h4></div>
         <p class="muted" style="font-size:14px">٢٥ سؤالاً من كل المحاور — التحدي الأكبر.</p>
         <button class="btn btn-gold btn-sm mt2" data-quiz="final" style="width:100%;justify-content:center">ابدأ الامتحان</button>
       </div>
@@ -1766,7 +2014,7 @@ body.light .acc.open{background:#fdf8ec}
 <section class="block" id="progress" style="padding-top:0">
   <div class="wrap">
     <div class="card rv" style="background:linear-gradient(160deg,rgba(230,182,76,.09),rgba(10,16,32,.92));border-color:rgba(230,182,76,.3)">
-      <div class="card-h"><div class="ic">📊</div><h3>لوحة تقدّمك</h3>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke-linecap="round"/></svg></div><h3>لوحة تقدّمك</h3>
         <span class="badge gold" style="margin-inline-start:auto">أنجزت <b id="progressDone">0 / 6</b></span>
       </div>
       <p class="muted">تُحفظ نتائجك تلقائياً في متصفحك — أفضل نتيجة لكل امتحان.</p>
@@ -1860,7 +2108,7 @@ body.light .acc.open{background:#fdf8ec}
       <button class="btn btn-ghost btn-sm" data-open-all="#tools" style="margin-inline-start:auto;flex-shrink:0">فتح الكل</button>
     </div>
 
-    <div class="acc rv"><div class="acc-h">① <b>الهمزة</b> — أداة التصديق والتصوّر <span class="chev">▾</span></div>
+    <div class="acc rv"><div class="acc-h">① <b>الهمزة</b> — أداة التصديق والتصوّر <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def"><b>حكمها:</b> حرف استفهام لا محل له من الإعراب.</div>
         <h5 class="mt2" style="color:var(--gold)">خصائصها:</h5>
@@ -1873,13 +2121,13 @@ body.light .acc.open{background:#fdf8ec}
           <li>تكون أصلية وقد تكون <b>زائدة</b> للتقرير.</li>
         </ul>
         <h5 class="mt2" style="color:var(--gold)">أمثلة:</h5>
-        <div class="ayah">﴿ وَمَا أَدْرَاكَ مَا الْحَاقَّةُ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> وَمَا أَدْرَاكَ مَا الْحَاقَّةُ <span class="qclose" aria-hidden="true"></span></div>
         <div class="ex"><span class="q">« أَذَهَبْتَ إِلَى الْمَدْرَسَةِ ؟ »</span><span class="note">تصديقي — الجواب: نعم / لا.</span></div>
         <div class="ex"><span class="q">« أَنَذْهَبُ أَمْ نَجْلِسُ ؟ »</span><span class="note">تصوّري — الجواب بالتعيين.</span></div>
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">② <b>هل</b> — أداة التصديق فقط <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">② <b>هل</b> — أداة التصديق فقط <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def"><b>حكمها:</b> حرف استفهام لا محل له من الإعراب، مبني.</div>
         <h5 class="mt2" style="color:var(--gold)">خصائصها:</h5>
@@ -1892,11 +2140,11 @@ body.light .acc.open{background:#fdf8ec}
           <li>قد تخرج عن الاستفهام إلى <b>النفي</b> أو <b>الأمر</b> أو <b>التمني</b>.</li>
         </ul>
         <div class="warn mt2"><b>تنبيه:</b> قولك «هل لم أكتب» خطأ، والصواب بالهمزة: «أَلَمْ أكتب».</div>
-        <div class="ayah">﴿ هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ <span class="qclose" aria-hidden="true"></span></div>
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">③ <b>من</b> — للعاقل <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">③ <b>من</b> — للعاقل <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def"><b>مبني على السكون</b> — يُسأل بها عن العاقل، وتُعرب بحسب موقعها.</div>
         <h5 class="mt2" style="color:var(--gold)">المواقع الإعرابية:</h5>
@@ -1909,11 +2157,11 @@ body.light .acc.open{background:#fdf8ec}
             <tr><td>مجرور</td><td>سبقها حرف جر</td><td>مِن أين؟ / عند مَن؟</td></tr>
           </tbody>
         </table></div>
-        <div class="ayah">﴿ مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا <span class="qclose" aria-hidden="true"></span></div>
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">④ <b>ما / ماذا</b> — لغير العاقل <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">④ <b>ما / ماذا</b> — لغير العاقل <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def"><b>مبنية على السكون</b> — لغير العاقل غالباً.</div>
         <h5 class="mt2" style="color:var(--gold)">تنبيهات:</h5>
@@ -1926,7 +2174,7 @@ body.light .acc.open{background:#fdf8ec}
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">⑤ <b>متى</b> — للزمان ماضياً ومستقبلاً <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">⑤ <b>متى</b> — للزمان ماضياً ومستقبلاً <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def">اسم استفهام <b>مبني على السكون</b> في محل نصب ظرف زمان.</div>
         <ul class="list">
@@ -1934,24 +2182,24 @@ body.light .acc.open{background:#fdf8ec}
           <li>تُعرب ظرفاً في محل نصب، وما بعدها مضاف إليه.</li>
           <li>إذا دخل عليها حرف جر صارت مجرورة في محل جرّ.</li>
         </ul>
-        <div class="ayah">﴿ مَتَىٰ نَصْرُ اللَّهِ ﴾</div>
-        <div class="ayah">﴿ فَآمِنُوا بِاللَّهِ وَرَسُولِهِ وَلَا تَعْجَلُوا ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> مَتَىٰ نَصْرُ اللَّهِ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> فَآمِنُوا بِاللَّهِ وَرَسُولِهِ وَلَا تَعْجَلُوا <span class="qclose" aria-hidden="true"></span></div>
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">⑥ <b>أيان</b> — للمستقبل خاصة <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">⑥ <b>أيان</b> — للمستقبل خاصة <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def">اسم استفهام <b>مبني على الفتح</b> في محل نصب ظرف زمان.</div>
         <ul class="list">
           <li>تختص بالزمان <b>المستقبلي</b> — وهذا فرقها عن (متى).</li>
           <li>ما بعدها مضاف إليه: (أيان يوم القيامة).</li>
         </ul>
-        <div class="ayah">﴿ أَيَّانَ يَوْمُ الْقِيَامَةِ ﴾</div>
-        <div class="ayah">﴿ أَيَّانَ يُبْعَثُونَ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَيَّانَ يَوْمُ الْقِيَامَةِ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَيَّانَ يُبْعَثُونَ <span class="qclose" aria-hidden="true"></span></div>
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">⑦ <b>أين</b> — للمكان <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">⑦ <b>أين</b> — للمكان <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def">اسم استفهام <b>مبني على الفتح</b> في محل نصب ظرف مكان.</div>
         <ul class="list">
@@ -1959,12 +2207,12 @@ body.light .acc.open{background:#fdf8ec}
           <li>قد يدخل عليها حرف جر: «من أين؟» / «إلى أين؟».</li>
           <li>قد تكون <b>شرطية</b>: (أينما تكونوا).</li>
         </ul>
-        <div class="ayah">﴿ أَيْنَ مَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ ﴾</div>
-        <div class="ayah">﴿ أَيْنَ الْمَفَرُّ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَيْنَ مَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَيْنَ الْمَفَرُّ <span class="qclose" aria-hidden="true"></span></div>
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">⑧ <b>أنى</b> — للمكان أو الحال <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">⑧ <b>أنى</b> — للمكان أو الحال <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def">اسم استفهام <b>مبني على الفتح</b>.</div>
         <ul class="list">
@@ -1972,12 +2220,12 @@ body.light .acc.open{background:#fdf8ec}
           <li>تأتي بمعنى <b>(كيف)</b> للحال: «أنّى شئتَ».</li>
           <li>قد تأتي بمعنى <b>(متى)</b> في بعض الاستعمال.</li>
         </ul>
-        <div class="ayah">﴿ أَنَّى شَاءَ اللَّهُ ﴾</div>
-        <div class="ayah">﴿ أَنَّى يُحْيِي الْأَرْضَ بَعْدَ مَوْتِهَا ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَنَّى شَاءَ اللَّهُ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَنَّى يُحْيِي الْأَرْضَ بَعْدَ مَوْتِهَا <span class="qclose" aria-hidden="true"></span></div>
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">⑨ <b>كيف</b> — للحال والهيئة <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">⑨ <b>كيف</b> — للحال والهيئة <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def">اسم استفهام <b>مبني على الفتح</b> في محل نصب حال.</div>
         <ul class="list">
@@ -1985,12 +2233,12 @@ body.light .acc.open{background:#fdf8ec}
           <li>تُعرب حالاً في محل نصب، أو خبراً مقدماً للفعل الناقص.</li>
           <li>قد تخرج إلى <b>التعجب</b> أو <b>الإنكار</b>.</li>
         </ul>
-        <div class="ayah">﴿ كَيْفَ تَكْفُرُونَ بِاللَّهِ ﴾</div>
-        <div class="ayah">﴿ كَيْفَ تَرَى اللَّهُ يَفْعَلُ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> كَيْفَ تَكْفُرُونَ بِاللَّهِ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> كَيْفَ تَرَى اللَّهُ يَفْعَلُ <span class="qclose" aria-hidden="true"></span></div>
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">⑩ <b>كم</b> — للعدد <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">⑩ <b>كم</b> — للعدد <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def">اسم استفهام عن العدد — استفهامية أو خبرية.</div>
         <ul class="list">
@@ -1998,12 +2246,12 @@ body.light .acc.open{background:#fdf8ec}
           <li><b>الخبرية:</b> تمييزها مجموع مجرور، وتفيد التكثير.</li>
           <li>لها <b>الصدارة</b>: لا يتقدم عليها شيء.</li>
         </ul>
-        <div class="ayah">﴿ كَمْ لَبِثْتَ ﴾</div>
-        <div class="ayah">﴿ كَمْ مِن فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> كَمْ لَبِثْتَ <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> كَمْ مِن فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً <span class="qclose" aria-hidden="true"></span></div>
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">⑪ <b>أيّ</b> — للتمييز بين أمرين <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">⑪ <b>أيّ</b> — للتمييز بين أمرين <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="def">اسم استفهام <b>مبني على الضم</b>، ويُعرب بحسب موقعه.</div>
         <ul class="list">
@@ -2011,8 +2259,8 @@ body.light .acc.open{background:#fdf8ec}
           <li>يكون للعاقل وغير العاقل.</li>
           <li>إذا أُضيف إلى نكرة كان نكرة، وإلى معرفة كان معرفة.</li>
         </ul>
-        <div class="ayah">﴿ أَيُّكُمْ أَحْسَنُ عَمَلًا ﴾</div>
-        <div class="ayah">﴿ فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ ﴾</div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> أَيُّكُمْ أَحْسَنُ عَمَلًا <span class="qclose" aria-hidden="true"></span></div>
+        <div class="ayah"><span class="qopen" aria-hidden="true"></span> فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ <span class="qclose" aria-hidden="true"></span></div>
       </div></div>
     </div>
   </div>
@@ -2058,7 +2306,7 @@ body.light .acc.open{background:#fdf8ec}
     </div>
 
     <div class="card mt2 rv">
-      <div class="card-h"><div class="ic">★</div><h3>أسئلة استخراج الغرض — الأكثر تكراراً</h3></div>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.9 6.1 6.6.9-4.8 4.7 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.5l6.6-.9z"/></svg></div><h3>أسئلة استخراج الغرض — الأكثر تكراراً</h3></div>
       <div class="tbl-wrap">
         <table>
           <thead><tr><th>الآية</th><th>الغرض</th><th>التعليل المختصر</th></tr></thead>
@@ -2093,7 +2341,7 @@ body.light .acc.open{background:#fdf8ec}
 
     <div class="grid g2">
       <div class="card rv">
-        <div class="card-h"><div class="ic" style="color:var(--rose)">✕</div><h3>أخطاء الإعراب</h3></div>
+        <div class="card-h"><div class="ic" style="color:var(--rose)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></div><h3>أخطاء الإعراب</h3></div>
         <div class="warn">
           <b>الخطأ:</b> «مَن» في «مَن عندك؟» مبتدأ.<br>
           <b class="hl-g">الصواب:</b> خبر مقدم؛ لأن ما بعدها شبه جملة، و(عندك) هو المبتدأ المؤخر.
@@ -2113,7 +2361,7 @@ body.light .acc.open{background:#fdf8ec}
       </div>
 
       <div class="card rv">
-        <div class="card-h"><div class="ic" style="color:var(--rose)">✕</div><h3>أخطاء القواعد</h3></div>
+        <div class="card-h"><div class="ic" style="color:var(--rose)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></div><h3>أخطاء القواعد</h3></div>
         <div class="warn">
           <b>الخطأ:</b> «هل تذهب أم تجلس؟»<br>
           <b class="hl-g">الصواب:</b> «أَتذهب أم تجلس؟»؛ لأن (أم) المعادلة لا تقع بعد (هل).
@@ -2218,9 +2466,9 @@ body.light .acc.open{background:#fdf8ec}
     </div>
 
     <div class="card mt2 rv" style="border-color:rgba(230,182,76,.45);background:linear-gradient(160deg,rgba(230,182,76,.1),rgba(10,16,32,.92))">
-      <div class="card-h"><div class="ic">🏁</div><h3>اليوم السابع — الامتحان النهائي</h3></div>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 21V4M5 5h11l-1.6 4L16 13H5" stroke-linejoin="round"/></svg></div><h3>اليوم السابع — الامتحان النهائي</h3></div>
       <p>ادخل <b>الامتحان النهائي الشامل</b> (٢٥ سؤالاً). إذا حصلت على ٨٠٪ أو أكثر فأنت جاهز للوزاري بإذن الله.</p>
-      <a href="#exams" class="btn btn-gold btn-sm mt1" data-scroll="#quizFinal">ابدأ الامتحان النهائي 🎯</a>
+      <a href="#exams" class="btn btn-gold btn-sm mt1" data-scroll="#quizFinal">ابدأ الامتحان النهائي <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg></a>
     </div>
   </div>
 </section>
@@ -2245,7 +2493,7 @@ body.light .acc.open{background:#fdf8ec}
 
     <h3 class="rv" style="color:var(--gold);margin-bottom:14px">أ · نماذج على (من) و(ما)</h3>
     <div class="grid g2">
-      <div class="acc rv"><div class="acc-h">« مَن ذَا الَّذِي يَشْفَعُ عِندَهُ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« مَن ذَا الَّذِي يَشْفَعُ عِندَهُ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>مَن:</b> اسم استفهام مبني على السكون في محل رفع مبتدأ.</li>
@@ -2257,7 +2505,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>ما:</b> اسم استفهام مبني على السكون في محل رفع مبتدأ.</li>
@@ -2269,7 +2517,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« مَاذَا قَرَأْتَ ؟ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« مَاذَا قَرَأْتَ ؟ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>ماذا:</b> (ما) اسم استفهام مبني على السكون في محل نصب مفعول به مقدم، و(ذا) زائدة أو اسم موصول.</li>
@@ -2278,7 +2526,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>ما:</b> اسم استفهام مبني في محل رفع مبتدأ.</li>
@@ -2291,7 +2539,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« مَا لَكُمْ لَا تَنطِقُونَ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« مَا لَكُمْ لَا تَنطِقُونَ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>ما:</b> اسم استفهام مبني في محل رفع مبتدأ.</li>
@@ -2302,7 +2550,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« قَالَ مَنْ رَبُّكُمَا يَا مُوسَى » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« قَالَ مَنْ رَبُّكُمَا يَا مُوسَى » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>قال:</b> فعل ماضٍ مبني على الفتح، والفاعل مستتر.</li>
@@ -2316,7 +2564,7 @@ body.light .acc.open{background:#fdf8ec}
 
     <h3 class="rv mt3" style="color:var(--jade);margin-bottom:14px">ب · نماذج على الزمان والمكان والحال</h3>
     <div class="grid g2">
-      <div class="acc rv"><div class="acc-h">« يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>يسأل:</b> فعل مضارع مرفوع، والفاعل مستتر.</li>
@@ -2326,7 +2574,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« أَيْنَ مَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« أَيْنَ مَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>أين:</b> اسم استفهام (شرطي) مبني على الفتح في محل نصب ظرف مكان.</li>
@@ -2338,7 +2586,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« كَيْفَ تَكْفُرُونَ بِاللَّهِ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« كَيْفَ تَكْفُرُونَ بِاللَّهِ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>كيف:</b> اسم استفهام مبني على الفتح في محل نصب حال.</li>
@@ -2348,7 +2596,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« مِنْ أَيْنَ لَكَ هَذَا » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« مِنْ أَيْنَ لَكَ هَذَا » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>من:</b> حرف جر.</li>
@@ -2362,7 +2610,7 @@ body.light .acc.open{background:#fdf8ec}
 
     <h3 class="rv mt3" style="color:var(--sky);margin-bottom:14px">ج · نماذج على (كم) و(أي)</h3>
     <div class="grid g2">
-      <div class="acc rv"><div class="acc-h">« كَمْ لَبِثْتُمْ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« كَمْ لَبِثْتُمْ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>كم:</b> اسم استفهام مبني على السكون في محل نصب ظرف زمان.</li>
@@ -2372,7 +2620,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« وَكَمْ أَرْسَلْنَا مِن نَّبِيٍّ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« وَكَمْ أَرْسَلْنَا مِن نَّبِيٍّ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>كم:</b> خبرية للتكثير، في محل نصب مفعول به مقدم.</li>
@@ -2382,7 +2630,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« أَيُّكُمْ أَحْسَنُ عَمَلًا » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« أَيُّكُمْ أَحْسَنُ عَمَلًا » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>أيّ:</b> اسم استفهام مبني على الضم في محل رفع مبتدأ، وهو مضاف.</li>
@@ -2393,7 +2641,7 @@ body.light .acc.open{background:#fdf8ec}
         </div></div>
       </div>
 
-      <div class="acc rv"><div class="acc-h">« فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ » <span class="chev">▾</span></div>
+      <div class="acc rv"><div class="acc-h">« فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ » <span class="chev" aria-hidden="true"></span></div>
         <div class="acc-b"><div class="acc-b-in">
           <ul class="list">
             <li><b>الباء:</b> حرف جر. <b>أيّ:</b> اسم استفهام مبني على الضم في محل جر، وهو مضاف.</li>
@@ -2406,7 +2654,7 @@ body.light .acc.open{background:#fdf8ec}
     </div>
 
     <div class="card mt3 rv">
-      <div class="card-h"><div class="ic">★</div><h3>قائمة تحقق قبل الإجابة</h3></div>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.9 6.1 6.6.9-4.8 4.7 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.5l6.6-.9z"/></svg></div><h3>قائمة تحقق قبل الإجابة</h3></div>
       <ul class="list num">
         <li>هل الأداة <b>حرف</b> (الهمزة، هل) أم <b>اسم</b>؟ الحرف لا محل له من الإعراب.</li>
         <li>هل الاسم <b>مبني</b> أم <b>معرب</b>؟ الجميع مبني إلا (أيّ).</li>
@@ -2433,7 +2681,7 @@ body.light .acc.open{background:#fdf8ec}
     </div>
 
     <div class="card rv mb2" style="border-color:rgba(230,182,76,.32)">
-      <div class="card-h"><div class="ic">📄</div><h3>ملاحظات قبل الحل</h3></div>
+      <div class="card-h"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5M8.5 13h7M8.5 17h4.5"/></svg></div><h3>ملاحظات قبل الحل</h3></div>
       <ul class="list">
         <li>اكتب الإعراب كاملاً: <b>اسم استفهام + نوعه + بناؤه + موقعه</b>.</li>
         <li>في الغرض البلاغي: اذكر <b>الغرض + السبب</b>.</li>
@@ -2442,7 +2690,7 @@ body.light .acc.open{background:#fdf8ec}
       </ul>
     </div>
 
-    <div class="acc rv"><div class="acc-h">س١ · ما الفرق بين (هل) والهمزة؟ اذكر أربعة فروق. <span class="chev">▾</span></div>
+    <div class="acc rv"><div class="acc-h">س١ · ما الفرق بين (هل) والهمزة؟ اذكر أربعة فروق. <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <div class="tbl-wrap"><table>
           <thead><tr><th>الوجه</th><th>الهمزة</th><th>هل</th></tr></thead>
@@ -2456,7 +2704,7 @@ body.light .acc.open{background:#fdf8ec}
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س٢ · أعرب ما تحته خط: «مَن ذَا الَّذِي يَشْفَعُ عِندَهُ» <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س٢ · أعرب ما تحته خط: «مَن ذَا الَّذِي يَشْفَعُ عِندَهُ» <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <b>(مَن):</b> اسم استفهام مبني على السكون في محل رفع مبتدأ.
         <br><b>(ذا):</b> اسم إشارة مبني على السكون في محل رفع خبر.
@@ -2464,27 +2712,27 @@ body.light .acc.open{background:#fdf8ec}
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س٣ · ما الغرض البلاغي في: «أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ»؟ ولماذا؟ <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س٣ · ما الغرض البلاغي في: «أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ»؟ ولماذا؟ <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <b>الغرض:</b> التقرير.
         <br><b>السبب:</b> لأن الهمزة دخلت على جملة منفية بـ(لم)، فيكون المعنى: قد شرحنا لك صدرك — تقريراً وتأكيداً لا استفهاماً حقيقياً.
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س٤ · ميّز بين (كم) الاستفهامية والخبرية في التمييز والحكم. <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س٤ · ميّز بين (كم) الاستفهامية والخبرية في التمييز والحكم. <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <b>الاستفهامية:</b> تمييزها مفرد منصوب، ولا يُجرّ ولا يُحذف إلا بدليل، ويُطلب بها العدد.
         <br><b>الخبرية:</b> تمييزها مجموع مجرور بالإضافة أو بـ(من)، وتفيد التكثير، ولا يُنتظر لها جواب.
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س٥ · أعرب (أيان) في: «يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ» <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س٥ · أعرب (أيان) في: «يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ» <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <b>(أيان):</b> اسم استفهام مبني على الفتح في محل نصب ظرف زمان، وهو مختص بالزمان المستقبلي، و(يوم القيامة) مضاف إليه.
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س٦ · استخرج أداة الاستفهام وبيّن نوعها في: «كَيْفَ تَكْفُرُونَ بِاللَّهِ» <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س٦ · استخرج أداة الاستفهام وبيّن نوعها في: «كَيْفَ تَكْفُرُونَ بِاللَّهِ» <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <b>الأداة:</b> (كيف).
         <br><b>نوعها:</b> اسم استفهام مبني على الفتح في محل نصب حال.
@@ -2492,26 +2740,26 @@ body.light .acc.open{background:#fdf8ec}
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س٧ · لماذا لا يصح: «هل تذهبُ أم تجلسُ»؟ <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س٧ · لماذا لا يصح: «هل تذهبُ أم تجلسُ»؟ <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         لأن (أم) المعادلة من خصائص الهمزة، ولا تقع بعد (هل)؛ فالصواب: «أَتذهبُ أم تجلسُ؟»، وهو استفهام تصوّري.
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س٨ · ما الغرض البلاغي في «فَهَلْ لَنَا مِن شُفَعَاءَ»؟ <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س٨ · ما الغرض البلاغي في «فَهَلْ لَنَا مِن شُفَعَاءَ»؟ <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <b>الغرض:</b> التمني.
         <br><b>السبب:</b> لأنهم يطلبون ما لا يُرجى حصوله (شفعاء يشفعون لهم)، فخرج الاستفهام عن حقيقته إلى التمني.
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س٩ · أعرب (أيّ) في: «فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ» <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س٩ · أعرب (أيّ) في: «فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ» <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <b>(أيّ):</b> اسم استفهام مبني على الضم في محل جرّ بحرف الجر (الباء)، وهو مضاف، و(حديث) مضاف إليه مجرور.
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س١٠ · ما الفرق بين الاستفهام الحقيقي والمجازي؟ مثّل لكل منهما. <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س١٠ · ما الفرق بين الاستفهام الحقيقي والمجازي؟ مثّل لكل منهما. <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <b>الحقيقي:</b> طلب معرفة شيء مجهول لم يعرفه السائل، ويُنتظر له جواب. مثال: أين تسكن؟
         <br><b>المجازي:</b> خروج الاستفهام عن معناه الأصلي إلى غرض بلاغي (إنكار، تقرير، تعجب…). مثال: «أَتَعْبُدُونَ مَا تَنْحِتُونَ» للإنكار.
@@ -2519,7 +2767,7 @@ body.light .acc.open{background:#fdf8ec}
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س١١ · اذكر ثلاثة مواضع يُعرب فيها اسم الاستفهام مفعولاً به. <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س١١ · اذكر ثلاثة مواضع يُعرب فيها اسم الاستفهام مفعولاً به. <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         يُعرب مفعولاً به إذا سبقه:
         <ul class="list mt1">
@@ -2530,7 +2778,7 @@ body.light .acc.open{background:#fdf8ec}
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س١٢ · ما أنواع (ما) الاستفهامية من حيث الإعراب؟ <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س١٢ · ما أنواع (ما) الاستفهامية من حيث الإعراب؟ <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         تُعرب بحسب موقعها في الجملة:
         <ul class="list mt1">
@@ -2542,13 +2790,13 @@ body.light .acc.open{background:#fdf8ec}
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س١٣ · بيّن خصائص (أم) المعادلة وعلاقتها بالاستفهام. <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س١٣ · بيّن خصائص (أم) المعادلة وعلاقتها بالاستفهام. <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         (أم) المعادلة تختص بالهمزة دون (هل)، وتجعل الاستفهام <b>تصوّرياً</b> وجوباً؛ لأنها تطلب تعيين أحد الأمرين: «أَتذهبُ أم تجلسُ؟».
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س١٤ · أعرب: «مَا لَكُمْ لَا تَنطِقُونَ» <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س١٤ · أعرب: «مَا لَكُمْ لَا تَنطِقُونَ» <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <b>(ما):</b> اسم استفهام مبني على السكون في محل رفع مبتدأ.
         <br><b>(لكم):</b> جار ومجرور خبر مقدم.
@@ -2557,7 +2805,7 @@ body.light .acc.open{background:#fdf8ec}
       </div></div>
     </div>
 
-    <div class="acc"><div class="acc-h">س١٥ · استخرج ثلاثة أغراض بلاغية للاستفهام مع التمثيل. <span class="chev">▾</span></div>
+    <div class="acc"><div class="acc-h">س١٥ · استخرج ثلاثة أغراض بلاغية للاستفهام مع التمثيل. <span class="chev" aria-hidden="true"></span></div>
       <div class="acc-b"><div class="acc-b-in">
         <ul class="list">
           <li><b>التقرير:</b> «أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ».</li>
@@ -2571,7 +2819,7 @@ body.light .acc.open{background:#fdf8ec}
     <div class="card mt3 rv center">
       <h3 style="margin-bottom:10px">جاهز للامتحان؟</h3>
       <p class="muted">اختبر نفسك الآن في الامتحان النهائي الشامل — ٢٥ سؤالاً بمؤقّت.</p>
-      <a href="#exams" class="btn btn-gold mt2" data-scroll="#quizFinal">ابدأ الامتحان النهائي 🎯</a>
+      <a href="#exams" class="btn btn-gold mt2" data-scroll="#quizFinal">ابدأ الامتحان النهائي <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg></a>
     </div>
   </div>
 </section>
@@ -2585,10 +2833,10 @@ body.light .acc.open{background:#fdf8ec}
   </div>
   <p>منصة تعليمية شاملة — الشرح · الإعراب · البلاغة · الوزاريات · الاختبارات</p>
   <p style="margin-top:14px">
-    <span class="fline">✓ ١٢٠+ سؤالاً تفاعلياً</span>
-    <span class="fline">✓ ٣٢ فراغاً</span>
-    <span class="fline">✓ ٦ امتحانات</span>
-    <span class="fline">✓ وضع ليلي/ورقي</span>
+    <span class="fline"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12.5 5 5.5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> ١٢٠+ سؤالاً تفاعلياً</span>
+    <span class="fline"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12.5 5 5.5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> ٣٢ فراغاً</span>
+    <span class="fline"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12.5 5 5.5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> ٦ امتحانات</span>
+    <span class="fline"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12.5 5 5.5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> وضع ليلي/ورقي</span>
   </p>
   <p class="muted" style="margin-top:18px;font-size:12px">© 2026 · أُعدّت بعناية لطلبة السادس العلمي · بالتوفيق في امتحاناتكم</p>
 </footer>
@@ -3346,7 +3594,7 @@ function initPrefs(){
   wBtn?.addEventListener('click', () => {
     body.classList.toggle('narrow');
     STORE.set('narrow', body.classList.contains('narrow'));
-    toast(body.classList.contains('narrow') ? 'عرض قراءة مركّز' : 'عرض كامل', '⇔');
+    toast(body.classList.contains('narrow') ? 'عرض قراءة مركّز' : 'عرض كامل', '⇄');
   });
 
   // font size
@@ -3385,7 +3633,7 @@ function initFlash(){
     if(!wrap) return;
     const cards = [...wrap.children];
     cards.sort(() => Math.random() - .5).forEach(c => { c.classList.remove('flip'); wrap.appendChild(c); });
-    toast('تم خلط البطاقات', '⤨');
+    toast('تم خلط البطاقات', '↻');
   });
 }
 
@@ -3462,7 +3710,7 @@ function renderBank(){
       if(opts.some(o => o.classList.contains('locked'))) return;
       opts.forEach(o => o.classList.add('locked'));
       const k = +opt.dataset.k;
-      if(k === data.a){ opt.classList.add('correct'); toast('إجابة صحيحة!', '🎯'); }
+      if(k === data.a){ opt.classList.add('correct'); toast('إجابة صحيحة!', '✓'); }
       else { opt.classList.add('wrong'); opts[data.a].classList.add('correct'); }
       $('.q-ans', card).classList.add('show');
       $('[data-show]', card).textContent = 'إخفاء الجواب';
@@ -3567,7 +3815,7 @@ const Quiz = {
         this.answers.push({ q, k, ok });
         scoreEl.textContent = this.answers.filter(a => a.ok).length * 5;
         next.disabled = false;
-        next.textContent = this.idx === this.pool.length - 1 ? 'عرض النتيجة 🏁' : 'السؤال التالي →';
+        next.textContent = this.idx === this.pool.length - 1 ? 'عرض النتيجة »' : 'السؤال التالي →';
       });
     });
     next.addEventListener('click', () => {
@@ -3588,7 +3836,7 @@ const Quiz = {
     const pct = Math.round(right / total * 100);
     const wrong = this.answers.filter(a => !a.ok);
     const skipped = total - this.answers.length;
-    const grade = pct >= 90 ? 'ممتاز 🌟' : pct >= 80 ? 'جيد جداً ✨' : pct >= 70 ? 'جيد 👍' : pct >= 50 ? 'متوسط 💪' : 'يحتاج مراجعة 📖';
+    const grade = pct >= 90 ? 'ممتاز' : pct >= 80 ? 'جيد جداً' : pct >= 70 ? 'جيد' : pct >= 50 ? 'متوسط' : 'يحتاج مراجعة';
     const circ = 2 * Math.PI * 76;
 
     host.innerHTML = `
@@ -3614,23 +3862,23 @@ const Quiz = {
             </div>
             ${wrong.length ? `
               <div style="text-align:right;max-width:760px;margin:26px auto 0">
-                <h4 style="font-size:16px;margin-bottom:12px;color:var(--gold-soft)">📌 مراجعة الأخطاء</h4>
+                <h4 style="font-size:16px;margin-bottom:12px;color:var(--gold-soft)">مراجعة الأخطاء</h4>
                 ${wrong.map(w => `
                   <div class="q" style="margin-bottom:10px">
                     <div class="q-txt" style="font-size:14.5px;margin-bottom:7px">${w.q.q}</div>
                     <div style="font-size:13.5px;color:var(--jade)">✓ ${w.q.o[w.q.a]}</div>
                     <div style="font-size:13px;color:var(--mute);margin-top:5px">${w.q.e}</div>
                   </div>`).join('')}
-              </div>` : `<p style="color:var(--jade);font-weight:800;margin-top:20px">🎉 إجابات كاملة! أتقنت هذا المحور.</p>`}
+              </div>` : `<p style="color:var(--jade);font-weight:800;margin-top:20px">إجابات كاملة! أتقنت هذا المحور.</p>`}
             <div class="qz-foot" style="justify-content:center">
-              <button class="btn btn-gold btn-sm" id="qzAgain">إعادة الامتحان 🔄</button>
+              <button class="btn btn-gold btn-sm" id="qzAgain">إعادة الامتحان ↻</button>
               <a class="btn btn-ghost btn-sm" href="#bank">مراجعة بنك الأسئلة</a>
             </div>
           </div>
         </div>
       </div>`;
 
-    if(pct >= 80) toast('نتيجة ممتازة! ' + pct + '%', '🏆');
+    if(pct >= 80) toast('نتيجة ممتازة! ' + pct + '%', '★');
     STORE.set('lastScore_' + this.cfg.id, {pct, right, total, at: Date.now()});
     this.updateDashboard();
     host.querySelector('#qzAgain')?.addEventListener('click', () => this.start(this.cfg.host, this.cfg));
@@ -3697,17 +3945,49 @@ function initSearch(){
 function initDeepLinks(){
   $$('[data-copy]').forEach(b => b.addEventListener('click', () => {
     const url = location.origin + location.pathname + b.dataset.copy;
-    navigator.clipboard?.writeText(url).then(() => toast('تم نسخ رابط القسم', '🔗')).catch(() => toast('تعذّر النسخ', '⚠'));
+    navigator.clipboard?.writeText(url).then(() => toast('تم نسخ رابط القسم', '⧉')).catch(() => toast('تعذّر النسخ', '!'));
   }));
 }
 
-/* ---------- reveal on scroll ---------- */
+/* ---------- reveal on scroll ----------
+   Safety-first: content must NEVER stay invisible. Anything already in (or above)
+   the viewport is revealed immediately; an observer handles the rest; a scroll
+   listener + a final timer guarantee full reveal even if the IO misfires. */
 function initReveal(){
-  if(!('IntersectionObserver' in window)) { $$('.rv').forEach(e => e.classList.add('in')); return; }
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-  }), {threshold:.08, rootMargin:'0px 0px -40px 0px'});
-  $$('.rv').forEach(e => io.observe(e));
+  const items = $$('.rv');
+  if(!items.length) return;
+  // Only enable the hide-then-animate behaviour when we can actually drive it.
+  if(!('IntersectionObserver' in window) || !('requestAnimationFrame' in window)){
+    document.documentElement.classList.remove('js-anim');
+    return;
+  }
+  document.documentElement.classList.add('js-anim');
+  const reveal = el => { if(el && !el.classList.contains('in')) el.classList.add('in'); };
+  const inView = el => {
+    const r = el.getBoundingClientRect();
+    return r.top < (innerHeight || 800) * .92 && r.bottom > -80;
+  };
+  // 1) reveal everything currently at/above the viewport right away
+  items.forEach(el => { if(inView(el)) reveal(el); });
+  // 2) observe the rest
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); }
+    }), {threshold:0, rootMargin:'0px 0px -8% 0px'});
+    items.forEach(el => { if(!el.classList.contains('in')) io.observe(el); });
+  }
+  // 3) belt & braces: on scroll (throttled) and once after load, reveal in-view items
+  let t = 0;
+  const sweep = () => { items.forEach(el => { if(inView(el)) reveal(el); }); };
+  addEventListener('scroll', () => {
+    if(t) return;
+    t = requestAnimationFrame(() => { t = 0; sweep(); });
+  }, {passive:true});
+  addEventListener('resize', sweep, {passive:true});
+  setTimeout(sweep, 400);
+  setTimeout(() => items.forEach(reveal), 2500);   // absolute guarantee
+  // 4) never leave content hidden if printing
+  addEventListener('beforeprint', () => items.forEach(reveal));
 }
 
 /* ---------- counters ---------- */
