@@ -1106,12 +1106,12 @@ html.js-anim .rv.in{will-change:auto}
   .stats{margin-top:40px}
 }
 
-/* Quick-nav now has 10 tiles */
+/* Quick-nav now has 12 tiles — 6×2 on desktop, 4×3 on phones */
 @media(min-width:1100px){
-  .quicknav{grid-template-columns:repeat(5,minmax(0,1fr)) !important;max-width:660px !important}
+  .quicknav{grid-template-columns:repeat(6,minmax(0,1fr)) !important;max-width:800px !important}
 }
 @media(max-width:600px){
-  .quicknav{grid-template-columns:repeat(5,minmax(0,1fr)) !important}
+  .quicknav{grid-template-columns:repeat(4,minmax(0,1fr)) !important}
   .qn{padding:11px 3px}
   .qn span{font-size:9.4px}
 }
