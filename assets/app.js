@@ -110,7 +110,12 @@ function initAcc(){
     const accs = $$('.acc', scope || document);
     const allOpen = accs.every(a => a.classList.contains('open'));
     accs.forEach(a => a.classList.toggle('open', !allOpen));
-    b.textContent = allOpen ? 'فتح الكل' : 'إغلاق الكل';
+    b.textContent = b.dataset.label ? (allOpen ? b.dataset.label : 'إغلاق') : (allOpen ? 'فتح الكل' : 'إغلاق الكل');
+  }));
+  $$('[data-close-all]').forEach(b => b.addEventListener('click', () => {
+    const scope = document.querySelector(b.dataset.closeAll);
+    $$('.acc', scope || document).forEach(a => a.classList.remove('open'));
+    toast('تم إغلاق كل العناصر', '↺');
   }));
 }
 
